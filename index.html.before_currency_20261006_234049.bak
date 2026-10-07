@@ -1,0 +1,123 @@
+<!doctype html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>ユメステガチャゲーム</title><link rel="stylesheet" href="style.css"></head><body>
+
+<div id="startScreen" class="start-screen">
+  <button id="startButton" class="start-button" type="button" aria-label="ガチャを始める">
+    <img
+      id="startDugong"
+      src="dugong-normal.png"
+      data-normal="dugong-normal.png"
+      data-active="dugong-active.png"
+      alt=""
+    >
+  </button>
+
+  <div class="start-hint">CLICK TO START</div>
+</div>
+
+<main><p class="eyebrow">World Dai Star: Yume no Stellarium Fanmade Gacha Game</p><div class="title-row">
+  <h1><button id="titleHome" class="title-home" type="button"
+aria-label="タイトル画面に戻る">ユメステガチャゲーム</button></h1>
+
+  <div id="easterEgg" class="easter-egg">
+    <button id="easterTrigger" class="easter-trigger"
+            type="button"
+            aria-label="制作者情報を表示"
+            aria-expanded="false">
+      <img src="easter-left.png"
+           class="easter-left"
+           alt="">
+    </button>
+
+    <div id="easterReveal" class="easter-reveal" aria-hidden="true">
+
+      <div class="easter-message">
+        <strong>プレイ中、問題がございましたらご報告ください！</strong>
+
+        <span>
+          制作者 X（旧Twitter）：
+          <a href="https://x.com/ha_aaa_to"
+             target="_blank"
+             rel="noopener noreferrer">@ha_aaa_to</a>
+        </span>
+
+        <span>
+          制作者メール：
+          <a href="mailto:jeyeon4860@naver.com">jeyeon4860@naver.com</a>
+        </span>
+      </div>
+
+      <img src="easter-right.png"
+           class="easter-right"
+           alt="">
+    </div>
+  </div>
+</div><div class="gift-toolbar">
+  <button id="giftBoxButton" class="gift-box-button" type="button" aria-label="プレゼント">
+    <img class="gift-icon" src="assets/gift-box.png" alt="">
+    <span id="giftBadge" class="gift-badge" hidden>0</span>
+  </button>
+</div>
+
+<div class="gacha-tabs">
+
+<button class="gacha-tab active"
+        data-gacha="normal"
+        onclick="selectGacha('normal')"
+        aria-label="通常ガチャ">
+  <img src="yumeste-logo.png" alt="通常ガチャ">
+</button>
+
+
+<button class="gacha-tab" data-gacha="sirius" onclick="selectGacha('sirius')">
+  <img src="sirius-logo.png" alt="シリウス">
+</button>
+
+<button class="gacha-tab" data-gacha="eden" onclick="selectGacha('eden')">
+  <img src="eden-logo.png" alt="Eden">
+</button>
+
+<button class="gacha-tab" data-gacha="gingaza" onclick="selectGacha('gingaza')">
+  <img src="gingaza-logo.png" alt="銀河座">
+</button>
+
+<button class="gacha-tab" data-gacha="denki" onclick="selectGacha('denki')">
+  <img src="denki-logo.png" alt="劇団電姫">
+</button>
+
+<button class="gacha-tab"
+        data-gacha="sunshine"
+        onclick="selectGacha('sunshine')"
+        aria-label="LoveLive! Sunshine!! コラボガチャ">
+  <img src="sunshine-logo.png" alt="LoveLive! Sunshine!! コラボガチャ">
+</button>
+
+</div><section class="banner"><div><b>KOKONA ONLY</b><h2>ここなのフォトコレクション</h2><p>★★★★ 3%　★★★ 15%　★★ 82%</p><small>★4 14종 · ★3 4종 · ★2 1종</small></div></section><div class="actions"><button id="one">
+<span class="pull-label">1回引く</span>
+<span class="pull-cost"><img src="assets/currency-source.png" alt=""> 300</span>
+</button><div class="ten-pull-wrap">
+  <div class="guarantee-badge">★3以上1人確定！</div>
+  <button id="ten" class="primary">
+<span class="pull-label">10回引く</span>
+<span class="pull-cost"><img src="assets/currency-source.png" alt=""> 3000</span>
+</button>
+</div><button id="clear">結果をリセット</button></div><div class="stats">合計 <b id="count">0</b>回　★★★★ <b id="four">0</b>　★★★ <b id="three">0</b>　★★ <b id="two">0</b></div><section id="results"><div class="empty">ガチャを引いてみよう ✦</div></section></main>
+
+<div class="save-notice">
+  ブラウザのデータを削除した場合や、別の端末・ブラウザからアクセスした場合、セーブデータは引き継がれません。
+</div>
+<div id="giftModal" class="gift-modal" hidden>
+  <div class="gift-dialog">
+    <div class="gift-header">
+      <h2>プレゼント</h2>
+      <button id="giftClose" class="gift-close" type="button">×</button>
+    </div>
+
+    <div id="giftList" class="gift-list"></div>
+
+    <div class="gift-footer">
+      <button id="giftReceiveAll" class="gift-receive-all" type="button">一括受取</button>
+    </div>
+  </div>
+</div>
+
+<div id="modal" class="modal" hidden><div class="dialog"><button id="close" aria-label="닫기">×</button><img id="big" alt="포토 크게 보기"><div class="meta"><div id="modalStars"></div><strong id="modalTitle"></strong><span>鳳ここな</span></div><button id="awaken" class="awaken-arrow" type="button" aria-label="각성 일러스트 전환" title="일러스트 전환"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 8.5A9 9 0 1 0 21 14"/><path d="M20.5 3.8v4.7h-4.7"/></svg></button></div></div><script src="cards.js"></script><script src="script.js"></script></body></html>

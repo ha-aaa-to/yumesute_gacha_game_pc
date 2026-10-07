@@ -1,0 +1,5384 @@
+*{box-sizing:border-box}body{margin:0;background:#f7f5fb;color:#292631;font-family:-apple-system,BlinkMacSystemFont,"Noto Sans JP","Noto Sans KR",sans-serif}main{max-width:980px;margin:auto;padding:36px 20px 70px}.eyebrow{font-size:11px;letter-spacing:2px;opacity:.5}h1{font-size:38px;margin:8px 0 24px}h1 span{font-size:17px;letter-spacing:2px}.banner{padding:25px;border-radius:22px;background:linear-gradient(135deg,#fff,#ece7fa);margin-bottom:16px}.banner b{font-size:11px;background:#292631;color:#fff;padding:6px 10px;border-radius:20px}.banner h2{font-size:28px;margin:12px 0}.actions{display:flex;gap:10px;flex-wrap:wrap}.actions button{border:0;border-radius:12px;padding:13px 20px;font-weight:700;cursor:pointer}.primary{background:#292631!important;color:white}.stats{margin:18px 0;color:#777;font-size:13px}#results{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:14px;align-items:stretch}.empty{grid-column:1/-1;text-align:center;padding:70px;color:#aaa}.card{border:0;background:#fff;border-radius:16px;padding:0;overflow:hidden;text-align:left;cursor:pointer;box-shadow:0 5px 18px #0001;display:flex;flex-direction:column;min-width:0;height:100%}.card img{width:100%;aspect-ratio:16/9;object-fit:cover;display:block;flex:none}.info{padding:12px;display:flex;flex-direction:column;flex:1}.stars{letter-spacing:1px}.title{font-weight:800;margin-top:5px;font-size:14px}.actor{font-size:11px;color:#777;margin-top:auto;padding-top:5px}.modal{position:fixed;inset:0;background:#000b;z-index:50;display:flex;align-items:center;justify-content:center;padding:32px;overflow:auto}.modal[hidden]{display:none}.dialog{position:relative;display:inline-block;width:auto;height:auto;max-width:92vw;max-height:88vh;background:transparent;color:white;overflow:visible;line-height:0}.dialog>img{display:block;width:auto;height:auto;max-width:92vw;max-height:88vh;object-fit:contain;border-radius:12px;background:transparent}.dialog #close{position:absolute;right:-14px;top:-14px;width:40px;height:40px;border:0;border-radius:50%;font-size:25px;line-height:40px;background:#222e;color:#fff;cursor:pointer;z-index:4;box-shadow:0 2px 10px #0005}.meta{position:absolute;left:0;right:0;bottom:0;padding:48px 16px 14px 68px;display:flex;gap:10px;align-items:center;flex-wrap:wrap;background:linear-gradient(transparent,#000b);pointer-events:none;line-height:1.35;border-radius:0 0 12px 12px}.meta span{opacity:.8;font-size:13px}.awaken-arrow{position:absolute;left:14px;bottom:12px;width:44px;height:44px;border:1px solid #ffffff88;border-radius:50%;background:#111b;color:#fff;display:grid;place-items:center;cursor:pointer;z-index:5;backdrop-filter:blur(5px);-webkit-backdrop-filter:blur(5px);padding:8px;line-height:1}.awaken-arrow svg{width:100%;height:100%;fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round;display:block}.awaken-arrow[hidden]{display:none}.awaken-arrow:active{transform:rotate(25deg)}@media(max-width:900px){#results{grid-template-columns:repeat(3,minmax(0,1fr))}}@media(max-width:600px){main{padding-left:14px;padding-right:14px}#results{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.card img{aspect-ratio:16/9}.title{font-size:12px}.modal{padding:18px}.dialog,.dialog>img{max-width:94vw;max-height:82vh}.dialog #close{right:-8px;top:-10px}.meta{padding:44px 12px 10px 62px}.awaken-arrow{left:10px;bottom:8px;width:42px;height:42px}}
+/* v8: mobile-first responsive tuning */
+@media (max-width: 600px){
+  body{background:#f8f7fb}
+  main{width:100%;max-width:none;padding:20px 12px 42px}
+  .eyebrow{font-size:9px;letter-spacing:1.4px;margin:0 0 4px}
+  h1{font-size:27px;line-height:1.05;margin:6px 0 16px}
+  h1 span{display:block;font-size:11px;letter-spacing:1.6px;margin-top:5px}
+  .banner{padding:17px 16px;border-radius:18px;margin-bottom:12px}
+  .banner b{font-size:9px;padding:5px 8px}
+  .banner h2{font-size:20px;line-height:1.2;margin:10px 0 8px}
+  .banner p{font-size:13px;margin:7px 0}
+  .banner small{font-size:10px}
+  .actions{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+  .actions button{min-height:46px;padding:11px 8px;border-radius:12px;font-size:13px}
+  .actions #clear{grid-column:1/-1;min-height:40px}
+  .stats{margin:13px 2px 14px;font-size:11px;line-height:1.7;white-space:normal}
+  #results{grid-template-columns:repeat(2,minmax(0,1fr));gap:9px;align-items:stretch}
+  .empty{padding:48px 8px;font-size:13px}
+  .card{border-radius:12px;box-shadow:0 3px 12px #0000000d}
+  .card img{aspect-ratio:16/9;object-fit:cover}
+  .info{padding:9px 9px 10px;min-height:86px}
+  .stars{font-size:12px;line-height:1}
+  .title{font-size:11.5px;line-height:1.35;margin-top:6px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;min-height:31px}
+  .actor{font-size:9.5px;padding-top:5px}
+  .modal{padding:16px 12px;background:#000c}
+  .dialog{max-width:calc(100vw - 24px);max-height:84vh}
+  .dialog>img{max-width:calc(100vw - 24px);max-height:84vh;border-radius:10px}
+  .dialog #close{right:7px;top:7px;width:36px;height:36px;line-height:34px;font-size:23px;background:#111a;box-shadow:none}
+  .meta{padding:42px 12px 10px 58px;border-radius:0 0 10px 10px;gap:6px;font-size:12px}
+  .meta span{font-size:10px}
+  .awaken-arrow{left:9px;bottom:8px;width:40px;height:40px;padding:7px;background:#111a}
+}
+
+@media (max-width: 360px){
+  main{padding-left:9px;padding-right:9px}
+  #results{gap:7px}
+  .info{padding:8px;min-height:82px}
+  .title{font-size:10.5px}
+  .actions button{font-size:12px}
+}
+
+/* Gacha selector */
+
+.gacha-tabs{
+  display:flex;
+  gap:10px;
+  margin-bottom:14px;
+}
+
+.gacha-tab{
+  border:1px solid #ddd8e8;
+  background:#fff;
+  color:#777;
+  padding:10px 17px;
+  border-radius:999px;
+  font-weight:800;
+  cursor:pointer;
+  transition:.18s;
+}
+
+.gacha-tab:hover{
+  transform:translateY(-1px);
+}
+
+.gacha-tab.active{
+  background:#292631;
+  color:#fff;
+  border-color:#292631;
+}
+
+
+/* =========================================
+   YUMESTE DESIGN UPDATE
+   ========================================= */
+
+@font-face{
+  font-family:"YumesteUI";
+  src:url("RoNOWStd-GBs.otf") format("opentype");
+  font-display:swap;
+}
+
+html,
+body,
+button{
+  font-family:"YumesteUI",
+              "Noto Sans JP",
+              "Hiragino Sans",
+              sans-serif;
+}
+
+body{
+  background:#fff;
+  color:#25252b;
+}
+
+main{
+  max-width:1100px;
+  padding-top:46px;
+}
+
+.eyebrow{
+  margin:0 0 8px;
+  font-size:12px;
+  letter-spacing:1.4px;
+  color:#999;
+}
+
+h1{
+  margin:0 0 32px;
+  font-size:38px;
+  font-weight:700;
+  letter-spacing:.03em;
+}
+
+
+/* ---------- GACHA LOGOS ---------- */
+
+.gacha-tabs{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:18px;
+  margin:0 0 22px;
+}
+
+.gacha-tab{
+  position:relative;
+  height:105px;
+  padding:16px 28px;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  background:#fff;
+  border:1px solid #e7e7eb;
+  border-radius:8px;
+
+  cursor:pointer;
+
+  transition:
+    transform .18s ease,
+    border-color .18s ease,
+    box-shadow .18s ease,
+    background .18s ease;
+}
+
+.gacha-tab img{
+  display:block;
+  max-width:88%;
+  max-height:70px;
+  width:auto;
+  height:auto;
+  object-fit:contain;
+}
+
+.gacha-tab:hover{
+  transform:translateY(-2px);
+  border-color:#91e5dd;
+  background:#fbffff;
+  box-shadow:0 8px 25px rgba(41,196,184,.10);
+}
+
+.gacha-tab.active{
+  border-color:#48d7ca;
+  box-shadow:
+    0 0 0 2px rgba(72,215,202,.12),
+    0 7px 22px rgba(72,215,202,.10);
+}
+
+.gacha-tab.active::after{
+  content:"";
+  position:absolute;
+  left:18px;
+  right:18px;
+  bottom:-1px;
+  height:3px;
+  border-radius:3px 3px 0 0;
+  background:#48d7ca;
+}
+
+
+/* ---------- SELECTED GACHA ---------- */
+
+.banner{
+  position:relative;
+  overflow:hidden;
+
+  padding:27px 30px;
+  margin-bottom:20px;
+
+  border:1px solid #e8ecee;
+  border-radius:8px;
+
+  background:
+    linear-gradient(115deg,#fff 0%,#fbffff 55%,#effcfb 100%);
+}
+
+.banner::after{
+  content:"";
+  position:absolute;
+  width:170px;
+  height:170px;
+  right:-55px;
+  top:-80px;
+  border-radius:50%;
+  background:rgba(75,218,205,.08);
+}
+
+.banner.collab{
+  background:
+    linear-gradient(115deg,#fff 0%,#fffafd 55%,#f2fbff 100%);
+}
+
+.banner b{
+  display:inline-block;
+
+  padding:0;
+  border-radius:0;
+
+  background:none;
+  color:#37bdb2;
+
+  font-size:11px;
+  letter-spacing:2px;
+}
+
+.banner h2{
+  position:relative;
+  z-index:1;
+
+  margin:10px 0 0;
+  font-size:23px;
+  font-weight:700;
+  letter-spacing:.02em;
+}
+
+
+/* ---------- PULL BUTTONS ---------- */
+
+.actions{
+  display:flex;
+  align-items:stretch;
+  gap:10px;
+}
+
+.actions button{
+  min-width:150px;
+  min-height:58px;
+
+  padding:9px 18px;
+
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+
+  border:1px solid #dfe4e6;
+  border-radius:7px;
+
+  background:#fff !important;
+  color:#292931 !important;
+
+  font-family:inherit;
+  font-weight:700;
+
+  transition:
+    background .16s ease,
+    color .16s ease,
+    border-color .16s ease,
+    transform .16s ease,
+    box-shadow .16s ease;
+}
+
+.actions button:hover{
+  background:#43d3c7 !important;
+  color:#fff !important;
+  border-color:#43d3c7;
+  transform:translateY(-1px);
+  box-shadow:0 5px 16px rgba(52,194,183,.18);
+}
+
+.pull-label{
+  font-size:15px;
+  line-height:1.2;
+}
+
+.pull-cost{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:4px;
+
+  margin-top:4px;
+
+  font-size:11px;
+  line-height:1;
+  opacity:.72;
+}
+
+.pull-cost img{
+  width:17px;
+  height:17px;
+  object-fit:contain;
+  border-radius:0;
+}
+
+
+/* 결과 초기화 버튼에는 재화 영역 없음 */
+
+#clear{
+  min-width:130px;
+}
+
+
+/* ---------- STATS ---------- */
+
+.stats{
+  margin:20px 0;
+  padding-bottom:12px;
+
+  border-bottom:1px solid #eeeeef;
+
+  color:#85858d;
+  font-size:13px;
+}
+
+.stats b{
+  color:#292931;
+}
+
+
+/* ---------- EMPTY ---------- */
+
+.empty{
+  color:#aaaeb2;
+  letter-spacing:.04em;
+}
+
+
+/* ==================================================
+   YUMESTE UI - GAME STYLE REVISION
+   ================================================== */
+
+/* 전체 글자 */
+body,
+button{
+  font-family:"YumesteUI",
+              "Hiragino Kaku Gothic ProN",
+              "Yu Gothic",
+              sans-serif;
+  font-weight:700;
+}
+
+body{
+  background:#fff;
+  color:#4c4b55;
+}
+
+main{
+  max-width:1080px;
+}
+
+
+/* ----------------------------------
+   HEADER
+---------------------------------- */
+
+.eyebrow{
+  font-size:11px;
+  font-weight:700;
+  letter-spacing:.07em;
+  color:#aaaab1;
+}
+
+h1{
+  color:#4b4a53;
+  font-size:34px;
+  font-weight:800;
+  letter-spacing:.02em;
+}
+
+
+/* ----------------------------------
+   SMALL GACHA SELECTOR
+---------------------------------- */
+
+.gacha-tabs{
+  display:flex;
+  grid-template-columns:none;
+
+  align-items:center;
+  justify-content:flex-start;
+
+  gap:10px;
+  margin:0 0 16px;
+}
+
+
+/* 기존 큰 카드 스타일 제거 */
+.gacha-tab{
+  width:150px;
+  height:52px;
+  min-width:0;
+
+  padding:6px 12px;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  background:#f7f7f8 !important;
+
+  border:2px solid #8d8d96 !important;
+  border-radius:13px;
+
+  box-shadow:
+    inset 0 0 0 2px #fff,
+    0 2px 3px rgba(0,0,0,.12);
+
+  transform:none !important;
+
+  overflow:hidden;
+}
+
+
+/* 로고 크기 */
+.gacha-tab img{
+  display:block;
+
+  width:auto;
+  height:auto;
+
+  max-width:112px;
+  max-height:34px;
+
+  object-fit:contain;
+
+  filter:none;
+}
+
+
+/* 기존 밑줄 활성화 완전히 제거 */
+.gacha-tab::after,
+.gacha-tab.active::after{
+  display:none !important;
+  content:none !important;
+}
+
+
+/* 마우스를 올렸을 때 */
+.gacha-tab:hover{
+  background:#e9fffc !important;
+  border-color:#50cfc5 !important;
+
+  box-shadow:
+    inset 0 0 0 2px #fff,
+    0 3px 7px rgba(56,190,181,.20);
+}
+
+
+/* 선택된 가챠:
+   1回引く 버튼과 같은 방식 */
+.gacha-tab.active{
+  background:#4fd2c7 !important;
+  border-color:#39aaa2 !important;
+
+  box-shadow:
+    inset 0 0 0 2px rgba(255,255,255,.85),
+    0 3px 7px rgba(56,190,181,.20);
+}
+
+
+/* 선택되어도 로고 자체는 그대로 */
+.gacha-tab.active img{
+  opacity:1;
+}
+
+
+/* ----------------------------------
+   SELECTED GACHA DESCRIPTION
+---------------------------------- */
+
+.banner{
+  min-height:auto;
+
+  margin:0 0 18px;
+  padding:18px 22px;
+
+  background:#f8f9fa;
+
+  border:2px solid #dedee2;
+  border-radius:13px;
+
+  box-shadow:
+    inset 0 0 0 2px #fff,
+    0 2px 4px rgba(0,0,0,.08);
+}
+
+
+/* 웹사이트 느낌의 장식 제거 */
+.banner::after{
+  display:none;
+}
+
+.banner.collab{
+  background:#f8f9fa;
+}
+
+
+/* ALL ACTOR / COLLABORATION */
+.banner b{
+  display:inline-block;
+
+  padding:3px 12px;
+
+  background:#ffad28;
+  color:#fff;
+
+  border-radius:999px;
+
+  font-size:11px;
+  font-weight:800;
+  letter-spacing:.03em;
+
+  text-shadow:
+    0 1px 1px rgba(0,0,0,.12);
+}
+
+
+/* 메인 설명 */
+.banner h2{
+  margin:10px 0 0;
+
+  color:#55545d;
+
+  font-size:20px;
+  font-weight:800;
+  letter-spacing:.015em;
+
+  text-shadow:
+    0 1px 0 #fff;
+}
+
+
+/* ----------------------------------
+   PULL BUTTONS
+---------------------------------- */
+
+.actions{
+  gap:12px;
+}
+
+
+/* 유메스테 원본처럼:
+   회색 외곽선 + 밝은 면 + 둥근 모서리 */
+.actions button{
+  min-width:170px;
+  min-height:62px;
+
+  padding:8px 18px;
+
+  background:
+    linear-gradient(#fff,#eeeeF1) !important;
+
+  color:#55545d !important;
+
+  border:2px solid #85858d !important;
+  border-radius:14px;
+
+  box-shadow:
+    inset 0 0 0 2px rgba(255,255,255,.95),
+    0 3px 4px rgba(0,0,0,.14);
+
+  text-shadow:
+    0 1px 0 #fff;
+
+  transform:none;
+}
+
+
+/* 10회 버튼의 기존 primary 색 강제 제거 */
+.actions .primary{
+  background:
+    linear-gradient(#fff,#eeeeF1) !important;
+
+  color:#55545d !important;
+}
+
+
+/* 커서를 올린 경우에만 포인트색 */
+.actions button:hover,
+.actions .primary:hover{
+  background:
+    linear-gradient(#65ded5,#3fc8bd) !important;
+
+  border-color:#329f98 !important;
+
+  color:#fff !important;
+
+  text-shadow:
+    0 1px 2px rgba(0,0,0,.18);
+
+  transform:translateY(-1px);
+
+  box-shadow:
+    inset 0 0 0 2px rgba(255,255,255,.75),
+    0 4px 7px rgba(0,0,0,.14);
+}
+
+
+/* 뽑기 글씨 */
+.pull-label{
+  font-size:17px;
+  font-weight:800;
+  line-height:1.1;
+}
+
+
+/* 재화 */
+.pull-cost{
+  margin-top:5px;
+
+  font-size:13px;
+  font-weight:800;
+
+  color:inherit;
+  opacity:1;
+}
+
+
+/* 재화 이미지 */
+.pull-cost img{
+  width:19px;
+  height:19px;
+
+  object-fit:contain;
+}
+
+
+/* 결과 초기화는 살짝 작게 */
+#clear{
+  min-width:145px;
+  font-size:14px;
+}
+
+
+/* ----------------------------------
+   STATS
+---------------------------------- */
+
+.stats{
+  margin:20px 0 17px;
+
+  color:#8b8a91;
+
+  font-size:13px;
+  font-weight:700;
+
+  border-bottom:1px solid #e7e7e9;
+}
+
+.stats b{
+  color:#55545d;
+  font-weight:800;
+}
+
+
+/* ----------------------------------
+   RESULT CARDS
+---------------------------------- */
+
+.card{
+  border:2px solid #dedee2;
+
+  border-radius:12px;
+
+  box-shadow:
+    0 3px 8px rgba(0,0,0,.10);
+
+  background:#fff;
+}
+
+.card:hover{
+  transform:translateY(-2px);
+
+  border-color:#6bd7ce;
+
+  box-shadow:
+    0 6px 14px rgba(0,0,0,.13);
+}
+
+.card .title{
+  color:#4f4e57;
+
+  font-weight:800;
+}
+
+.card .actor{
+  color:#96959c;
+
+  font-weight:700;
+}
+
+
+/* 별 등급 */
+.card .stars,
+#modalStars{
+  color:#ff9f24;
+
+  font-weight:800;
+
+  text-shadow:
+    0 1px 1px rgba(0,0,0,.08);
+}
+
+
+/* ----------------------------------
+   EMPTY MESSAGE
+---------------------------------- */
+
+.empty{
+  color:#aaa9b0;
+
+  font-size:14px;
+  font-weight:700;
+}
+
+
+/* ========================================
+   START SCREEN
+   ======================================== */
+
+.start-screen{
+  position:fixed;
+  inset:0;
+  z-index:9999;
+
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+
+  background:#fff;
+
+  opacity:1;
+  transition:
+    opacity .35s ease,
+    visibility .35s ease;
+}
+
+.start-screen[hidden]{
+  display:none;
+}
+
+.start-button{
+  width:150px;
+  height:150px;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  padding:0;
+
+  border:0;
+  outline:0;
+
+  background:transparent;
+
+  cursor:pointer;
+
+  appearance:none;
+  -webkit-appearance:none;
+
+  transition:transform .16s ease;
+}
+
+.start-button img{
+  display:block;
+
+  width:125px;
+  height:125px;
+
+  object-fit:contain;
+
+  user-select:none;
+  -webkit-user-drag:none;
+}
+
+.start-button:hover{
+  transform:scale(1.04);
+}
+
+.start-button:active{
+  transform:scale(.97);
+}
+
+.start-hint{
+  margin-top:15px;
+
+  font-family:"YumesteUI",
+              "Hiragino Kaku Gothic ProN",
+              sans-serif;
+
+  font-size:11px;
+  font-weight:700;
+
+  letter-spacing:.18em;
+
+  color:#c5c5ca;
+
+  transition:
+    color .16s ease,
+    transform .16s ease;
+}
+
+.start-button:hover + .start-hint{
+  color:#8f8f96;
+  transform:translateY(2px);
+}
+
+.start-screen.start-leave{
+  opacity:0;
+  visibility:hidden;
+}
+
+/* 카드 정보: 배우명을 메인으로 강조 */
+
+.card .info{
+  padding:12px 13px 13px;
+}
+
+.card .stars{
+  margin-bottom:7px;
+}
+
+.card .actor{
+  margin:0;
+  padding:0;
+
+  color:#4d4c55;
+
+  font-size:16px;
+  font-weight:800;
+  line-height:1.25;
+}
+
+.card .title{
+  margin-top:5px;
+
+  color:#8c8b93;
+
+  font-size:12px;
+  font-weight:700;
+  line-height:1.4;
+
+  /* 긴 카드명은 최대 두 줄 */
+  display:-webkit-box;
+  -webkit-line-clamp:2;
+  -webkit-box-orient:vertical;
+  overflow:hidden;
+}
+
+/* ===== ユメステ風 テキストエフェクト ===== */
+
+/* 가챠 버튼의 1回引く / 10回引く */
+.pull-label {
+  font-weight: 900;
+  letter-spacing: 0.02em;
+
+  /* 밝은 테두리 + 아래쪽 입체 그림자 */
+  -webkit-text-stroke: 1px rgba(255,255,255,0.95);
+  paint-order: stroke fill;
+
+  text-shadow:
+    0 1px 0 rgba(255,255,255,0.95),
+    0 2px 0 rgba(80,78,88,0.18),
+    0 3px 5px rgba(60,58,68,0.14);
+}
+
+
+/* 배너 메인 문구 */
+.banner h2 {
+  font-weight: 900;
+  letter-spacing: 0.015em;
+
+  -webkit-text-stroke: 1px rgba(255,255,255,0.9);
+  paint-order: stroke fill;
+
+  text-shadow:
+    0 1px 0 #fff,
+    0 2px 0 rgba(80,78,88,0.13),
+    0 3px 5px rgba(70,68,78,0.10);
+}
+
+
+/* 상단 메인 제목 */
+main > h1 {
+  font-weight: 900;
+  letter-spacing: 0.015em;
+
+  -webkit-text-stroke: 1px rgba(255,255,255,0.9);
+  paint-order: stroke fill;
+
+  text-shadow:
+    0 2px 0 rgba(255,255,255,0.9),
+    0 3px 0 rgba(75,73,84,0.12),
+    0 4px 7px rgba(65,63,74,0.10);
+}
+
+
+/* 통계 숫자 */
+.stats b {
+  font-weight: 900;
+  text-shadow:
+    0 1px 0 #fff,
+    0 2px 3px rgba(60,58,68,0.12);
+}
+
+
+/* 카드 액터명은 효과를 약하게 */
+.card .actor {
+  font-weight: 900;
+  text-shadow:
+    0 1px 0 #fff,
+    0 1px 2px rgba(60,58,68,0.10);
+}
+
+
+
+/* ===== TITLE EASTER EGG ===== */
+
+.title-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  position: relative;
+}
+
+.title-row > h1 {
+  margin-right: 0;
+}
+
+/* 전체 이스터에그 영역 */
+.easter-egg {
+  position: relative;
+  display: flex;
+  align-items: center;
+  height: 54px;
+  z-index: 20;
+}
+
+/* 분홍 캐릭터: 항상 고정 */
+.easter-trigger {
+  position: relative;
+  z-index: 3;
+
+  width: 48px;
+  height: 48px;
+  padding: 0;
+
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+
+  flex: 0 0 48px;
+
+  transition:
+    transform .18s ease,
+    filter .18s ease;
+}
+
+.easter-trigger:hover {
+  transform: translateY(-2px) scale(1.04);
+  filter: drop-shadow(0 3px 4px rgba(0,0,0,.12));
+}
+
+.easter-left {
+  display: block;
+  width: 48px;
+  height: 48px;
+  object-fit: contain;
+}
+
+/*
+  닫혀 있을 때:
+  파란 캐릭터를 분홍 캐릭터 뒤에 겹쳐 숨겨둠.
+*/
+.easter-reveal {
+  position: absolute;
+  left: 0;
+  top: 50%;
+
+  height: 54px;
+  width: 48px;
+
+  transform: translateY(-50%);
+
+  pointer-events: none;
+}
+
+/* 가운데 연락처 */
+.easter-message {
+  position: absolute;
+  left: 58px;
+  top: 50%;
+
+  width: 0;
+  padding: 0;
+
+  transform: translateY(-50%);
+
+  opacity: 0;
+  overflow: hidden;
+  white-space: nowrap;
+
+  font-size: 11px;
+  line-height: 1.45;
+  color: #55525d;
+
+  transition:
+    width .45s cubic-bezier(.22,.8,.25,1),
+    opacity .25s ease,
+    padding .45s cubic-bezier(.22,.8,.25,1);
+}
+
+.easter-message strong,
+.easter-message span {
+  display: block;
+}
+
+.easter-message strong {
+  font-size: 11.5px;
+  color: #34313b;
+  margin-bottom: 2px;
+}
+
+.easter-message a {
+  color: inherit;
+  font-weight: 800;
+  text-decoration: none;
+}
+
+.easter-message a:hover {
+  text-decoration: underline;
+}
+
+/* 파란 캐릭터 */
+.easter-right {
+  position: absolute;
+  z-index: 2;
+
+  left: 0;
+  top: 3px;
+
+  width: 48px;
+  height: 48px;
+  object-fit: contain;
+
+  opacity: 0;
+
+  transition:
+    transform .52s cubic-bezier(.22,.8,.25,1),
+    opacity .18s ease;
+}
+
+
+/* ===== 열렸을 때 ===== */
+
+.easter-egg.open .easter-reveal {
+  pointer-events: auto;
+}
+
+.easter-egg.open .easter-message {
+  width: 330px;
+  padding: 5px 8px;
+
+  opacity: 1;
+}
+
+.easter-egg.open .easter-right {
+  /*
+    분홍이는 그대로,
+    파란이만 연락처 오른쪽까지 슬라이드
+  */
+  transform: translateX(405px);
+  opacity: 1;
+}
+
+
+/* 작은 화면에서 너무 길어지는 것 방지 */
+@media (max-width: 760px) {
+  .easter-egg.open .easter-message {
+    width: 270px;
+    white-space: normal;
+  }
+
+  .easter-egg.open .easter-right {
+    transform: translateX(345px);
+  }
+}
+
+
+
+/* ===== TITLE ALIGNMENT + HOME ===== */
+
+.title-row {
+  display: flex;
+  align-items: center;
+}
+
+/* h1 자체의 기본 line-height 때문에 어긋나는 것 방지 */
+.title-row > h1 {
+  display: flex;
+  align-items: center;
+  margin-top: 0;
+  margin-bottom: 0;
+  line-height: 1;
+}
+
+/* 제목을 버튼처럼 보이지 않게 */
+.title-home {
+  appearance: none;
+  -webkit-appearance: none;
+
+  margin: 0;
+  padding: 0;
+
+  border: 0;
+  background: transparent;
+
+  color: inherit;
+  font: inherit;
+  font-weight: inherit;
+  letter-spacing: inherit;
+  line-height: 1;
+
+  cursor: pointer;
+
+  text-align: left;
+
+  transition:
+    opacity .18s ease,
+    transform .18s ease;
+}
+
+.title-home:hover {
+  opacity: .78;
+}
+
+.title-home:active {
+  transform: translateY(1px);
+}
+
+
+/* 이스터에그를 제목의 정확한 세로 중앙에 */
+.easter-egg {
+  align-self: center;
+  height: 48px;
+  display: flex;
+  align-items: center;
+}
+
+.easter-trigger {
+  align-self: center;
+}
+
+.easter-left {
+  display: block;
+  margin: 0;
+}
+
+/* 파란 캐릭터도 같은 중앙선 */
+.easter-reveal {
+  top: 50%;
+  height: 48px;
+  transform: translateY(-50%);
+}
+
+.easter-right {
+  top: 0;
+}
+
+.easter-message {
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+
+
+/* ===== TITLE AREA SPACING FIX ===== */
+
+/* 제목 + 이스터에그와 아래 가챠 로고 사이에 여유 */
+.title-row {
+  margin-bottom: 28px !important;
+}
+
+/* 제목과 이스터에그 자체 간격 */
+.title-row {
+  gap: 12px !important;
+}
+
+
+
+/* ===== 10 PULL GUARANTEE ===== */
+
+.ten-pull-wrap {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.guarantee-badge {
+  position: absolute;
+  left: 50%;
+  bottom: calc(100% + 7px);
+  transform: translateX(-50%);
+  z-index: 5;
+
+  padding: 5px 13px 6px;
+
+  background: #e94b55;
+  border: 2px solid #fff;
+  border-radius: 8px;
+
+  color: #fff;
+  font-size: 13px;
+  font-weight: 900;
+  line-height: 1;
+  letter-spacing: .02em;
+  white-space: nowrap;
+
+  box-shadow:
+    0 1px 0 rgba(70,60,70,.20),
+    0 2px 5px rgba(70,60,70,.16);
+
+  text-shadow: 0 1px 1px rgba(100,20,30,.25);
+
+  pointer-events: none;
+}
+
+/* 흰색 테두리까지 있는 말풍선 꼬리 */
+.guarantee-badge::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 100%;
+  transform: translateX(-50%);
+
+  border-left: 7px solid transparent;
+  border-right: 7px solid transparent;
+  border-top: 7px solid #fff;
+}
+
+.guarantee-badge::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: calc(100% - 2px);
+  transform: translateX(-50%);
+
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 5px solid #e94b55;
+}
+
+
+
+/* ===== SAVE NOTICE ===== */
+
+.save-notice {
+  width: 100%;
+  max-width: 980px;
+  margin: 0 auto 28px;
+  padding: 0 20px;
+
+  text-align: center;
+
+  color: #99959f;
+  font-size: 11px;
+  font-weight: 600;
+  line-height: 1.6;
+  letter-spacing: .01em;
+}
+
+/* ===== GIFT BOX UI ===== */
+
+.gift-toolbar {
+  display: flex;
+  justify-content: flex-end;
+  margin: -4px 0 14px;
+}
+
+.gift-box-button {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+
+  min-height: 42px;
+  padding: 7px 14px;
+
+  border: 2px solid #85858d;
+  border-radius: 12px;
+
+  background: linear-gradient(#ffffff, #eeeeF1);
+  color: #55545d;
+
+  font: inherit;
+  font-size: 13px;
+  font-weight: 800;
+
+  cursor: pointer;
+
+  box-shadow:
+    inset 0 0 0 2px rgba(255,255,255,.95),
+    0 2px 4px rgba(0,0,0,.12);
+}
+
+.gift-box-button:hover {
+  background: linear-gradient(#65ded5, #3fc8bd);
+  border-color: #329f98;
+  color: white;
+}
+
+.gift-icon {
+  font-size: 17px;
+  line-height: 1;
+}
+
+.gift-badge {
+  position: absolute;
+  top: -9px;
+  right: -9px;
+
+  display: grid;
+  place-items: center;
+
+  min-width: 22px;
+  height: 22px;
+  padding: 0 5px;
+
+  border: 2px solid white;
+  border-radius: 999px;
+
+  background: #e94b55;
+  color: white;
+
+  font-size: 11px;
+  font-weight: 900;
+  line-height: 1;
+
+  box-shadow: 0 2px 5px rgba(0,0,0,.18);
+}
+
+
+/* ---------- modal ---------- */
+
+.gift-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 10000;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 24px;
+
+  background: rgba(25,25,30,.58);
+}
+
+.gift-modal[hidden] {
+  display: none;
+}
+
+.gift-dialog {
+  width: min(620px, calc(100vw - 32px));
+  max-height: min(650px, calc(100vh - 48px));
+
+  display: flex;
+  flex-direction: column;
+
+  overflow: hidden;
+
+  border: 3px solid #85858d;
+  border-radius: 18px;
+
+  background: #f7f7f9;
+
+  box-shadow:
+    inset 0 0 0 2px white,
+    0 14px 45px rgba(0,0,0,.25);
+}
+
+
+/* ---------- header ---------- */
+
+.gift-header {
+  position: relative;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  min-height: 66px;
+  padding: 14px 60px;
+
+  border-bottom: 2px solid #dedee2;
+
+  background: white;
+}
+
+.gift-header h2 {
+  margin: 0;
+
+  color: #55545d;
+
+  font-size: 21px;
+  font-weight: 900;
+}
+
+.gift-close {
+  position: absolute;
+  top: 50%;
+  right: 14px;
+
+  width: 38px;
+  height: 38px;
+
+  transform: translateY(-50%);
+
+  border: 2px solid #85858d;
+  border-radius: 50%;
+
+  background: white;
+  color: #66656d;
+
+  font: inherit;
+  font-size: 22px;
+
+  cursor: pointer;
+}
+
+
+/* ---------- gifts ---------- */
+
+.gift-list {
+  min-height: 190px;
+  padding: 14px;
+
+  overflow-y: auto;
+}
+
+.gift-item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+
+  margin-bottom: 10px;
+  padding: 14px 15px;
+
+  border: 2px solid #dedee2;
+  border-radius: 13px;
+
+  background: white;
+
+  box-shadow: 0 2px 4px rgba(0,0,0,.06);
+}
+
+.gift-item:last-child {
+  margin-bottom: 0;
+}
+
+.gift-info {
+  min-width: 0;
+  flex: 1;
+
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+
+  color: #55545d;
+}
+
+.gift-info strong {
+  font-size: 14px;
+  font-weight: 900;
+}
+
+.gift-info span {
+  color: #ff9f24;
+
+  font-size: 16px;
+  font-weight: 900;
+}
+
+
+/* ---------- buttons ---------- */
+
+.gift-receive,
+.gift-receive-all {
+  border: 2px solid #329f98;
+  border-radius: 12px;
+
+  background: linear-gradient(#65ded5, #3fc8bd);
+  color: white;
+
+  font: inherit;
+  font-weight: 900;
+
+  cursor: pointer;
+
+  box-shadow:
+    inset 0 0 0 2px rgba(255,255,255,.5),
+    0 2px 4px rgba(0,0,0,.12);
+}
+
+.gift-receive {
+  min-width: 100px;
+  min-height: 42px;
+
+  padding: 7px 13px;
+}
+
+.gift-footer {
+  display: flex;
+  justify-content: center;
+
+  padding: 14px;
+
+  border-top: 2px solid #dedee2;
+
+  background: white;
+}
+
+.gift-receive-all {
+  min-width: 180px;
+  min-height: 46px;
+
+  padding: 8px 18px;
+
+  font-size: 15px;
+}
+
+
+/* ---------- mobile ---------- */
+
+@media (max-width: 600px) {
+
+  .gift-modal {
+    padding: 14px;
+  }
+
+  .gift-dialog {
+    width: 100%;
+    max-height: calc(100vh - 28px);
+  }
+
+  .gift-item {
+    gap: 9px;
+    padding: 11px;
+  }
+
+  .gift-info strong {
+    font-size: 12px;
+  }
+
+  .gift-info span {
+    font-size: 14px;
+  }
+
+  .gift-receive {
+    min-width: 86px;
+    font-size: 12px;
+  }
+}
+
+/* ===== GIFT ICON BUTTON FIX ===== */
+
+/*
+  プレゼント 글자는 사용하지 않고
+  직접 제작한 선물상자 그림만 표시
+*/
+.gift-box-button {
+  width: 58px !important;
+  height: 58px !important;
+  min-width: 58px !important;
+  min-height: 58px !important;
+
+  padding: 5px !important;
+
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+
+  border-radius: 15px !important;
+
+  overflow: visible !important;
+}
+
+.gift-box-button .gift-icon {
+  display: block !important;
+
+  width: 46px !important;
+  height: 46px !important;
+
+  object-fit: contain !important;
+
+  font-size: 0 !important;
+  line-height: 0 !important;
+
+  pointer-events: none;
+}
+
+
+/* 빨간 미수령 배지 */
+.gift-box-button .gift-badge {
+  top: -8px !important;
+  right: -8px !important;
+
+  z-index: 2;
+}
+
+
+/* ===== GIFT CLOSE BUTTON CENTER FIX ===== */
+
+.gift-close {
+  box-sizing: border-box !important;
+
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+
+  width: 38px !important;
+  height: 38px !important;
+
+  padding: 0 0 3px 0 !important;
+  margin: 0 !important;
+
+  line-height: 1 !important;
+
+  text-align: center !important;
+
+  font-size: 24px !important;
+  font-family: Arial, sans-serif !important;
+  font-weight: 400 !important;
+}
+
+
+
+
+/* ===== CURRENCY UI ===== */
+
+/* hidden 속성이 기존 gift-badge 스타일보다 항상 우선 */
+#giftBadge[hidden] {
+  display: none !important;
+}
+
+.gift-toolbar {
+  align-items: center !important;
+  gap: 12px !important;
+}
+
+.currency-display {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+
+  min-width: 126px;
+  height: 48px;
+  padding: 4px 13px 4px 9px;
+
+  box-sizing: border-box;
+
+  border: 2px solid #85858d;
+  border-radius: 14px;
+
+  background: linear-gradient(#ffffff, #f0f0f3);
+
+  color: #55545d;
+
+  font-size: 16px;
+  font-weight: 900;
+
+  box-shadow:
+    inset 0 0 0 2px rgba(255,255,255,.95),
+    0 2px 4px rgba(0,0,0,.10);
+}
+
+.currency-display img {
+  display: block;
+
+  width: 32px;
+  height: 32px;
+
+  object-fit: contain;
+}
+
+#currencyBalance {
+  min-width: 66px;
+  text-align: right;
+
+  font-variant-numeric: tabular-nums;
+}
+
+
+/* 재화 부족 팝업 */
+.currency-alert {
+  position: fixed;
+  left: 50%;
+  bottom: 36px;
+  z-index: 12000;
+
+  transform: translateX(-50%) translateY(15px);
+
+  padding: 12px 22px;
+
+  border: 2px solid #85858d;
+  border-radius: 999px;
+
+  background: rgba(255,255,255,.97);
+  color: #55545d;
+
+  font-size: 14px;
+  font-weight: 900;
+
+  box-shadow: 0 5px 18px rgba(0,0,0,.18);
+
+  opacity: 0;
+  pointer-events: none;
+
+  transition:
+    opacity .18s ease,
+    transform .18s ease;
+}
+
+.currency-alert.show {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+@media (max-width: 600px) {
+  .currency-display {
+    min-width: 108px;
+    height: 44px;
+    padding-right: 10px;
+  }
+
+  .currency-display img {
+    width: 29px;
+    height: 29px;
+  }
+
+  #currencyBalance {
+    min-width: 55px;
+    font-size: 14px;
+  }
+}
+
+
+
+/* ===== TOP TOOLBAR POSITION FIX ===== */
+
+.gift-toolbar {
+  width: 100% !important;
+
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+
+  gap: 12px !important;
+
+  margin: 0 0 10px !important;
+}
+
+
+/* ---------- PRESENT ICON ---------- */
+
+.gift-box-button {
+  position: relative !important;
+
+  width: 58px !important;
+  height: 58px !important;
+  min-width: 58px !important;
+  min-height: 58px !important;
+
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+
+  padding: 0 !important;
+  margin: 0 !important;
+
+  border: 0 !important;
+  outline: 0 !important;
+  border-radius: 0 !important;
+
+  background: transparent !important;
+
+  box-shadow: none !important;
+
+  overflow: visible !important;
+
+  cursor: pointer;
+}
+
+.gift-box-button:hover,
+.gift-box-button:focus,
+.gift-box-button:active {
+  border: 0 !important;
+  outline: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+.gift-box-button .gift-icon {
+  display: block !important;
+
+  width: 56px !important;
+  height: 56px !important;
+
+  object-fit: contain !important;
+
+  pointer-events: none;
+
+  transition: transform .15s ease;
+}
+
+.gift-box-button:hover .gift-icon {
+  transform: translateY(-2px) scale(1.04);
+}
+
+.gift-box-button:active .gift-icon {
+  transform: scale(.96);
+}
+
+
+/* ---------- BADGE ---------- */
+
+.gift-box-button .gift-badge {
+  position: absolute !important;
+
+  top: -4px !important;
+  right: -7px !important;
+
+  z-index: 5;
+}
+
+#giftBadge[hidden] {
+  display: none !important;
+}
+
+
+/* ---------- CURRENCY ---------- */
+
+.currency-display {
+  margin-left: auto !important;
+}
+
+
+/* ---------- FONT ---------- */
+
+html,
+body,
+button,
+input,
+select,
+textarea {
+  font-family:
+    "YumesteUI",
+    "Noto Sans JP",
+    "Hiragino Sans",
+    sans-serif !important;
+}
+
+
+@media (max-width: 600px) {
+
+  .gift-toolbar {
+    margin-bottom: 8px !important;
+  }
+
+  .gift-box-button {
+    width: 52px !important;
+    height: 52px !important;
+    min-width: 52px !important;
+    min-height: 52px !important;
+  }
+
+  .gift-box-button .gift-icon {
+    width: 50px !important;
+    height: 50px !important;
+  }
+}
+
+
+
+/* ===== OWNED LIST + TOOLBAR ORDER ===== */
+
+
+/* =====================================================
+   TOP TOOLBAR
+
+   왼쪽  : 선물함
+   오른쪽: 보유 재화
+
+   HTML에 어떤 순서로 들어 있어도
+   order로 강제 배치한다.
+===================================================== */
+
+.gift-toolbar {
+  display: flex !important;
+  align-items: center !important;
+
+  width: 100% !important;
+
+  margin: 0 0 6px !important;
+}
+
+
+/* 선물함은 무조건 왼쪽 */
+.gift-toolbar .gift-box-button {
+  order: 1 !important;
+
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+}
+
+
+/* 재화는 무조건 오른쪽 */
+.gift-toolbar .currency-display {
+  order: 2 !important;
+
+  margin-left: auto !important;
+  margin-right: 0 !important;
+}
+
+
+/* =====================================================
+   PRESENT ICON
+
+   일러스트 외의 버튼 장식 제거
+===================================================== */
+
+.gift-toolbar .gift-box-button {
+  width: 58px !important;
+  height: 58px !important;
+
+  min-width: 58px !important;
+  min-height: 58px !important;
+
+  padding: 0 !important;
+
+  border: none !important;
+  outline: none !important;
+  border-radius: 0 !important;
+
+  background: none !important;
+  background-color: transparent !important;
+  background-image: none !important;
+
+  box-shadow: none !important;
+
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+
+  overflow: visible !important;
+}
+
+
+.gift-toolbar .gift-box-button:hover,
+.gift-toolbar .gift-box-button:focus,
+.gift-toolbar .gift-box-button:active {
+  border: none !important;
+
+  background: none !important;
+
+  box-shadow: none !important;
+}
+
+
+.gift-toolbar .gift-box-button .gift-icon {
+  width: 56px !important;
+  height: 56px !important;
+
+  display: block !important;
+
+  object-fit: contain !important;
+}
+
+
+/* 미수령 0 → 배지 없음 */
+#giftBadge[hidden] {
+  display: none !important;
+}
+
+
+/* =====================================================
+   所持一覧
+===================================================== */
+
+.owned-list-row {
+  width: 100%;
+
+  display: flex;
+  justify-content: flex-end;
+
+  margin: 0 0 12px;
+}
+
+
+.owned-list-button {
+  min-width: 116px;
+  min-height: 40px;
+
+  padding: 7px 17px;
+
+  border: 2px solid #85858d;
+  border-radius: 12px;
+
+  background:
+    linear-gradient(
+      #ffffff,
+      #eeeeF1
+    );
+
+  color: #55545d;
+
+  font-family:
+    "YumesteUI",
+    "Noto Sans JP",
+    "Hiragino Sans",
+    sans-serif !important;
+
+  font-size: 13px;
+  font-weight: 800;
+
+  cursor: pointer;
+
+  box-shadow:
+    inset 0 0 0 2px rgba(255,255,255,.95),
+    0 2px 4px rgba(0,0,0,.10);
+
+  transition:
+    transform .15s ease,
+    background .15s ease,
+    border-color .15s ease;
+}
+
+
+.owned-list-button:hover {
+  transform: translateY(-1px);
+
+  border-color: #329f98;
+
+  background:
+    linear-gradient(
+      #65ded5,
+      #3fc8bd
+    );
+
+  color: white;
+}
+
+
+.owned-list-button:active {
+  transform: translateY(1px);
+}
+
+
+/* =====================================================
+   FONT
+===================================================== */
+
+html,
+body,
+button,
+input,
+select,
+textarea {
+  font-family:
+    "YumesteUI",
+    "Noto Sans JP",
+    "Hiragino Sans",
+    sans-serif !important;
+}
+
+
+@media (max-width: 600px) {
+
+  .gift-toolbar .gift-box-button {
+    width: 52px !important;
+    height: 52px !important;
+
+    min-width: 52px !important;
+    min-height: 52px !important;
+  }
+
+  .gift-toolbar .gift-box-button .gift-icon {
+    width: 50px !important;
+    height: 50px !important;
+  }
+
+  .owned-list-button {
+    min-width: 105px;
+    min-height: 38px;
+
+    font-size: 12px;
+  }
+}
+
+
+
+
+/* ===== COMPACT GACHA MENU ===== */
+
+
+/*
+  PC:
+  6개 가챠 + 所持一覧 + ミニゲーム
+  총 8칸
+*/
+
+.gacha-tabs {
+  display: grid !important;
+
+  grid-template-columns:
+    repeat(8, minmax(0, 1fr)) !important;
+
+  gap: 9px !important;
+
+  margin-bottom: 20px !important;
+}
+
+
+/* ─────────────────────────────
+   가챠 로고 버튼 축소
+───────────────────────────── */
+
+.gacha-tabs .gacha-tab {
+  width: 100% !important;
+
+  height: 72px !important;
+
+  min-width: 0 !important;
+
+  padding: 8px 10px !important;
+
+  border-radius: 8px !important;
+}
+
+
+.gacha-tabs .gacha-tab img {
+  display: block !important;
+
+  width: auto !important;
+  height: auto !important;
+
+  max-width: 92% !important;
+  max-height: 48px !important;
+
+  object-fit: contain !important;
+}
+
+
+/* 기존 active 밑줄도 작은 버튼에 맞춤 */
+.gacha-tabs .gacha-tab.active::after {
+  left: 10px !important;
+  right: 10px !important;
+}
+
+
+/* =====================================================
+   所持一覧 / ミニゲーム
+
+   가챠 로고와 완전히 같은 크기
+===================================================== */
+
+.gacha-tabs .gacha-menu-button {
+  width: 100% !important;
+  height: 72px !important;
+
+  min-width: 0 !important;
+  min-height: 0 !important;
+
+  margin: 0 !important;
+  padding: 8px !important;
+
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+
+  border: 1px solid #e7e7eb !important;
+  border-radius: 8px !important;
+
+  background: #fff !important;
+
+  color: #55545d !important;
+
+  font-family:
+    "YumesteUI",
+    "Noto Sans JP",
+    "Hiragino Sans",
+    sans-serif !important;
+
+  font-size: 14px !important;
+  font-weight: 700 !important;
+
+  line-height: 1.2 !important;
+
+  box-shadow: none !important;
+
+  cursor: pointer;
+
+  transition:
+    transform .18s ease,
+    border-color .18s ease,
+    box-shadow .18s ease,
+    background .18s ease !important;
+}
+
+
+.gacha-tabs .gacha-menu-button:hover {
+  transform: translateY(-2px) !important;
+
+  border-color: #91e5dd !important;
+
+  background: #fbffff !important;
+
+  color: #55545d !important;
+
+  box-shadow:
+    0 8px 25px rgba(41,196,184,.10) !important;
+}
+
+
+/* 이전 所持一覧 CSS의 별도 row는 더 이상 사용 안 함 */
+.owned-list-row {
+  display: none !important;
+}
+
+
+/* =====================================================
+   화면이 좁아질 경우
+===================================================== */
+
+@media (max-width: 900px) {
+
+  .gacha-tabs {
+    grid-template-columns:
+      repeat(4, minmax(0, 1fr)) !important;
+
+    gap: 8px !important;
+  }
+
+}
+
+
+@media (max-width: 600px) {
+
+  .gacha-tabs {
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr)) !important;
+
+    gap: 8px !important;
+  }
+
+  .gacha-tabs .gacha-tab,
+  .gacha-tabs .gacha-menu-button {
+    height: 68px !important;
+  }
+
+  .gacha-tabs .gacha-tab img {
+    max-height: 44px !important;
+  }
+
+  .gacha-tabs .gacha-menu-button {
+    font-size: 13px !important;
+  }
+
+}
+
+
+
+/* ===== CLEAN HEADER UTILITY ROW ===== */
+
+
+/*
+   제목
+   ↓
+   🎁 -------------------------------- 💎
+   ↓
+   8개 메뉴
+*/
+
+
+.top-utility-row {
+  width: 100%;
+
+  display: grid;
+
+  /*
+    아래의 8칸 메뉴와 동일한 그리드.
+    따라서 첫 칸과 마지막 칸 위치를
+    정확하게 맞출 수 있다.
+  */
+  grid-template-columns:
+    repeat(8, minmax(0, 1fr));
+
+  gap: 9px;
+
+  align-items: center;
+
+  margin:
+    8px
+    0
+    12px;
+
+  padding: 0;
+}
+
+
+/* 선물함 = 첫 번째 칸 */
+.top-utility-left {
+  grid-column: 1;
+
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+
+/* 재화 = 마지막 칸 */
+.top-utility-right {
+  grid-column: 8;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+/* =====================================================
+   선물함
+===================================================== */
+
+.top-utility-row .gift-box-button {
+  position: relative;
+
+  width: 58px !important;
+  height: 58px !important;
+
+  min-width: 58px !important;
+  min-height: 58px !important;
+
+  margin: 0 !important;
+  padding: 0 !important;
+
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+
+  border: 0 !important;
+  outline: 0 !important;
+  border-radius: 0 !important;
+
+  background: transparent !important;
+  background-image: none !important;
+
+  box-shadow: none !important;
+
+  overflow: visible !important;
+
+  cursor: pointer;
+}
+
+
+.top-utility-row .gift-box-button:hover,
+.top-utility-row .gift-box-button:focus,
+.top-utility-row .gift-box-button:active {
+  border: 0 !important;
+  outline: 0 !important;
+
+  background: transparent !important;
+
+  box-shadow: none !important;
+}
+
+
+.top-utility-row .gift-icon {
+  display: block !important;
+
+  width: 56px !important;
+  height: 56px !important;
+
+  object-fit: contain !important;
+
+  pointer-events: none;
+
+  transition: transform .15s ease;
+}
+
+
+.top-utility-row .gift-box-button:hover .gift-icon {
+  transform: translateY(-2px) scale(1.04);
+}
+
+
+.top-utility-row .gift-box-button:active .gift-icon {
+  transform: scale(.96);
+}
+
+
+.top-utility-row .gift-badge {
+  position: absolute !important;
+
+  top: -4px !important;
+  right: -7px !important;
+
+  z-index: 5;
+}
+
+
+#giftBadge[hidden] {
+  display: none !important;
+}
+
+
+/* =====================================================
+   재화
+
+   기존 디자인은 그대로.
+   위치만 8번째 칸.
+===================================================== */
+
+.top-utility-right .currency-display {
+  margin: 0 !important;
+
+  width: 100%;
+
+  max-width: 136px;
+}
+
+
+/* =====================================================
+   메뉴와의 간격
+===================================================== */
+
+.top-utility-row + .gacha-tabs {
+  margin-top: 0 !important;
+}
+
+
+/* =====================================================
+   PC
+===================================================== */
+
+@media (min-width: 901px) {
+
+  /*
+    선물함을 첫 번째 메뉴 박스의
+    왼쪽 안쪽에 자연스럽게 배치.
+  */
+  .top-utility-left {
+    padding-left: 8px;
+  }
+
+}
+
+
+/* =====================================================
+   태블릿
+===================================================== */
+
+@media (max-width: 900px) {
+
+  .top-utility-row {
+    grid-template-columns:
+      repeat(4, minmax(0, 1fr));
+
+    gap: 8px;
+  }
+
+  .top-utility-left {
+    grid-column: 1;
+  }
+
+  .top-utility-right {
+    grid-column: 4;
+  }
+
+}
+
+
+/* =====================================================
+   모바일
+===================================================== */
+
+@media (max-width: 600px) {
+
+  .top-utility-row {
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+
+    gap: 8px;
+
+    margin-bottom: 10px;
+  }
+
+  .top-utility-left {
+    grid-column: 1;
+  }
+
+  .top-utility-right {
+    grid-column: 2;
+  }
+
+  .top-utility-row .gift-box-button {
+    width: 52px !important;
+    height: 52px !important;
+
+    min-width: 52px !important;
+    min-height: 52px !important;
+  }
+
+  .top-utility-row .gift-icon {
+    width: 50px !important;
+    height: 50px !important;
+  }
+
+}
+
+
+
+/* ===== GIFT VERTICAL CENTER FIX ===== */
+
+/*
+  제목 ↕ 로고 사이 빈 공간의 중앙으로
+  선물함만 이동.
+  재화 위치는 건드리지 않음.
+*/
+
+.top-utility-left .gift-box-button {
+  transform: translateY(-17px) !important;
+}
+
+.top-utility-left .gift-box-button:hover {
+  transform: translateY(-19px) !important;
+}
+
+.top-utility-left .gift-box-button:active {
+  transform: translateY(-17px) scale(.96) !important;
+}
+
+
+
+/* ===== OWNED LIST SCREEN UI ===== */
+
+
+/* hidden은 기존 display 규칙보다 우선 */
+#gachaScreen[hidden],
+#ownedScreen[hidden] {
+  display: none !important;
+}
+
+
+.owned-screen {
+  width: 100%;
+
+  padding-top: 6px;
+}
+
+
+/* ---------- HEADER ---------- */
+
+.owned-screen-header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+
+  gap: 20px;
+
+  margin-bottom: 20px;
+
+  padding-bottom: 16px;
+
+  border-bottom: 1px solid #e8e8ec;
+}
+
+
+.owned-screen-label {
+  margin: 0 0 5px;
+
+  color: #aaa;
+
+  font-size: 10px;
+  letter-spacing: 1.8px;
+}
+
+
+.owned-screen-header h2 {
+  margin: 0;
+
+  color: #44434b;
+
+  font-size: 28px;
+  line-height: 1;
+}
+
+
+.owned-back-button {
+  min-height: 40px;
+
+  padding: 8px 18px;
+
+  border: 2px solid #85858d;
+  border-radius: 11px;
+
+  background:
+    linear-gradient(
+      #fff,
+      #eeeeF1
+    );
+
+  color: #55545d;
+
+  font-size: 13px;
+  font-weight: 800;
+
+  cursor: pointer;
+}
+
+
+/* ---------- SUMMARY ---------- */
+
+.owned-summary {
+  display: flex;
+
+  gap: 10px;
+
+  margin-bottom: 16px;
+}
+
+
+.owned-summary-item {
+  min-width: 150px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 20px;
+
+  padding: 11px 15px;
+
+  border: 1px solid #e4e4e8;
+  border-radius: 10px;
+
+  background: #fafafa;
+
+  color: #777;
+
+  font-size: 12px;
+}
+
+
+.owned-summary-item strong {
+  color: #44434b;
+
+  font-size: 15px;
+}
+
+
+/* ---------- FILTER ---------- */
+
+.owned-filters {
+  display: flex;
+
+  gap: 7px;
+
+  margin-bottom: 18px;
+}
+
+
+.owned-filter {
+  min-width: 76px;
+
+  padding: 8px 13px;
+
+  border: 1px solid #dddde2;
+  border-radius: 999px;
+
+  background: #fff;
+
+  color: #777;
+
+  font-size: 12px;
+  font-weight: 800;
+
+  cursor: pointer;
+}
+
+
+.owned-filter:hover {
+  border-color: #70dcd3;
+}
+
+
+.owned-filter.active {
+  border-color: #48d7ca;
+
+  background: #48d7ca;
+
+  color: #fff;
+}
+
+
+/* ---------- CARD GRID ---------- */
+
+.owned-results {
+  display: grid;
+
+  grid-template-columns:
+    repeat(5, minmax(0, 1fr));
+
+  gap: 14px;
+
+  align-items: stretch;
+}
+
+
+.owned-card {
+  position: relative;
+
+  min-width: 0;
+
+  padding: 0;
+
+  overflow: hidden;
+
+  display: flex;
+  flex-direction: column;
+
+  border: 1px solid #ececf0;
+  border-radius: 13px;
+
+  background: #fff;
+
+  text-align: left;
+
+  cursor: pointer;
+
+  box-shadow:
+    0 3px 12px rgba(0,0,0,.06);
+
+  transition:
+    transform .15s ease,
+    box-shadow .15s ease;
+}
+
+
+.owned-card:hover {
+  transform: translateY(-2px);
+
+  box-shadow:
+    0 7px 18px rgba(0,0,0,.10);
+}
+
+
+.owned-card > img {
+  display: block;
+
+  width: 100%;
+
+  aspect-ratio: 16 / 9;
+
+  object-fit: cover;
+}
+
+
+/* ---------- DUPLICATE COUNT ---------- */
+
+.owned-card-count {
+  position: absolute;
+
+  top: 7px;
+  right: 7px;
+
+  min-width: 32px;
+
+  padding: 4px 7px;
+
+  border: 2px solid rgba(255,255,255,.9);
+  border-radius: 999px;
+
+  background: rgba(48,48,55,.82);
+
+  color: #fff;
+
+  font-size: 11px;
+  font-weight: 900;
+
+  line-height: 1;
+
+  text-align: center;
+
+  box-shadow:
+    0 2px 5px rgba(0,0,0,.18);
+}
+
+
+/* ---------- CARD INFO ---------- */
+
+.owned-card-info {
+  flex: 1;
+
+  display: flex;
+  flex-direction: column;
+
+  padding: 10px 11px 12px;
+}
+
+
+.owned-card-stars {
+  color: #55545d;
+
+  font-size: 12px;
+
+  letter-spacing: 1px;
+}
+
+
+.owned-card-actor {
+  margin-top: 5px;
+
+  color: #999;
+
+  font-size: 10px;
+}
+
+
+.owned-card-title {
+  margin-top: 4px;
+
+  color: #44434b;
+
+  font-size: 12px;
+  font-weight: 800;
+
+  line-height: 1.35;
+}
+
+
+/* ---------- EMPTY ---------- */
+
+.owned-empty {
+  grid-column: 1 / -1;
+
+  padding: 80px 20px;
+
+  color: #aaa;
+
+  text-align: center;
+
+  font-size: 13px;
+}
+
+
+/* ---------- RESPONSIVE ---------- */
+
+@media (max-width: 900px) {
+
+  .owned-results {
+    grid-template-columns:
+      repeat(3, minmax(0, 1fr));
+  }
+
+}
+
+
+@media (max-width: 600px) {
+
+  .owned-screen-header {
+    align-items: center;
+  }
+
+  .owned-screen-header h2 {
+    font-size: 23px;
+  }
+
+  .owned-back-button {
+    padding: 7px 12px;
+
+    font-size: 11px;
+  }
+
+  .owned-summary {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .owned-summary-item {
+    min-width: 0;
+
+    gap: 8px;
+
+    padding: 9px 10px;
+
+    font-size: 10px;
+  }
+
+  .owned-summary-item strong {
+    font-size: 12px;
+  }
+
+  .owned-filters {
+    overflow-x: auto;
+
+    padding-bottom: 3px;
+  }
+
+  .owned-filter {
+    flex: 0 0 auto;
+  }
+
+  .owned-results {
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+
+    gap: 9px;
+  }
+
+}
+
+
+
+
+/* ===== OWNED TAB ACTIVE FINAL ===== */
+
+/*
+  所持一覧도 가챠 로고 선택 상태와
+  동일한 민트색 active 표현
+*/
+
+.gacha-tabs .gacha-menu-button.active {
+  position: relative !important;
+
+  border-color: #48d7ca !important;
+
+  background: #fbffff !important;
+
+  color: #44434b !important;
+
+  box-shadow:
+    0 0 0 2px rgba(72,215,202,.12),
+    0 7px 22px rgba(72,215,202,.10) !important;
+}
+
+
+.gacha-tabs .gacha-menu-button.active::after {
+  content: "";
+
+  position: absolute;
+
+  left: 10px;
+  right: 10px;
+  bottom: -1px;
+
+  height: 3px;
+
+  border-radius: 3px 3px 0 0;
+
+  background: #48d7ca;
+}
+
+
+/* 所持種類 하나만 남으므로 작게 */
+.owned-summary {
+  display: flex !important;
+}
+
+
+.owned-summary-item {
+  min-width: 190px !important;
+}
+
+
+/* 戻る 버튼이 없으므로 헤더 단순화 */
+.owned-screen-header {
+  display: block !important;
+}
+
+
+/* ===== OWNED ACTIVE MINT FILL ===== */
+.gacha-tabs #ownedListButton.active {
+  background: #48d7ca !important;
+  border-color: #48d7ca !important;
+  color: #fff !important;
+  box-shadow: none !important;
+}
+
+.gacha-tabs #ownedListButton.active::after {
+  display: none !important;
+}
+
+
+/* ===== OWNED MISSING SWITCH UI ===== */
+
+.owned-summary {
+  display: flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+  flex-wrap: wrap;
+}
+
+
+.owned-view-switch {
+  display: flex;
+  gap: 6px;
+}
+
+
+.owned-view-button {
+  height: 39px;
+
+  padding: 0 16px;
+
+  border: 1px solid #dddde2;
+  border-radius: 10px;
+
+  background: #fff;
+
+  color: #777;
+
+  font-size: 12px;
+  font-weight: 800;
+
+  cursor: pointer;
+
+  transition:
+    background .15s ease,
+    border-color .15s ease,
+    color .15s ease;
+}
+
+
+.owned-view-button:hover {
+  border-color: #48d7ca;
+}
+
+
+.owned-view-button.active {
+  background: #48d7ca;
+  border-color: #48d7ca;
+
+  color: #fff;
+}
+
+
+/* 미소지 카드 */
+#ownedResults .owned-card.is-missing {
+  opacity: .58;
+}
+
+
+#ownedResults .owned-card.is-missing .owned-card-count {
+  display: none;
+}
+
+
+/* ===== MISSING CARD OPACITY FINAL ===== */
+
+/*
+  未所持フォト 모드에서는 카드 전체를 확실하게 흐리게.
+  기존 개별 is-missing 클래스 여부와 무관하게 적용.
+*/
+#ownedResults.showing-missing .owned-card {
+  opacity: .48 !important;
+}
+
+
+/* hover해도 투명도가 다시 올라가지 않도록 */
+#ownedResults.showing-missing .owned-card:hover {
+  opacity: .48 !important;
+}
+
+
+/* 미소지에는 ×0 같은 보유 수 표시 없음 */
+#ownedResults.showing-missing .owned-card-count {
+  display: none !important;
+}
+
+
+
+/* ===== RARITY ORDER BUTTON UI ===== */
+
+.owned-rank-order-button {
+  margin-left: auto;
+
+  min-width: 112px;
+
+  padding: 8px 13px;
+
+  border: 1px solid #dddde2;
+  border-radius: 999px;
+
+  background: #fff;
+
+  color: #666;
+
+  font-size: 11px;
+  font-weight: 800;
+
+  cursor: pointer;
+
+  transition:
+    border-color .15s ease,
+    background .15s ease;
+}
+
+
+.owned-rank-order-button:hover {
+  border-color: #48d7ca;
+
+  background: #f5fffe;
+}
+
+
+/* ===== SAFE RARITY SORT ICON ===== */
+#ownedRankOrderButton {
+  width: 38px !important;
+  height: 34px !important;
+  padding: 0 !important;
+
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+
+  border: 1px solid #dddde2 !important;
+  border-radius: 999px !important;
+  background: #fff !important;
+
+  color: #666 !important;
+  font-size: 20px !important;
+  font-weight: 800 !important;
+  line-height: 1 !important;
+
+  cursor: pointer;
+}
+
+#ownedRankOrderButton:hover {
+  border-color: #48d7ca !important;
+  background: #f5fffe !important;
+}
+
+/* ===== MINIGAME ACTIVE MINT FILL ===== */
+
+.gacha-tabs #miniGameButton.active {
+  background: #48d7ca !important;
+  border-color: #48d7ca !important;
+  color: #fff !important;
+  box-shadow: none !important;
+}
+
+.gacha-tabs #miniGameButton.active::after {
+  display: none !important;
+}
+
+/* ===== DUGONG DRAG PROTOTYPE ===== */
+
+.minigame-screen {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 22px 0 40px;
+}
+
+.minigame-screen[hidden] {
+  display: none !important;
+}
+
+.minigame-prototype-header {
+  text-align: center;
+  margin-bottom: 18px;
+}
+
+.minigame-screen-label {
+  margin: 0 0 4px;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: .16em;
+  color: #48bfb5;
+}
+
+.minigame-prototype-header h2 {
+  margin: 0 0 7px;
+}
+
+.minigame-prototype-header p:last-child {
+  margin: 0;
+  color: #777;
+  font-size: 14px;
+}
+
+.dugong-play-area {
+  position: relative;
+  width: min(820px, calc(100% - 24px));
+  height: 430px;
+  margin: 0 auto;
+
+  overflow: hidden;
+  box-sizing: border-box;
+
+  border: 3px solid #dedee5;
+  border-radius: 22px;
+
+  background:
+    linear-gradient(
+      to bottom,
+      #f8f9ff 0%,
+      #f8f9ff 78%,
+      #eeeef7 78%,
+      #eeeef7 100%
+    );
+
+  touch-action: none;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.dugong-guide {
+  position: absolute;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+
+  color: #aaa;
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: .12em;
+
+  pointer-events: none;
+}
+
+.dugong-player {
+  position: absolute;
+
+  width: 115px;
+  height: auto;
+
+  left: 50%;
+  bottom: 13px;
+
+  transform: translateX(-50%);
+
+  cursor: grab;
+
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-user-drag: none;
+
+  touch-action: none;
+
+  z-index: 5;
+}
+
+.dugong-player.dragging {
+  cursor: grabbing;
+}
+
+@media (max-width: 600px) {
+  .dugong-play-area {
+    height: 380px;
+  }
+
+  .dugong-player {
+    width: 95px;
+  }
+}
+
+/* ===== DUGONG REAL CHART PROTOTYPE ===== */
+
+.dugong-proto-controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  margin: 0 auto 14px;
+}
+
+#dugongChartStart {
+  min-width: 120px;
+  padding: 10px 24px;
+  border: 2px solid #333;
+  border-radius: 999px;
+  background: #fff;
+  color: #333;
+  font-size: 16px;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+#dugongChartStart:hover {
+  background: #48d7ca;
+  border-color: #48d7ca;
+  color: #fff;
+}
+
+#dugongChartTime {
+  min-width: 90px;
+  color: #666;
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.dugong-play-area {
+  background: #111 !important;
+}
+
+.dugong-chart-viewport {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 2;
+}
+
+/*
+  실제 채보의 각 200 × 1584 구간을
+  게임판 폭에 맞게 차례대로 생성한다.
+*/
+.dugong-chart-stream {
+  position: absolute;
+  inset: 0;
+}
+
+.dugong-chart-piece {
+  position: absolute;
+  left: 50%;
+  width: 100%;
+  height: auto;
+
+  transform:
+    translateX(-50%)
+    scaleY(-1);
+
+  transform-origin: center;
+
+  image-rendering: auto;
+  pointer-events: none;
+}
+
+.dugong-guide {
+  z-index: 4;
+  color: rgba(255,255,255,.45) !important;
+}
+
+.dugong-player {
+  z-index: 10 !important;
+}
+
+/* ===== DUGONG CHART VIEW FIX ===== */
+
+.dugong-chart-piece {
+  /*
+   * JS가 원본 비율에 맞는 실제 폭을 지정함.
+   * 이전 width:100% 무효화.
+   */
+  width: auto !important;
+
+  /*
+   * 확대 시 흐려지는 것을 조금 줄임.
+   */
+  image-rendering: auto;
+}
+
+/* ===== DUGONG SCREEN + CHART VISIBILITY FIX ===== */
+
+/* JS에서 지정하는 채보 폭을 정상적으로 사용 */
+.dugong-chart-piece {
+  width: 42% !important;
+  left: 50% !important;
+}
+
+/* 게임 화면 세로 확장 */
+.dugong-play-area {
+  height: 650px !important;
+}
+
+/* 모바일도 기존보다 세로로 길게 */
+@media (max-width: 600px) {
+  .dugong-play-area {
+    height: 560px !important;
+  }
+}
+
+/* ===== DUGONG CHART WIDE PLAYFIELD ===== */
+
+.dugong-chart-piece {
+  width: 90% !important;
+}
+
+/* ===== DUGONG VECTOR NOTE TEST ===== */
+
+/* 기존 저화질 PNG 채보는 테스트 동안 숨김 */
+#dugongChartStream {
+  display: none !important;
+}
+
+/* 새로 그리는 채보 */
+.dugong-vector-layer {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 5;
+}
+
+/* 실제 플레이 가능한 좌우 범위 표시 */
+.dugong-vector-field {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+
+  /* 게임판 좌우 거의 전체 사용 */
+  left: 5%;
+  right: 5%;
+
+  border-left: 1px solid rgba(255,255,255,.13);
+  border-right: 1px solid rgba(255,255,255,.13);
+}
+
+/* 공통 노트 */
+.dugong-vector-note {
+  position: absolute;
+  box-sizing: border-box;
+  border-radius: 5px;
+
+  /* CSS로 직접 그리므로 확대해도 선명 */
+  will-change: transform;
+}
+
+/* 일반 탭 */
+.dugong-vector-note.tap {
+  min-height: 8px;
+
+  background:
+    linear-gradient(
+      to bottom,
+      #fff59b 0%,
+      #ffed54 18%,
+      #ff76ae 25%,
+      #ff4f91 72%,
+      #ff9ac1 82%,
+      #fff078 100%
+    );
+
+  border: 2px solid #ffd95a;
+
+  box-shadow:
+    0 0 5px rgba(255,94,157,.85),
+    inset 0 0 3px rgba(255,255,255,.9);
+}
+
+/* 중간 크기 특수 노트 */
+.dugong-vector-note.special {
+  background:
+    linear-gradient(
+      to bottom,
+      #fff4a0,
+      #d86cff 18%,
+      #7b1eff 55%,
+      #bd59ff 82%,
+      #fff078
+    );
+
+  border: 2px solid #d895ff;
+
+  box-shadow:
+    0 0 8px rgba(173,63,255,.8),
+    inset 0 0 5px rgba(255,255,255,.55);
+}
+
+/* 롱노트 */
+.dugong-vector-note.long {
+  background:
+    linear-gradient(
+      90deg,
+      rgba(129,14,208,.88),
+      rgba(225,51,255,.98) 48%,
+      rgba(105,8,184,.88)
+    );
+
+  border: 2px solid #dc77ff;
+
+  box-shadow:
+    0 0 9px rgba(184,40,255,.75),
+    inset 0 0 7px rgba(255,255,255,.25);
+}
+
+/* 듀공은 노트보다 위 */
+.dugong-player {
+  z-index: 20 !important;
+}
+
+/* ===== DUGONG PLAYER SCALE TEST ===== */
+
+/* 게임용 듀공만 살짝 축소 */
+.dugong-player {
+  scale: 1;
+  transform-origin: center bottom;
+}
+
+/* ===== DUGONG VIDEO-STYLE REBUILD ===== */
+
+/*
+  이전 테스트에서 듀공을 축소했던 규칙 무효화.
+*/
+.dugong-player {
+  scale: 1 !important;
+}
+
+
+/*
+  채보 레이어는 게임판 전체를 사용.
+*/
+#dugongVectorLayer {
+  position: absolute !important;
+  inset: 0 !important;
+  overflow: hidden !important;
+  pointer-events: none !important;
+  z-index: 5 !important;
+}
+
+
+#dugongVectorField {
+  position: absolute !important;
+  inset: 0 !important;
+
+  /*
+    이전 테스트의 5% 좌우 제한 제거.
+    실제 X 계산은 JS에서 한다.
+  */
+  left: 0 !important;
+  right: 0 !important;
+
+  border: 0 !important;
+}
+
+
+/*
+  노트의 테두리까지 포함해서
+  실제 크기가 변하지 않게.
+*/
+#dugongVectorField .dugong-vector-note {
+  box-sizing: border-box !important;
+}
+
+
+/* 일반 노트 */
+#dugongVectorField .dugong-vector-note.tap {
+  min-height: 0 !important;
+  border-width: 1px !important;
+  border-radius: 2px !important;
+}
+
+
+/* 특수 노트 */
+#dugongVectorField .dugong-vector-note.special {
+  min-height: 0 !important;
+  border-width: 1px !important;
+  border-radius: 2px !important;
+}
+
+
+/*
+  롱노트:
+  세로로 길지만 폭은 일반 노트와
+  크게 차이나지 않는 느낌.
+*/
+#dugongVectorField .dugong-vector-note.long {
+  min-height: 0 !important;
+  border-width: 1px !important;
+  border-radius: 2px !important;
+}
+
+
+/* 듀공은 항상 채보보다 위 */
+#dugongPlayArea .dugong-player {
+  z-index: 20 !important;
+}
+
+/* ===== DUGONG START POSITION FINAL TEST ===== */
+
+/*
+  START/RESTART를 게임판 내부,
+  듀공 바로 위쪽에 배치.
+*/
+#dugongPlayArea {
+  position: relative !important;
+}
+
+#dugongChartStart {
+  position: absolute !important;
+
+  left: 50% !important;
+  bottom: 155px !important;
+
+  transform: translateX(-50%) !important;
+
+  z-index: 40 !important;
+
+  margin: 0 !important;
+}
+
+/*
+  START 버튼이 게임판 위에서도
+  잘 보이도록.
+*/
+#dugongChartStart {
+  background: rgba(255,255,255,.94) !important;
+  border: 2px solid #333 !important;
+  border-radius: 999px !important;
+
+  padding: 10px 24px !important;
+
+  font-size: 16px !important;
+  font-weight: 700 !important;
+
+  cursor: pointer !important;
+}
+
+/* ===== DUGONG START ABOVE PLAYER ===== */
+
+#dugongChartStart {
+  position: absolute !important;
+  z-index: 40 !important;
+
+  /* JS가 듀공 위치에 맞춰 left/bottom을 지정 */
+  top: auto !important;
+
+  margin: 0 !important;
+}
+
+/* ===== DUGONG START EXACT PLAYER POSITION ===== */
+
+#dugongChartStart {
+  position: absolute !important;
+  top: auto !important;
+  z-index: 50 !important;
+  margin: 0 !important;
+}
+
+/* ===== DUGONG START HARD FIX ===== */
+
+/*
+  START의 크기/모양만 CSS가 담당한다.
+  실제 위치는 JS가 !important inline으로 지정한다.
+*/
+#dugongPlayArea #dugongChartStart {
+  margin: 0 !important;
+  z-index: 50 !important;
+}
+
+/* ===== START EXACTLY ABOVE DUGONG FINAL ===== */
+
+/*
+   대기 화면의 START:
+   듀공과 동일하게 게임판 가로 정중앙,
+   듀공 머리 바로 위.
+*/
+#dugongChartStart {
+  position: absolute !important;
+
+  left: 50% !important;
+  right: auto !important;
+
+  top: auto !important;
+  bottom: 118px !important;
+
+  transform: translateX(-50%) !important;
+
+  margin: 0 !important;
+  z-index: 100 !important;
+}
+
+
+/* ===== START REALLY ABOVE DUGONG ===== */
+
+/*
+  START는 이제 dugongPlayArea 내부에 있으므로
+  게임판 자체가 정확한 좌표 기준이 된다.
+*/
+#dugongPlayArea {
+  position: relative !important;
+}
+
+#dugongPlayArea #dugongChartStart {
+  position: absolute !important;
+
+  /* 듀공과 동일한 가로 중앙 */
+  left: 50% !important;
+  right: auto !important;
+
+  /*
+    듀공 머리 바로 위.
+    듀공이 바닥에 붙어 있으므로
+    플레이어 높이 + 아주 작은 간격만큼 올림.
+  */
+  bottom: 112px !important;
+  top: auto !important;
+
+  transform: translateX(-50%) !important;
+
+  margin: 0 !important;
+  z-index: 100 !important;
+
+  min-width: 100px !important;
+  padding: 8px 20px !important;
+
+  background: rgba(255,255,255,.96) !important;
+  border: 2px solid #333 !important;
+  border-radius: 999px !important;
+
+  font-size: 15px !important;
+  font-weight: 800 !important;
+}
+
+
+/* ===== DUGONG BLUE NOTE ===== */
+.dugong-vector-note.blue {
+  background: #28d9ff !important;
+  border-color: #9ff3ff !important;
+  box-shadow:
+    0 0 7px rgba(40, 217, 255, 0.9) !important;
+}
+
+/* ===== DUGONG LIFE / HIT ===== */
+
+#dugongLifeHud {
+  position: absolute;
+  top: 14px;
+  left: 16px;
+  z-index: 60;
+
+  font-size: 27px;
+  letter-spacing: 5px;
+
+  color: #ff557f;
+  text-shadow:
+    0 0 7px rgba(255, 85, 127, 0.75);
+
+  pointer-events: none;
+}
+
+.dugong-player.dugong-hit {
+  opacity: 0.35 !important;
+}
+
+#dugongGameOverMessage {
+  position: absolute;
+  left: 50%;
+  top: 42%;
+  transform: translate(-50%, -50%);
+
+  z-index: 80;
+
+  font-size: 38px;
+  font-weight: 800;
+  letter-spacing: 3px;
+
+  color: white;
+  text-shadow:
+    0 2px 10px rgba(0, 0, 0, 0.9);
+
+  pointer-events: none;
+}
+
+/* ===== DUGONG CLEAR ===== */
+#dugongClearMessage {
+  position: absolute;
+  left: 50%;
+  top: 42%;
+  transform: translate(-50%, -50%);
+  z-index: 80;
+
+  font-size: 42px;
+  font-weight: 800;
+  letter-spacing: 3px;
+
+  color: white;
+  text-shadow:
+    0 0 8px rgba(255,255,255,0.8),
+    0 2px 12px rgba(0,0,0,0.9);
+
+  pointer-events: none;
+}
+
+/* ===== DUGONG CLEAR REWARD ===== */
+
+#dugongClearReward {
+  position: absolute;
+  left: 50%;
+  top: 42%;
+  transform: translate(-50%, -50%);
+
+  z-index: 85;
+
+  display: none;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+
+  white-space: nowrap;
+  pointer-events: none;
+
+  font-size: 42px;
+  font-weight: 800;
+  color: #fff;
+
+  text-shadow:
+    0 2px 5px rgba(0, 0, 0, 0.85),
+    0 0 9px rgba(255, 255, 255, 0.55);
+}
+
+#dugongClearReward img {
+  width: 64px;
+  height: 64px;
+  object-fit: contain;
+}
+
+/* ===== DUGONG RESULT IMAGE OVERRIDE ===== */
+
+#dugongClearMessage,
+#dugongGameOverMessage {
+  position: absolute !important;
+  left: 50% !important;
+  top: 42% !important;
+  transform: translate(-50%, -50%) !important;
+
+  width: 190px !important;
+  height: auto !important;
+  object-fit: contain !important;
+
+  z-index: 80 !important;
+  pointer-events: none !important;
+
+  filter:
+    drop-shadow(0 4px 8px rgba(0, 0, 0, 0.45));
+}
+
+
+/* ===== ITEMS PAGE STYLE ===== */
+
+#itemsScreen[hidden] {
+  display: none !important;
+}
+
+#itemsScreen {
+  width: 100%;
+}
+
+.items-page {
+  width: min(1100px, calc(100% - 40px));
+  margin: 34px auto 80px;
+}
+
+.items-page h2 {
+  margin: 0 0 28px;
+  text-align: center;
+  font-size: 30px;
+  font-weight: 800;
+}
+
+.items-empty {
+  min-height: 260px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.72);
+  color: #888;
+  font-size: 18px;
+  text-align: center;
+}
+
+/* ===== 所持一覧 BORDER FIX ===== */
+
+/* 所持一覧도 다른 메뉴 버튼과 동일한 선명도로 표시 */
+#ownedListButton {
+  opacity: 1 !important;
+  filter: none !important;
+}
+
+#ownedListButton:not(.active) {
+  border-color: rgba(0, 0, 0, 0.22) !important;
+}
+
+#ownedListButton.active {
+  opacity: 1 !important;
+  filter: none !important;
+}
+
+
+/* ===== ITEMS INVENTORY GRID ===== */
+
+.items-list {
+  display: grid;
+  grid-template-columns:
+    repeat(auto-fill, minmax(210px, 1fr));
+  gap: 22px;
+  align-items: start;
+}
+
+.items-card {
+  min-width: 0;
+  padding: 14px;
+  border-radius: 18px;
+
+  background: rgba(255, 255, 255, 0.88);
+
+  border:
+    1px solid rgba(0, 0, 0, 0.10);
+
+  box-shadow:
+    0 5px 18px rgba(0, 0, 0, 0.08);
+}
+
+.items-card-image {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  overflow: hidden;
+
+  border-radius: 13px;
+
+  background:
+    rgba(245, 245, 248, 0.9);
+}
+
+.items-card-image img {
+  display: block;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: contain;
+}
+
+.items-card-name {
+  margin-top: 12px;
+
+  text-align: center;
+
+  font-size: 15px;
+  font-weight: 700;
+
+  line-height: 1.4;
+
+  word-break: break-word;
+}
+
+#itemsEmpty[hidden] {
+  display: none !important;
+}
+
+@media (max-width: 600px) {
+
+  .items-list {
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+
+    gap: 12px;
+  }
+
+  .items-card {
+    padding: 10px;
+  }
+
+  .items-card-name {
+    font-size: 13px;
+  }
+}
+
+
+
+/* ===== ITEM PREVIEW MODAL ===== */
+
+.items-card {
+  cursor: pointer;
+}
+
+.items-card:hover {
+  transform: translateY(-2px);
+}
+
+.item-preview-modal[hidden] {
+  display: none !important;
+}
+
+.item-preview-modal {
+  position: fixed;
+  inset: 0;
+
+  z-index: 10000;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 30px;
+
+  background:
+    rgba(0, 0, 0, 0.72);
+}
+
+.item-preview-dialog {
+  position: relative;
+
+  width: min(620px, 92vw);
+  max-height: 90vh;
+
+  padding: 26px;
+
+  overflow: auto;
+
+  border-radius: 22px;
+
+  background: #fff;
+
+  text-align: center;
+
+  box-shadow:
+    0 18px 60px rgba(0, 0, 0, 0.35);
+}
+
+.item-preview-image {
+  display: block;
+
+  max-width: 100%;
+  max-height: 62vh;
+
+  width: auto;
+  height: auto;
+
+  margin: 0 auto;
+
+  object-fit: contain;
+}
+
+.item-preview-name {
+  margin-top: 18px;
+
+  font-size: 18px;
+  font-weight: 800;
+}
+
+.item-preview-close {
+  position: absolute;
+
+  top: 10px;
+  right: 12px;
+
+  width: 38px;
+  height: 38px;
+
+  padding: 0;
+
+  border: 0;
+  border-radius: 50%;
+
+  background:
+    rgba(255, 255, 255, 0.92);
+
+  font-size: 27px;
+  line-height: 38px;
+
+  cursor: pointer;
+
+  z-index: 2;
+}
+
+.item-download-button {
+  display: inline-flex;
+
+  align-items: center;
+  justify-content: center;
+
+  min-width: 180px;
+
+  margin-top: 18px;
+  padding: 12px 22px;
+
+  border-radius: 999px;
+
+  background: #111;
+  color: #fff;
+
+  text-decoration: none;
+
+  font-size: 15px;
+  font-weight: 800;
+
+  cursor: pointer;
+}
+
+.item-download-button:hover {
+  opacity: 0.82;
+}
+
+
+
+/* ===== NEW MAIN NAVIGATION ===== */
+
+.main-navigation {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 12px;
+
+  width: 100%;
+  margin: 12px 0 14px;
+}
+
+.main-nav-button {
+  appearance: none;
+
+  min-width: 125px;
+  height: 50px;
+
+  padding: 0 22px;
+
+  border: 1px solid rgba(0, 0, 0, 0.16);
+  border-radius: 14px;
+
+  background: #fff;
+
+  font: inherit;
+  font-size: 16px;
+  font-weight: 800;
+
+  cursor: pointer;
+
+  box-shadow:
+    0 3px 10px rgba(0, 0, 0, 0.06);
+
+  transition:
+    transform 0.15s ease,
+    border-color 0.15s ease,
+    box-shadow 0.15s ease;
+}
+
+.main-nav-button:hover {
+  transform: translateY(-2px);
+
+  box-shadow:
+    0 6px 16px rgba(0, 0, 0, 0.10);
+}
+
+.main-nav-button.active {
+  border-color: rgba(0, 0, 0, 0.65);
+
+  box-shadow:
+    0 0 0 2px rgba(0, 0, 0, 0.08);
+}
+
+
+/* 가챠 종류 전용 두 번째 줄 */
+#gachaSubNavigation {
+  display: flex;
+  align-items: stretch;
+  justify-content: flex-start;
+  gap: 10px;
+
+  width: 100%;
+
+  margin-top: 0;
+  margin-bottom: 20px;
+}
+
+
+/*
+  예전 所持一覧 / ミニゲーム 전용 CSS가
+  새 메인 메뉴 버튼을 변형하지 못하도록 덮어쓰기
+*/
+.main-navigation #ownedListButton,
+.main-navigation #itemsButton,
+.main-navigation #miniGameButton,
+.main-navigation #gachaMainButton {
+  position: static;
+
+  width: auto;
+  min-width: 125px;
+  height: 50px;
+
+  margin: 0;
+}
+
+
+/* 작은 화면 */
+@media (max-width: 760px) {
+
+  .main-navigation {
+    gap: 8px;
+
+    overflow-x: auto;
+    padding-bottom: 4px;
+  }
+
+  .main-nav-button {
+    flex: 0 0 auto;
+
+    min-width: 105px;
+    height: 44px;
+
+    padding: 0 15px;
+
+    font-size: 14px;
+  }
+
+  #gachaSubNavigation {
+    overflow-x: auto;
+    padding-bottom: 5px;
+  }
+}
+
+
+/* ===== MAIN NAV LABELS + MINT ACTIVE ===== */
+
+.main-nav-button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  gap: 2px;
+}
+
+.main-nav-en {
+  display: block;
+
+  font-size: 10px;
+  font-weight: 800;
+  line-height: 1;
+
+  letter-spacing: 0.08em;
+
+  opacity: 0.52;
+}
+
+.main-nav-jp {
+  display: block;
+
+  font-size: 16px;
+  font-weight: 800;
+  line-height: 1.2;
+}
+
+
+/* 선택된 메인 메뉴 */
+.main-nav-button.active {
+  background: #cffff0 !important;
+  border-color: #73d8bd !important;
+
+  box-shadow:
+    0 0 0 2px rgba(115, 216, 189, 0.16),
+    0 5px 14px rgba(0, 0, 0, 0.07) !important;
+}
+
+.main-nav-button.active .main-nav-en {
+  opacity: 0.72;
+}
+
+
+/* 기존 CSS의 active 스타일보다 우선 */
+.main-navigation #gachaMainButton.active,
+.main-navigation #ownedListButton.active,
+.main-navigation #itemsButton.active,
+.main-navigation #miniGameButton.active {
+  background: #cffff0 !important;
+  border-color: #73d8bd !important;
+}
+
+
+@media (max-width: 760px) {
+
+  .main-nav-en {
+    font-size: 9px;
+  }
+
+  .main-nav-jp {
+    font-size: 14px;
+  }
+}
+
+
+/* ===== GACHA SUB NAV HIDDEN FIX ===== */
+#gachaSubNavigation[hidden] {
+  display: none !important;
+}
+
+
+/* ==================================================
+   MINI GAME SELECTOR
+   듀공 게임 본체와 독립된 상단 선택 메뉴
+   ================================================== */
+
+.minigame-selector {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+
+  gap: 12px;
+
+  width: 100%;
+  margin: 0 0 34px;
+}
+
+.minigame-selector-button {
+  min-width: 128px;
+  min-height: 52px;
+
+  padding: 10px 22px;
+
+  border: 1px solid rgba(0, 0, 0, 0.14);
+  border-radius: 12px;
+
+  background: #fff;
+
+  font-size: 17px;
+  font-weight: 800;
+
+  cursor: pointer;
+
+  transition:
+    background 0.16s ease,
+    border-color 0.16s ease,
+    transform 0.16s ease;
+}
+
+.minigame-selector-button:hover {
+  transform: translateY(-1px);
+}
+
+.minigame-selector-button.active {
+  background: #bff5e5;
+  border-color: #76d9bd;
+}
+
+
+@media (max-width: 700px) {
+  .minigame-selector {
+    gap: 8px;
+  }
+
+  .minigame-selector-button {
+    min-width: 0;
+    min-height: 46px;
+
+    padding: 8px 14px;
+
+    font-size: 14px;
+  }
+}
+
+
+/* ==================================================
+   MINI GAME BUTTON — 2 LINE LABEL
+   ================================================== */
+
+.minigame-button-line {
+  display: block;
+  white-space: nowrap;
+}
+
+.minigame-selector-button:has(.minigame-button-line) {
+  font-size: 15px;
+  line-height: 1.25;
+}
+
+
+/* ==================================================
+   DUGONG SONG SELECT
+   ================================================== */
+
+.dugong-song-select {
+  width: 100%;
+  margin-bottom: 26px;
+}
+
+.dugong-song-select-title {
+  margin: 0 0 26px;
+  line-height: 1.3;
+}
+
+.dugong-song-select-label {
+  margin: 0 0 12px;
+
+  font-size: 14px;
+  font-weight: 800;
+
+  opacity: 0.6;
+}
+
+.dugong-song-list {
+  display: grid;
+  grid-template-columns:
+    repeat(auto-fill, minmax(250px, 1fr));
+
+  gap: 12px;
+}
+
+.dugong-song-item {
+  min-height: 72px;
+
+  padding: 16px 20px;
+
+  border: 2px solid rgba(0, 0, 0, 0.10);
+  border-radius: 14px;
+
+  background: #fff;
+
+  text-align: left;
+
+  cursor: pointer;
+
+  transition:
+    transform 0.15s ease,
+    background 0.15s ease,
+    border-color 0.15s ease,
+    color 0.15s ease;
+}
+
+.dugong-song-item:hover {
+  transform: translateY(-2px);
+}
+
+/*
+  STELLA 계열 보라색.
+  곡을 선택했을 때 사용.
+*/
+.dugong-song-item.active {
+  background: #5541b5;
+  border-color: #5541b5;
+  color: #fff;
+}
+
+.dugong-song-name {
+  font-size: 17px;
+  font-weight: 800;
+}
+
+
+/* ===== DUGONG UI REORGANIZE 2026-10-07 ===== */
+
+/* 楽曲選択은 큰 제목으로 */
+.dugong-song-select-label {
+  margin: 24px 0 18px !important;
+  text-align: center;
+  font-size: 28px !important;
+  font-weight: 900 !important;
+  color: #333 !important;
+}
+
+/*
+  기존 820px보다 게임판을 좁힌다.
+  드래그 JS가 playArea의 실제 폭을 사용하므로
+  별도의 이동/충돌 로직 수정 없이 이동 범위도 같이 좁아진다.
+*/
+.dugong-play-area {
+  width: min(600px, calc(100% - 32px)) !important;
+}
+
+/* 시작 전 듀공 중앙 위치를 확실히 유지 */
+#dugongPlayer:not(.dragging) {
+  left: 50%;
+}
+
+/* 곡 선택 버튼 */
+.dugong-song-list {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 14px;
+}
+
+.dugong-song-item {
+  min-width: 280px;
+}
+
+/* 모바일에서는 화면을 넘지 않게 */
+@media (max-width: 650px) {
+  .dugong-play-area {
+    width: calc(100% - 20px) !important;
+  }
+
+  .dugong-song-select-label {
+    font-size: 24px !important;
+  }
+
+  .dugong-song-item {
+    min-width: 0;
+    width: 100%;
+  }
+}
+
+/* ===== DUGONG FINAL UI PATCH 2026-10-07 ===== */
+
+/* 실제 듀공 게임 안 제목은 한 줄 */
+#dugongGameStage .minigame-prototype-header h2 {
+  white-space: nowrap;
+}
+
+/* 곡 선택 전체를 왼쪽 정렬 */
+#dugongSongList {
+  text-align: left !important;
+}
+
+.dugong-song-select-label {
+  margin: 24px 0 12px !important;
+  text-align: left !important;
+  font-size: 28px !important;
+  font-weight: 900 !important;
+}
+
+/* 곡 목록도 왼쪽부터 */
+.dugong-song-list {
+  display: flex !important;
+  justify-content: flex-start !important;
+  align-items: flex-start !important;
+  gap: 10px !important;
+}
+
+/* 곡 버튼 크기 축소 */
+.dugong-song-item {
+  width: auto !important;
+  min-width: 210px !important;
+  max-width: 260px !important;
+  padding: 12px 18px !important;
+
+  border-radius: 13px !important;
+  border: 2px solid #d9d9e3 !important;
+
+  font-size: 15px !important;
+  text-align: left !important;
+
+  background: #fff !important;
+  color: #333 !important;
+}
+
+/* STELLA 보라색 */
+.dugong-song-item.active,
+.dugong-song-item:focus,
+.dugong-song-item:active {
+  background: #5541B5 !important;
+  border-color: #5541B5 !important;
+  color: #fff !important;
+}
+
+.dugong-song-item.active .dugong-song-name,
+.dugong-song-item:focus .dugong-song-name,
+.dugong-song-item:active .dugong-song-name {
+  color: #fff !important;
+}
+
+/* 게임판을 더 좁게 */
+.dugong-play-area {
+  width: min(500px, calc(100% - 32px)) !important;
+}
+
+/*
+ START는 플레이 영역 중앙.
+ 듀공보다 위에 위치.
+*/
+#dugongChartStart {
+  position: absolute !important;
+
+  left: 50% !important;
+  right: auto !important;
+
+  bottom: 112px !important;
+
+  transform: translateX(-50%) !important;
+
+  z-index: 30 !important;
+}
+
+/* 리스타트 버튼 */
+.dugong-restart-button {
+  display: none;
+
+  position: absolute;
+  left: 50%;
+  bottom: 24px;
+
+  transform: translateX(-50%);
+
+  z-index: 100;
+
+  min-width: 150px;
+  padding: 12px 24px;
+
+  border: 0;
+  border-radius: 999px;
+
+  background: #5541B5;
+  color: #fff;
+
+  font: inherit;
+  font-size: 16px;
+  font-weight: 800;
+
+  cursor: pointer;
+
+  box-shadow:
+    0 5px 18px rgba(0, 0, 0, 0.18);
+}
+
+.dugong-restart-button.visible {
+  display: block;
+}
+
+@media (max-width: 560px) {
+  .dugong-play-area {
+    width: min(460px, calc(100% - 20px)) !important;
+  }
+
+  .dugong-song-item {
+    min-width: 190px !important;
+  }
+}
+
+/* ==================================================
+   DUGONG LAYOUT FIX V2
+   ================================================== */
+
+
+/* ------------------------------------------
+   1. 상단 미니게임 버튼
+   動くジュゴンに
+   降るノーツ
+   무조건 2줄
+------------------------------------------ */
+
+.minigame-selector-button[data-minigame="dugong"] {
+  white-space: normal !important;
+  line-height: 1.2 !important;
+}
+
+.minigame-selector-button[data-minigame="dugong"]
+.minigame-button-line {
+  display: block !important;
+  width: 100% !important;
+  white-space: nowrap !important;
+}
+
+
+/* 로봇도 동일 */
+.minigame-selector-button[data-minigame="robot"]
+.minigame-button-line {
+  display: block !important;
+  width: 100% !important;
+  white-space: nowrap !important;
+}
+
+
+/* ------------------------------------------
+   2. 楽曲選択
+   게임 제목보다는 작게
+------------------------------------------ */
+
+#dugongSongList .dugong-song-select-label {
+  margin: 18px 0 10px !important;
+
+  text-align: left !important;
+
+  font-size: 20px !important;
+  line-height: 1.3 !important;
+  font-weight: 800 !important;
+}
+
+
+/* ------------------------------------------
+   3. 곡 버튼 더 작게
+------------------------------------------ */
+
+#dugongSongList .dugong-song-list {
+  display: flex !important;
+  justify-content: flex-start !important;
+  align-items: flex-start !important;
+
+  gap: 8px !important;
+}
+
+#dugongSongList .dugong-song-item {
+  width: auto !important;
+
+  min-width: 0 !important;
+  max-width: none !important;
+  min-height: 0 !important;
+
+  padding: 8px 13px !important;
+
+  border-radius: 10px !important;
+
+  font-size: 14px !important;
+  line-height: 1.2 !important;
+}
+
+#dugongSongList .dugong-song-name {
+  font-size: 14px !important;
+  line-height: 1.2 !important;
+}
+
+
+/* 선택 시 STELLA 보라색 */
+#dugongSongList .dugong-song-item.active {
+  background: #5541B5 !important;
+  border-color: #5541B5 !important;
+  color: #fff !important;
+}
+
+#dugongSongList .dugong-song-item.active
+.dugong-song-name {
+  color: #fff !important;
+}
+
+
+/* ------------------------------------------
+   4 + 5. 게임판 폭 축소
+------------------------------------------ */
+
+#dugongPlayArea {
+  width: min(440px, calc(100% - 32px)) !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+
+/*
+  START는 플레이 영역 기준 정중앙.
+  듀공 머리 위.
+*/
+#dugongChartStart {
+  position: absolute !important;
+
+  left: 50% !important;
+  right: auto !important;
+
+  bottom: 105px !important;
+
+  transform: translateX(-50%) !important;
+
+  margin: 0 !important;
+
+  z-index: 50 !important;
+}
+
+
+/* 듀공은 바닥 중앙 */
+#dugongPlayer {
+  bottom: 18px;
+}
+
+
+/* ------------------------------------------
+   노트가 너무 중앙에 몰리지 않도록
+   노트 스트림 사용 가능 폭 확대
+------------------------------------------ */
+
+#dugongChartViewport,
+#dugongChartStream {
+  width: 100% !important;
+  max-width: none !important;
+}
+
+
+/*
+  개별 노트에 좌우 여백 제한이 걸려 있을 경우
+  실제 레인 폭을 더 많이 사용.
+*/
+#dugongChartStream .dugong-note,
+#dugongChartStream [class*="note"] {
+  --dugong-lane-spread: 1.12;
+}
+
+
+@media (max-width: 500px) {
+
+  #dugongPlayArea {
+    width: min(410px, calc(100% - 20px)) !important;
+  }
+
+}
+
+/* ==================================================
+   DUGONG LAYOUT FIX V3
+   ================================================== */
+
+
+/* 1. 듀공 게임 내부 제목은 무조건 한 줄 */
+#dugongGameStage h2,
+#dugongGameStage .minigame-prototype-header h2 {
+  white-space: nowrap !important;
+  word-break: keep-all !important;
+  overflow-wrap: normal !important;
+
+  width: max-content !important;
+  max-width: none !important;
+}
+
+
+/* 2. START를 듀공 바로 위 정중앙에 고정 */
+#dugongPlayArea {
+  position: relative !important;
+}
+
+#dugongChartStart {
+  position: absolute !important;
+
+  left: 50% !important;
+  right: auto !important;
+
+  /*
+    듀공이 bottom:18px 부근에 있으므로
+    머리 바로 위에 오도록 배치
+  */
+  bottom: 100px !important;
+
+  top: auto !important;
+
+  margin: 0 !important;
+
+  transform: translateX(-50%) !important;
+
+  z-index: 100 !important;
+}
+
+
+/* START 자체가 너무 넓어서 왼쪽처럼 보이는 현상 방지 */
+#dugongChartStart {
+  width: auto !important;
+  min-width: 90px !important;
+  max-width: 140px !important;
+
+  padding: 9px 18px !important;
+
+  text-align: center !important;
+}
+
+
+/* 듀공도 시작 전 정확히 중앙 */
+#dugongPlayer {
+  left: 50%;
+}
+
+
+/* 게임판 폭은 현재 좁힌 상태 유지 */
+#dugongPlayArea {
+  width: min(440px, calc(100% - 32px)) !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+/* ===== DUGONG SONG SCREEN TITLE FIX ===== */
+
+/*
+  楽曲選択 화면의 큰 제목만 한 줄.
+  위쪽 미니게임 메뉴 버튼에는 영향 없음.
+*/
+#dugongSongList .dugong-song-select-title {
+  display: block !important;
+
+  width: max-content !important;
+  max-width: none !important;
+
+  white-space: nowrap !important;
+  word-break: keep-all !important;
+  overflow-wrap: normal !important;
+
+  line-height: 1.25 !important;
+}
+
+/*
+  HTML에 <br>이 남아 있어도 이 화면에서만 무효화.
+*/
+#dugongSongList .dugong-song-select-title br {
+  display: none !important;
+}
+
+/* ==================================================
+   DUGONG VISUAL FIX V4
+   ================================================== */
+
+
+/* --------------------------------------------------
+   곡 선택 화면 큰 제목:
+   動くジュゴンに降るノーツ
+   무조건 한 줄
+-------------------------------------------------- */
+
+#dugongSongList .dugong-song-select-title {
+  display: block !important;
+
+  width: auto !important;
+  max-width: none !important;
+
+  margin: 20px 0 26px !important;
+
+  white-space: nowrap !important;
+  word-break: keep-all !important;
+  overflow-wrap: normal !important;
+
+  font-size: 28px !important;
+  line-height: 1.2 !important;
+
+  text-align: left !important;
+}
+
+
+/* --------------------------------------------------
+   실제 게임 화면
+
+          MINI GAME
+   動くジュゴンに降るノーツ
+       설명문
+
+   순서로 중앙 정렬
+-------------------------------------------------- */
+
+#dugongGameStage .minigame-prototype-header {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+
+  width: 100% !important;
+
+  text-align: center !important;
+}
+
+
+/* MINI GAME */
+#dugongGameStage .minigame-prototype-label {
+  order: 1 !important;
+
+  margin: 0 0 10px !important;
+
+  text-align: center !important;
+}
+
+
+/* 제목 */
+#dugongGameStage .minigame-prototype-header h2 {
+  order: 2 !important;
+
+  display: block !important;
+
+  width: auto !important;
+  max-width: none !important;
+
+  margin: 0 0 18px !important;
+
+  white-space: nowrap !important;
+  word-break: keep-all !important;
+  overflow-wrap: normal !important;
+
+  text-align: center !important;
+}
+
+
+/* 설명 */
+#dugongGameStage .minigame-prototype-description,
+#dugongGameStage .minigame-prototype-header p {
+  order: 3 !important;
+
+  width: 100% !important;
+
+  margin: 0 0 22px !important;
+
+  text-align: center !important;
+}
+
+
+/* --------------------------------------------------
+   게임판은 다시 넓힌다.
+
+   게임판을 좁혀서 난이도를 조절하는 방식 취소.
+-------------------------------------------------- */
+
+#dugongPlayArea {
+  width: min(700px, calc(100% - 40px)) !important;
+
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+
+/* 차트는 게임판 전체 폭 사용 */
+#dugongChartViewport,
+#dugongChartStream {
+  width: 100% !important;
+  max-width: none !important;
+}
+
+
+/* START는 듀공 머리 위 중앙 */
+#dugongChartStart {
+  position: absolute !important;
+
+  left: 50% !important;
+  right: auto !important;
+
+  top: auto !important;
+  bottom: 105px !important;
+
+  width: auto !important;
+  min-width: 90px !important;
+  max-width: 140px !important;
+
+  margin: 0 !important;
+  padding: 9px 18px !important;
+
+  transform: translateX(-50%) !important;
+
+  text-align: center !important;
+
+  z-index: 100 !important;
+}
+
+
+/* 시작 전 듀공 중앙 */
+#dugongPlayer {
+  left: 50%;
+}
+
+
+@media (max-width: 740px) {
+
+  #dugongPlayArea {
+    width: calc(100% - 24px) !important;
+  }
+
+}
+
+/* ===== DUGONG START HIGHER ===== */
+#dugongChartStart {
+  bottom: 175px !important;
+}
+
+/* ===== DUGONG START GAP FINAL ===== */
+
+/* JS가 최종 좌표를 계산하지만 버튼 자체 여백도 안정적으로 유지 */
+#dugongChartStart{
+  white-space: nowrap;
+}
+
+
+/* ===== DUGONG FIELD BALANCE 2026-10-07 ===== */
+
+/*
+  검은 게임판 자체의 좌우 폭을 줄인다.
+  높이는 기존 그대로 유지.
+*/
+#dugongPlayArea{
+  width: min(580px, calc(100vw - 48px)) !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+/*
+  벡터 노트 레이어는 좁아진 게임판 전체를 사용.
+*/
+#dugongVectorLayer,
+#dugongVectorField{
+  width: 100% !important;
+  left: 0 !important;
+  right: 0 !important;
+}
+
+
+
+/* ===== ACTOR QUIZ STEP 1 ===== */
+
+.actor-quiz-header {
+  margin-bottom: 22px;
+}
+
+.actor-quiz-header h2 {
+  margin: 4px 0 0;
+}
+
+.actor-quiz-game {
+  width: min(560px, 100%);
+  margin: 0 auto;
+  text-align: center;
+}
+
+.actor-quiz-type {
+  display: inline-block;
+  margin-bottom: 12px;
+  padding: 6px 14px;
+
+  border: 1px solid #ddd;
+  border-radius: 999px;
+
+  background: #fff;
+
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.actor-quiz-image-frame {
+  position: relative;
+
+  width: 100%;
+  aspect-ratio: 16 / 10;
+
+  overflow: hidden;
+
+  border: 1px solid #ddd;
+  border-radius: 18px;
+
+  background: #eee;
+}
+
+.actor-quiz-image {
+  width: 100%;
+  height: 100%;
+
+  display: block;
+
+  object-fit: cover;
+
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+/* 사진 일부 */
+.actor-quiz-image-frame[data-mode="crop"]
+.actor-quiz-image {
+  transform: scale(2.15);
+}
+
+/* 블러 */
+.actor-quiz-image-frame[data-mode="blur"]
+.actor-quiz-image {
+  filter: blur(18px);
+  transform: scale(1.08);
+}
+
+/*
+  옷 보고 맞히기:
+  이미지는 크게 보여주되 위쪽을 가려
+  얼굴보다 몸/의상 쪽에 시선이 가도록 한다.
+*/
+.actor-quiz-image-frame[data-mode="costume"]
+.actor-quiz-image {
+  object-position: center 72%;
+  transform: scale(1.35);
+}
+
+.actor-quiz-costume-mask {
+  position: absolute;
+  z-index: 2;
+
+  left: 0;
+  right: 0;
+  top: 0;
+
+  height: 43%;
+
+  background: #222;
+}
+
+.actor-quiz-test-next {
+  margin-top: 16px;
+  padding: 9px 20px;
+
+  border: 1px solid #ccc;
+  border-radius: 999px;
+
+  background: #fff;
+
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.actor-quiz-test-next:hover {
+  background: #f5f5f5;
+}
+
+/* ===== ACTOR QUIZ CHOICES ===== */
+
+.actor-quiz-choices {
+  width: min(520px, 100%);
+  margin: 18px auto 0;
+
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.actor-quiz-choice {
+  min-height: 52px;
+  padding: 10px 12px;
+
+  border: 1px solid #d7d7dd;
+  border-radius: 14px;
+
+  background: #fff;
+
+  font: inherit;
+  font-weight: 700;
+
+  cursor: pointer;
+}
+
+.actor-quiz-choice:hover:not(:disabled) {
+  background: #f6f6f8;
+  transform: translateY(-1px);
+}
+
+.actor-quiz-choice.correct {
+  border-color: #5fd7b9;
+  background: #dffaf2;
+}
+
+.actor-quiz-choice.wrong {
+  border-color: #ff8c9e;
+  background: #ffe8ed;
+}
+
+.actor-quiz-choice:disabled {
+  cursor: default;
+}
+
+.actor-quiz-result {
+  margin-top: 14px;
+  min-height: 28px;
+
+  font-size: 17px;
+  font-weight: 800;
+}
+
+.actor-quiz-result[hidden] {
+  display: none !important;
+}
+
+@media (max-width: 600px) {
+  .actor-quiz-choices {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+/* ===== ACTOR QUIZ CROP / ANSWER TUNING ===== */
+
+/*
+  写真の一部:
+  문제 프레임 자체를 작은 정사각형으로 만든다.
+*/
+.actor-quiz-image-frame[data-mode="crop"] {
+  width: min(300px, 68vw);
+  aspect-ratio: 1 / 1;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/*
+  블러 문제와 정답 공개는 기존 넓은 프레임.
+*/
+.actor-quiz-image-frame[data-mode="blur"],
+.actor-quiz-image-frame.answer-revealed {
+  width: 100%;
+  aspect-ratio: 16 / 10;
+}
+
+/*
+  정답 공개 순간에는 crop 규칙보다 우선하여
+  원본 전체 크기로 복귀.
+*/
+.actor-quiz-image-frame.answer-revealed {
+  width: 100% !important;
+  aspect-ratio: 16 / 10 !important;
+  background: #111;
+}
+
+.actor-quiz-image-frame.answer-revealed .actor-quiz-image {
+  object-fit: contain !important;
+  object-position: center center !important;
+  transform: none !important;
+  filter: none !important;
+}
+
+
+
+/* ===== ACTOR QUIZ 10 QUESTION GAME ===== */
+
+.actor-quiz-progress {
+  width: min(520px, 100%);
+  margin: 0 auto 12px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  font-size: 14px;
+  font-weight: 800;
+}
+
+.actor-quiz-final {
+  width: min(560px, 100%);
+  margin: 20px auto 0;
+  text-align: center;
+}
+
+.actor-quiz-final[hidden] {
+  display: none !important;
+}
+
+.actor-quiz-final-image {
+  display: block;
+  width: min(260px, 70vw);
+  height: auto;
+  margin: 0 auto;
+
+  object-fit: contain;
+}
+
+.actor-quiz-reward {
+  margin-top: 14px;
+
+  font-size: 30px;
+  font-weight: 900;
+  line-height: 1;
+
+  animation: actorRewardPop .28s ease-out;
+}
+
+.actor-quiz-reward[hidden] {
+  display: none !important;
+}
+
+.actor-quiz-restart {
+  margin-top: 20px;
+  padding: 10px 24px;
+
+  border: 1px solid #ccc;
+  border-radius: 999px;
+
+  background: #fff;
+
+  font: inherit;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.actor-quiz-restart:hover {
+  background: #f5f5f5;
+}
+
+@keyframes actorRewardPop {
+  from {
+    transform: scale(.75);
+    opacity: 0;
+  }
+
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+

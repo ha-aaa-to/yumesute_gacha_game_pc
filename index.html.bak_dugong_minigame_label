@@ -1,0 +1,593 @@
+<!doctype html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>ユメステガチャゲーム</title><link rel="stylesheet" href="style.css"></head><body>
+
+<div id="startScreen" class="start-screen">
+  <button id="startButton" class="start-button" type="button" aria-label="ガチャを始める">
+    <img
+      id="startDugong"
+      src="dugong-normal.png"
+      data-normal="dugong-normal.png"
+      data-active="dugong-active.png"
+      alt=""
+    >
+  </button>
+
+  <div class="start-hint">CLICK TO START</div>
+</div>
+
+<main><p class="eyebrow">World Dai Star: Yume no Stellarium Fanmade Gacha Game</p><div class="title-row">
+  <h1><button id="titleHome" class="title-home" type="button"
+aria-label="タイトル画面に戻る">ユメステガチャゲーム</button></h1>
+
+  <div id="easterEgg" class="easter-egg">
+    <button id="easterTrigger" class="easter-trigger"
+            type="button"
+            aria-label="制作者情報を表示"
+            aria-expanded="false">
+      <img src="easter-left.png"
+           class="easter-left"
+           alt="">
+    </button>
+
+    <div id="easterReveal" class="easter-reveal" aria-hidden="true">
+
+      <div class="easter-message">
+        <strong>プレイ中、問題がございましたらご報告ください！<br>
+……って言っても、修正できないところは直せません。</strong>
+
+        <span>
+          制作者 X（旧Twitter）：
+          <a href="https://x.com/ha_aaa_to"
+             target="_blank"
+             rel="noopener noreferrer">@ha_aaa_to</a>
+        </span>
+
+        <span>
+          制作者メール：
+          <a href="mailto:jeyeon4860@naver.com">jeyeon4860@naver.com</a>
+        </span>
+      </div>
+
+      <img src="easter-right.png"
+           class="easter-right"
+           alt="">
+    </div>
+  </div>
+</div>
+
+
+
+<div class="top-utility-row">
+  <div class="top-utility-left">
+    <button id="giftBoxButton" class="gift-box-button" type="button" aria-label="プレゼント">
+    <img class="gift-icon" src="assets/gift-box.png" alt="">
+    <span id="giftBadge" class="gift-badge" hidden>0</span>
+  </button>
+  </div>
+
+  <div class="top-utility-right">
+    <div class="currency-display" aria-label="所持スター">
+    <img src="assets/currency-source.png" alt="">
+    <span id="currencyBalance">0</span>
+  </div>
+  </div>
+</div>
+
+<div class="main-navigation">
+  <button id="gachaMainButton" class="main-nav-button active" type="button">
+  <span class="main-nav-en">GACHA</span>
+  <span class="main-nav-jp">ガチャ</span>
+</button>
+  <button id="ownedListButton" class="main-nav-button" type="button">
+  <span class="main-nav-en">LIST</span>
+  <span class="main-nav-jp">所持一覧</span>
+</button>
+  <button id="itemsButton" class="main-nav-button" type="button">
+  <span class="main-nav-en">ITEMS</span>
+  <span class="main-nav-jp">持ち物</span>
+</button>
+  <button id="miniGameButton" class="main-nav-button" type="button">
+  <span class="main-nav-en">MINI GAME</span>
+  <span class="main-nav-jp">ミニゲーム</span>
+</button>
+</div>
+
+<div id="gachaSubNavigation" class="gacha-tabs">
+
+  <button class="gacha-tab active"
+          data-gacha="normal"
+          onclick="selectGacha('normal')">
+    <img src="yumeste-logo.png" alt="通常ガチャ">
+  </button>
+
+  <button class="gacha-tab"
+          data-gacha="sirius"
+          onclick="selectGacha('sirius')">
+    <img src="sirius-logo.png" alt="シリウス">
+  </button>
+
+  <button class="gacha-tab"
+          data-gacha="eden"
+          onclick="selectGacha('eden')">
+    <img src="eden-logo.png" alt="Eden">
+  </button>
+
+  <button class="gacha-tab"
+          data-gacha="gingaza"
+          onclick="selectGacha('gingaza')">
+    <img src="gingaza-logo.png" alt="銀河座">
+  </button>
+
+  <button class="gacha-tab"
+          data-gacha="denki"
+          onclick="selectGacha('denki')">
+    <img src="denki-logo.png" alt="劇団電姫">
+  </button>
+
+  <button class="gacha-tab"
+          data-gacha="sunshine"
+          onclick="selectGacha('sunshine')">
+    <img src="sunshine-logo.png" alt="コラボガチャ">
+  </button>
+
+</div><div id="gachaScreen">
+<section class="banner"><div><b>KOKONA ONLY</b><h2>ここなのフォトコレクション</h2><p>★★★★ 3%　★★★ 15%　★★ 82%</p><small>★4 14종 · ★3 4종 · ★2 1종</small></div></section><div class="actions"><button id="one">
+<span class="pull-label">1回引く</span>
+<span class="pull-cost"><img src="assets/currency-source.png" alt=""> 300</span>
+</button><div class="ten-pull-wrap">
+  <div class="guarantee-badge">★3以上1人確定！</div>
+  <button id="ten" class="primary">
+<span class="pull-label">10回引く</span>
+<span class="pull-cost"><img src="assets/currency-source.png" alt=""> 3000</span>
+</button>
+</div></div><div class="stats">合計 <b id="count">0</b>回　★★★★ <b id="four">0</b>　★★★ <b id="three">0</b>　★★ <b id="two">0</b></div><section id="results"><div class="empty">ガチャを引いてみよう ✦</div></section>
+</div>
+
+
+
+<section id="itemsScreen" class="items-screen" hidden>
+  <div class="items-page">
+    <h2>持ち物</h2>
+
+    <div id="itemsList" class="items-list"></div>
+
+    <div id="itemsEmpty" class="items-empty">
+      まだアイテムを所持していません
+    </div>
+  </div>
+</section>
+
+<div id="itemPreviewModal" class="item-preview-modal" hidden>
+  <div class="item-preview-dialog">
+
+    <button
+      id="itemPreviewClose"
+      class="item-preview-close"
+      type="button"
+      aria-label="閉じる"
+    >×</button>
+
+    <img
+      id="itemPreviewImage"
+      class="item-preview-image"
+      src=""
+      alt=""
+    >
+
+    <div
+      id="itemPreviewName"
+      class="item-preview-name"
+    ></div>
+
+    <a
+      id="itemDownloadButton"
+      class="item-download-button"
+      href=""
+      download
+    >ダウンロード</a>
+
+  </div>
+</div>
+
+<section id="miniGameScreen" class="minigame-screen" hidden>
+
+  <!-- ===== MINI GAME SELECTOR ===== -->
+  <nav class="minigame-selector" aria-label="ミニゲーム選択">
+
+    <button
+      type="button"
+      class="minigame-selector-button active"
+      data-minigame="dugong">
+      <span class="minigame-button-line">動くジュゴンに</span>
+      <span class="minigame-button-line">降るノーツ</span>
+    </button>
+
+    <button
+      type="button"
+      class="minigame-selector-button"
+      data-minigame="actor">
+      このアクターは誰？
+    </button>
+
+    <button
+      type="button"
+      class="minigame-selector-button"
+      data-minigame="robot">
+      <span class="minigame-button-line">わたしはロボット</span>
+      <span class="minigame-button-line">ではありません</span>
+    </button>
+
+    <button
+      type="button"
+      class="minigame-selector-button"
+      data-minigame="memory">
+      アクターメモリー
+    </button>
+
+    <button
+      type="button"
+      class="minigame-selector-button"
+      data-minigame="song">
+      この曲は何？
+    </button>
+
+    
+
+  </nav>
+  <!-- ===== /MINI GAME SELECTOR ===== -->
+
+
+  <div id="dugongMiniGameContent" class="minigame-content-panel">
+
+    <div id="dugongSongList" class="dugong-song-select">
+
+      <h2 class="dugong-song-select-title">動くジュゴンに降るノーツ</h2>
+
+      <p class="dugong-song-select-label">楽曲選択</p>
+
+      <div class="dugong-song-list">
+
+        <button
+          type="button"
+          class="dugong-song-item"
+          data-dugong-song="iroha-blooming">
+          <span class="dugong-song-name">いろはうたBLOOMING</span>
+        </button>
+
+      </div>
+
+    </div>
+
+
+  <div id="dugongGameStage" hidden>
+  <div class="minigame-prototype-header">
+    <p class="minigame-screen-label">MINI GAME</p>
+    <h2>動くジュゴンに降るノーツ</h2>
+    <p>ジュゴンをつかんで左右に動かしてみよう！</p>
+  </div>
+
+  
+  <div class="dugong-proto-controls">
+
+    <span id="dugongChartTime" hidden></span>
+  </div>
+
+<div id="dugongPlayArea" class="dugong-play-area">
+    
+    <div id="dugongChartViewport" class="dugong-chart-viewport">
+      <div id="dugongChartStream" class="dugong-chart-stream"></div>
+    </div>
+
+<div class="dugong-guide">DRAG ←　→</div>
+
+    <img
+      id="dugongPlayer"
+      class="dugong-player"
+      src="assets/dugong-game.png"
+      alt="ジュゴン"
+      draggable="false"
+    >
+
+    <button
+      id="dugongChartStart"
+      type="button"
+      class="dugong-start-over-player"
+    >START</button>
+  </div>
+
+
+  <audio
+    id="dugongGameAudio"
+    preload="auto"
+    src="assets/dugong-charts/066/irohauta-blooming.mp3">
+  </audio>
+  </div>
+
+  <!-- /dugongMiniGameContent -->
+  </div>
+
+  <div id="actorMiniGameContent"
+       class="minigame-content-panel"
+       hidden>
+
+    <div class="actor-quiz-header">
+      <p class="minigame-screen-label">MINI GAME</p>
+      <h2>このアクターは誰？</h2>
+    </div>
+
+    <div id="actorQuizGame" class="actor-quiz-game">
+
+      <div id="actorQuizProgress"
+           class="actor-quiz-progress">
+        <span id="actorQuizQuestionNumber">問題 1 / 10</span>
+        <span id="actorQuizScore">正解 0</span>
+      </div>
+
+      <div id="actorQuizType"
+           class="actor-quiz-type">
+        写真の一部
+      </div>
+
+      <div id="actorQuizImageFrame"
+           class="actor-quiz-image-frame">
+
+        <img id="actorQuizImage"
+             class="actor-quiz-image"
+             src=""
+             alt="">
+
+        <div id="actorQuizCostumeMask"
+             class="actor-quiz-costume-mask"
+             hidden></div>
+
+      </div>
+
+      <div id="actorQuizChoices"
+           class="actor-quiz-choices"></div>
+
+      <div id="actorQuizResult"
+           class="actor-quiz-result"
+           hidden></div>
+
+      <div id="actorQuizFinal"
+           class="actor-quiz-final"
+           hidden>
+
+        <img id="actorQuizFinalImage"
+             class="actor-quiz-final-image"
+             src=""
+             alt="">
+
+        <div id="actorQuizReward"
+             class="actor-quiz-reward"
+             hidden>+500</div>
+
+        <button id="actorQuizRestart"
+                class="actor-quiz-restart"
+                type="button">
+          RESTART
+        </button>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <div id="songMiniGameContent"
+       class="minigame-content-panel"
+       hidden>
+    <h2>この曲は何？</h2>
+  </div>
+
+  <div id="robotMiniGameContent"
+     class="minigame-content-panel"
+     hidden>
+
+  <div class="robot-captcha">
+
+    <div class="robot-captcha-header">
+      <strong class="robot-captcha-actor">鳳ここな</strong>
+      <strong class="robot-captcha-instruction">のタイルをすべて選択してください</strong>
+      <span class="robot-captcha-note">アクター名が基準です</span>
+    </div>
+
+    <div id="robotCaptchaGrid"
+         class="robot-captcha-grid">
+    </div>
+
+    <div class="robot-captcha-footer">
+
+      <button id="robotCaptchaReload"
+              class="robot-captcha-icon-button"
+              type="button"
+              aria-label="更新">
+        ↻
+      </button>
+
+      <div id="robotCaptchaResult"
+             class="robot-captcha-result"
+             hidden></div>
+
+      <button id="robotCaptchaConfirm"
+              class="robot-captcha-confirm"
+              type="button">
+        確認
+      </button>
+
+    </div>
+
+  </div>
+
+</div>
+
+  <div id="memoryMiniGameContent"
+     class="minigame-content-panel"
+     hidden>
+
+  <div class="actor-memory">
+
+    <div class="actor-memory-header">
+      <p class="minigame-screen-label">MINI GAME</p>
+      <h2>アクターメモリー</h2>
+
+      <div id="actorMemoryStatus"
+           class="actor-memory-status">
+        3秒間覚えてください
+      </div>
+    </div>
+
+    <div id="actorMemoryStart"
+         class="actor-memory-start">
+
+      <button id="actorMemoryStartButton"
+              class="actor-memory-start-button"
+              type="button">
+        START
+      </button>
+
+    </div>
+
+    <div id="actorMemoryGrid"
+         class="actor-memory-grid"
+         hidden>
+    </div>
+
+    <div id="actorMemoryClear"
+         class="actor-memory-clear"
+         hidden>
+
+      <div class="actor-memory-clear-title">
+        CLEAR!
+      </div>
+
+      <div class="actor-memory-reward">
+        <img src="assets/currency-source.png"
+             alt=""
+             class="actor-memory-reward-icon">
+        <span>+500</span>
+      </div>
+
+      <button id="actorMemoryRestart"
+              class="actor-memory-restart"
+              type="button">
+        RESTART
+      </button>
+
+    </div>
+
+  </div>
+
+</div>
+
+  
+
+</section>
+
+<section id="ownedScreen" class="owned-screen" hidden>
+
+  <div class="owned-screen-header">
+
+    <div>
+      <p class="owned-screen-label">ACTOR COLLECTION</p>
+      <h2>所持一覧</h2>
+    </div>
+
+    
+
+  </div>
+
+
+  <div class="owned-summary">
+
+    <div class="owned-summary-item">
+      <span>所持種類</span>
+      <strong>
+        <span id="ownedTypeCount">0</span>
+        /
+        <span id="ownedTotalTypes">363</span>
+      </strong>
+    </div>
+
+    <div class="owned-view-switch">
+      <button id="ownedViewOwned"
+              class="owned-view-button active"
+              type="button">所持アクター</button>
+
+      <button id="ownedViewMissing"
+              class="owned-view-button"
+              type="button">未所持アクター</button>
+    </div>
+
+    
+
+  </div>
+
+
+  <div class="owned-filters">
+
+    <button type="button"
+            class="owned-filter active"
+            data-owned-rank="all">
+      すべて
+    </button>
+
+    <button type="button"
+            class="owned-filter"
+            data-owned-rank="4">
+      ★★★★
+    </button>
+
+    <button type="button"
+            class="owned-filter"
+            data-owned-rank="3">
+      ★★★
+    </button>
+
+    <button type="button"
+            class="owned-filter"
+            data-owned-rank="2">
+      ★★
+    </button>
+
+  
+
+    <button type="button"
+            id="ownedRankOrderButton"
+            class="owned-rank-order-button"
+            title="レアリティの表示順を変更">
+      ★★ → ★★★★
+    </button>
+
+  </div>
+
+
+  <div id="ownedResults"
+       class="owned-results">
+  </div>
+
+</section>
+
+</main>
+
+<div class="save-notice">
+  ブラウザのデータを削除した場合や、別の端末・ブラウザからアクセスした場合、セーブデータは引き継がれません。
+</div>
+<div id="giftModal" class="gift-modal" hidden>
+  <div class="gift-dialog">
+    <div class="gift-header">
+      <h2>プレゼント</h2>
+      <button id="giftClose" class="gift-close" type="button">×</button>
+    </div>
+
+    <div id="giftList" class="gift-list"></div>
+
+    <div class="gift-footer">
+      <button id="giftReceiveAll" class="gift-receive-all" type="button">一括受取</button>
+    </div>
+  </div>
+</div>
+
+<div id="modal" class="modal" hidden><div class="dialog"><button id="close" aria-label="닫기">×</button><img id="big" alt="포토 크게 보기"><div class="meta"><div id="modalStars"></div><strong id="modalTitle"></strong><span>鳳ここな</span></div><button id="awaken" class="awaken-arrow" type="button" aria-label="각성 일러스트 전환" title="일러스트 전환"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 8.5A9 9 0 1 0 21 14"/><path d="M20.5 3.8v4.7h-4.7"/></svg></button></div></div><script src="cards.js"></script><script src="assets/dugong-charts/066/generated/066-full-chart.js"></script><script src="assets/dugong-charts/066/generated/066-color-map.js"></script>
+<script src="item-assets.js"></script>
+<script src="script.js"></script>
+</body></html>

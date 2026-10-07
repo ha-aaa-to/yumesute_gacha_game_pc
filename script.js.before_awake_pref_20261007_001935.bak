@@ -1,0 +1,1549 @@
+
+
+/* ===== YUMESTE SAVE SYSTEM ===== */
+
+const SAVE_KEY = "yumesteFanGameSave";
+
+/*
+  앞으로 저장될 모든 게임 데이터의 기본 구조.
+
+  currency:
+    현재 보유 재화
+
+  ownedCards:
+    카드별 보유 수량
+
+  gifts:
+    선물함 데이터
+
+  login:
+    첫 접속 보상 / 일일 로그인 관리
+*/
+const DEFAULT_SAVE_DATA = {
+  version: 1,
+
+  currency: 0,
+
+  ownedCards: {},
+
+  gifts: [],
+
+  login: {
+    firstLoginGiftCreated: false,
+    lastDailyGiftDate: null
+  }
+};
+
+
+/* 기본 데이터의 새 복사본 생성 */
+function createDefaultSaveData() {
+  return JSON.parse(JSON.stringify(DEFAULT_SAVE_DATA));
+}
+
+
+/*
+  기존 세이브에 새 항목이 추가되어도
+  최대한 안전하게 기본값을 보충한다.
+*/
+function normalizeSaveData(data) {
+  const base = createDefaultSaveData();
+
+  if (!data || typeof data !== "object") {
+    return base;
+  }
+
+  return {
+    ...base,
+    ...data,
+
+    ownedCards:
+      data.ownedCards &&
+      typeof data.ownedCards === "object" &&
+      !Array.isArray(data.ownedCards)
+        ? data.ownedCards
+        : {},
+
+    gifts:
+      Array.isArray(data.gifts)
+        ? data.gifts
+        : [],
+
+    login: {
+      ...base.login,
+      ...(data.login && typeof data.login === "object"
+        ? data.login
+        : {})
+    }
+  };
+}
+
+
+/* 브라우저에서 세이브 불러오기 */
+function loadGameSave() {
+  try {
+    const raw = localStorage.getItem(SAVE_KEY);
+
+    /* 최초 접속 */
+    if (!raw) {
+      const freshSave = createDefaultSaveData();
+
+      localStorage.setItem(
+        SAVE_KEY,
+        JSON.stringify(freshSave)
+      );
+
+      return freshSave;
+    }
+
+    const parsed = JSON.parse(raw);
+    const normalized = normalizeSaveData(parsed);
+
+    /*
+      구조가 업데이트된 경우를 대비해
+      정규화된 데이터를 다시 저장
+    */
+    localStorage.setItem(
+      SAVE_KEY,
+      JSON.stringify(normalized)
+    );
+
+    return normalized;
+
+  } catch (error) {
+    console.error(
+      "セーブデータの読み込みに失敗しました。",
+      error
+    );
+
+    return createDefaultSaveData();
+  }
+}
+
+
+/* 현재 데이터를 브라우저에 저장 */
+function saveGameData() {
+  try {
+    localStorage.setItem(
+      SAVE_KEY,
+      JSON.stringify(gameSave)
+    );
+
+    return true;
+
+  } catch (error) {
+    console.error(
+      "セーブデータの保存に失敗しました。",
+      error
+    );
+
+    return false;
+  }
+}
+
+
+/*
+  게임 시작과 동시에 기존 세이브를 불러온다.
+  앞으로 재화/선물함/카드 시스템은
+  전부 이 gameSave를 사용한다.
+*/
+let gameSave = loadGameSave();
+
+
+const GROUP_ACTORS = {
+  sirius: new Set([
+    "鳳ここな",
+    "静香",
+    "カトリナ・グリーベル",
+    "新妻八恵",
+    "柳場ぱんだ",
+    "流石知冴"
+  ]),
+
+  eden: new Set([
+    "連尺野初魅",
+    "烏森大黒",
+    "舎人仁花子",
+    "萬容",
+    "筆島しぐれ"
+  ]),
+
+  gingaza: new Set([
+    "千寿暦",
+    "ラモーナ・ウォルフ",
+    "王雪",
+    "リリヤ・クルトベイ",
+    "与那国緋花里"
+  ]),
+
+  denki: new Set([
+    "千寿いろは",
+    "白丸美兎",
+    "阿岐留カミラ",
+    "猫足蕾",
+    "本巣叶羽"
+  ])
+};
+
+const SUNSHINE_ACTORS = new Set([
+  "高海千歌",
+  "桜内梨子",
+  "黒澤ダイヤ",
+  "津島善子",
+  "黒澤ルビィ"
+]);
+
+let gachaType = "normal";
+
+const gachaResults = {
+  normal: [],
+  sirius: [],
+  eden: [],
+  gingaza: [],
+  denki: [],
+  sunshine: []
+};
+
+const gachaStats = {
+  normal:   { total: 0, n4: 0, n3: 0, n2: 0 },
+  sirius:   { total: 0, n4: 0, n3: 0, n2: 0 },
+  eden:     { total: 0, n4: 0, n3: 0, n2: 0 },
+  gingaza:  { total: 0, n4: 0, n3: 0, n2: 0 },
+  denki:    { total: 0, n4: 0, n3: 0, n2: 0 },
+  sunshine: { total: 0, n4: 0, n3: 0, n2: 0 }
+};
+
+let current = null;
+let side = "before";
+
+const $ = s => document.querySelector(s);
+
+function currentPool() {
+  // 선샤인 콜라보: 기존 21명 + 선샤인 5명
+  if (gachaType === "sunshine") {
+    return ALL_CARDS;
+  }
+
+  // 극단별 가챠
+  if (GROUP_ACTORS[gachaType]) {
+    return ALL_CARDS.filter(card =>
+      GROUP_ACTORS[gachaType].has(card.actor)
+    );
+  }
+
+  // 통상: 선샤인 멤버 제외, 유메스테 21명
+  return ALL_CARDS.filter(card =>
+    !SUNSHINE_ACTORS.has(card.actor)
+  );
+}
+
+function chooseRank() {
+  const x = Math.random() * 100;
+
+  if (x < 3) return 4;       // ★★★★ 3%
+  if (x < 11.5) return 3;    // ★★★  8.5%
+  return 2;                  // ★★   88.5%
+}
+
+function pull(n) {
+
+  const cost = n === 10 ? 3000 : 300;
+
+  if (!spendCurrency(cost)) {
+    return;
+  }
+
+  const cards = currentPool();
+  const results = [];
+
+  // 먼저 일반 확률로 전부 뽑기
+  for (let i = 0; i < n; i++) {
+    const rank = chooseRank();
+    const pool = cards.filter(card => card.rank === rank);
+    const card = pool[Math.floor(Math.random() * pool.length)];
+
+    results.push(card);
+  }
+
+  // 10연에서 ★3 이상이 하나도 없을 때만 한 장 보장
+  if (n === 10 && !results.some(card => card.rank >= 3)) {
+    const guaranteedRank = Math.random() * 11.5 < 3 ? 4 : 3;
+    const pool = cards.filter(card => card.rank === guaranteedRank);
+    const replacement = pool[Math.floor(Math.random() * pool.length)];
+
+    const replaceIndex = Math.floor(Math.random() * 10);
+    results[replaceIndex] = replacement;
+  }
+
+  // 뽑은 카드를 실제 보유 카드에 저장
+  addPulledCardsToCollection(results);
+
+  // 이 가챠의 마지막 결과 저장
+  gachaResults[gachaType] = [...results];
+
+  // 누적 통계
+  const stats = gachaStats[gachaType];
+
+  for (const card of results) {
+    stats.total++;
+
+    if (card.rank === 4) stats.n4++;
+    else if (card.rank === 3) stats.n3++;
+    else stats.n2++;
+  }
+
+  renderResults(results);
+  updateStats();
+}
+
+
+function renderResults(cards) {
+  const container = $("#results");
+  container.innerHTML = "";
+
+  if (!cards || cards.length === 0) {
+    container.innerHTML =
+      '<div class="empty">ガチャを引いてみよう ✦</div>';
+    return;
+  }
+
+  for (const card of cards) {
+    const button = document.createElement("button");
+    button.className = "card";
+
+    button.innerHTML = `
+      <img src="${card.before}" alt="${card.title}">
+      <div class="info">
+        <div class="stars">${"★".repeat(card.rank)}</div>
+        <div class="actor">${card.actor}</div>
+        <div class="title">${card.title}</div>
+      </div>
+    `;
+
+    button.addEventListener("click", () => openCard(card));
+    container.append(button);
+  }
+}
+function updateStats() {
+  const stats = gachaStats[gachaType];
+
+  $("#count").textContent = stats.total;
+  $("#four").textContent = stats.n4;
+  $("#three").textContent = stats.n3;
+  $("#two").textContent = stats.n2;
+}
+
+function openCard(card) {
+  current = card;
+  side = "before";
+
+  $("#big").src = card.before;
+  $("#modalStars").textContent = "★".repeat(card.rank);
+  $("#modalTitle").textContent = card.title;
+
+  const actor = document.querySelector(".meta span");
+  actor.textContent = card.actor;
+
+  $("#modal").hidden = false;
+
+  $("#awaken").hidden = !(card.rank === 4 && card.after);
+}
+
+$("#awaken").addEventListener("click", () => {
+  if (!current || !current.after) return;
+
+  side = side === "before" ? "after" : "before";
+
+  $("#big").src =
+    side === "after"
+      ? current.after
+      : current.before;
+});
+
+$("#close").onclick = () => {
+  $("#modal").hidden = true;
+};
+
+$("#modal").addEventListener("click", e => {
+  if (e.target === $("#modal")) {
+    $("#modal").hidden = true;
+  }
+});
+
+$("#one").onclick = () => pull(1);
+$("#ten").onclick = () => pull(10);
+
+$("#clear").onclick = () => {
+  const stats = gachaStats[gachaType];
+
+  stats.total = 0;
+  stats.n4 = 0;
+  stats.n3 = 0;
+  stats.n2 = 0;
+
+  gachaResults[gachaType] = [];
+
+  updateStats();
+
+  $("#results").innerHTML =
+    '<div class="empty">ガチャを引いてみよう ✦</div>';
+};
+
+window.selectGacha = function(type) {
+
+  // 所持一覧 화면을 보고 있었다면 닫고 가챠로 복귀
+  const gachaScreen =
+    document.getElementById("gachaScreen");
+
+  const ownedScreen =
+    document.getElementById("ownedScreen");
+
+  if (gachaScreen && ownedScreen) {
+    ownedScreen.hidden = true;
+    gachaScreen.hidden = false;
+  }
+
+  // 所持一覧 / ミニゲーム 활성화 해제
+  const ownedTab =
+    document.getElementById("ownedListButton");
+
+  const miniTab =
+    document.getElementById("miniGameButton");
+
+  if (ownedTab) {
+    ownedTab.classList.remove("active");
+  }
+
+  if (miniTab) {
+    miniTab.classList.remove("active");
+  }
+
+  gachaType = type;
+
+  updateStats();
+
+  document.querySelectorAll(".gacha-tab").forEach(tab => {
+    tab.classList.toggle(
+      "active",
+      tab.dataset.gacha === type
+    );
+  });
+
+  const banner = document.querySelector(".banner");
+
+  banner.classList.remove("collab");
+
+  const banners = {
+    normal: {
+      badge: "ALL ACTORS",
+      text: "フェス限定アクターを含む全アクターが登場！"
+    },
+
+    sirius: {
+      badge: "SIRIUS",
+      text: "限定を含むシリウスのアクターのみ登場！"
+    },
+
+    eden: {
+      badge: "EDEN",
+      text: "限定を含むEdenのアクターのみ登場！"
+    },
+
+    gingaza: {
+      badge: "GINGAZA",
+      text: "限定を含む銀河座のアクターのみ登場！"
+    },
+
+    denki: {
+      badge: "DENKI",
+      text: "限定を含む劇団電姫のアクターのみ登場！"
+    },
+
+    sunshine: {
+      badge: "COLLABORATION",
+      text: "「ラブライブ！サンシャイン！！」のメンバーが登場！"
+    }
+  };
+
+  const info = banners[type] || banners.normal;
+
+  if (type === "sunshine") {
+    banner.classList.add("collab");
+  }
+
+  banner.innerHTML = `
+    <div>
+      <b>${info.badge}</b>
+      <h2>${info.text}</h2>
+    </div>
+  `;
+
+  // 해당 가챠에서 마지막으로 뽑았던 결과 복원
+  renderResults(gachaResults[gachaType]);
+};;
+
+
+/* =========================
+   START SCREEN
+   ========================= */
+
+const startScreen = document.querySelector("#startScreen");
+const startButton = document.querySelector("#startButton");
+const startDugong = document.querySelector("#startDugong");
+
+if (startScreen && startButton && startDugong) {
+  const normalDugong = startDugong.dataset.normal;
+  const activeDugong = startDugong.dataset.active;
+
+  startButton.addEventListener("mouseenter", () => {
+    startDugong.src = activeDugong;
+  });
+
+  startButton.addEventListener("mouseleave", () => {
+    startDugong.src = normalDugong;
+  });
+
+  startButton.addEventListener("mousedown", () => {
+    startDugong.src = activeDugong;
+  });
+
+  startButton.addEventListener("mouseup", () => {
+    startDugong.src = activeDugong;
+  });
+
+  startButton.addEventListener("click", () => {
+    startDugong.src = activeDugong;
+    startScreen.classList.add("start-leave");
+
+    setTimeout(() => {
+      startScreen.hidden = true;
+    }, 380);
+  });
+}
+
+
+/* 최초 진입은 通常ガチャ 선택 상태 */
+selectGacha("normal");
+
+
+/* TITLE EASTER EGG */
+const easterEgg = document.getElementById("easterEgg");
+const easterTrigger = document.getElementById("easterTrigger");
+const easterReveal = document.getElementById("easterReveal");
+
+if (easterEgg && easterTrigger && easterReveal) {
+  easterTrigger.addEventListener("click", () => {
+    const isOpen = easterEgg.classList.toggle("open");
+
+    easterTrigger.setAttribute(
+      "aria-expanded",
+      String(isOpen)
+    );
+
+    easterReveal.setAttribute(
+      "aria-hidden",
+      String(!isOpen)
+    );
+  });
+}
+
+
+
+
+
+/* ===== TITLE SCREEN RETURN ===== */
+
+const titleHome = document.getElementById("titleHome");
+const startScreenForReturn = document.querySelector(".start-screen");
+const startTriggerForReturn =
+  document.querySelector(".start-screen button") ||
+  document.querySelector(".start-screen img");
+
+/* 타이틀 화면 열기 */
+function showTitleScreen() {
+  if (!startScreenForReturn) return;
+
+  /* 이스터에그가 열려 있으면 닫기 */
+  if (typeof easterEgg !== "undefined" && easterEgg) {
+    easterEgg.classList.remove("open");
+  }
+
+  if (typeof easterTrigger !== "undefined" && easterTrigger) {
+    easterTrigger.setAttribute("aria-expanded", "false");
+  }
+
+  if (typeof easterReveal !== "undefined" && easterReveal) {
+    easterReveal.setAttribute("aria-hidden", "true");
+  }
+
+  startScreenForReturn.hidden = false;
+  startScreenForReturn.removeAttribute("hidden");
+
+  startScreenForReturn.style.display = "flex";
+  startScreenForReturn.style.visibility = "visible";
+  startScreenForReturn.style.pointerEvents = "auto";
+  startScreenForReturn.style.opacity = "0";
+
+  requestAnimationFrame(() => {
+    startScreenForReturn.style.opacity = "1";
+  });
+}
+
+
+/* 타이틀 화면 닫고 다시 가챠로 */
+function hideTitleScreen() {
+  if (!startScreenForReturn) return;
+
+  startScreenForReturn.style.opacity = "0";
+  startScreenForReturn.style.pointerEvents = "none";
+
+  setTimeout(() => {
+    startScreenForReturn.style.display = "none";
+    startScreenForReturn.style.visibility = "hidden";
+  }, 380);
+}
+
+
+/* 제목 클릭 → 타이틀 */
+if (titleHome) {
+  titleHome.addEventListener("click", showTitleScreen);
+}
+
+
+/*
+  시작 화면을 다시 띄운 뒤에도 확실하게 작동하도록
+  start-screen 자체에서 클릭을 받음.
+
+  기존 듀공 클릭 이벤트와 충돌하지 않도록
+  재진입 상태일 때만 우리가 직접 닫아줌.
+*/
+if (startScreenForReturn) {
+  startScreenForReturn.addEventListener("click", (event) => {
+
+    const clickedStart =
+      event.target.closest("button") ||
+      event.target.closest("img") ||
+      event.target.closest(".start-screen");
+
+    if (!clickedStart) return;
+
+    /*
+      처음 접속했을 때는 기존 시작 이벤트가 작동하고,
+      제목으로 돌아온 뒤에는 이 코드가 확실히 닫아준다.
+    */
+    if (
+      startScreenForReturn.style.display === "flex" ||
+      startScreenForReturn.style.visibility === "visible"
+    ) {
+      hideTitleScreen();
+    }
+  });
+}
+
+
+
+
+/* ===== DAILY RESET SYSTEM ===== */
+
+/*
+  유メステ 팬게임의 하루는 오전 4시에 갱신된다.
+
+  예:
+  2026/10/07 03:59 -> 2026-10-06
+  2026/10/07 04:00 -> 2026-10-07
+
+  사용자의 기기 현지 시간을 기준으로 한다.
+*/
+function getGameDate(now = new Date()) {
+  const gameTime = new Date(now);
+
+  /* 오전 4시보다 이르면 전날로 취급 */
+  gameTime.setHours(gameTime.getHours() - 4);
+
+  const year = gameTime.getFullYear();
+  const month = String(gameTime.getMonth() + 1).padStart(2, "0");
+  const day = String(gameTime.getDate()).padStart(2, "0");
+
+  return `${year}-${month}-${day}`;
+}
+
+
+/*
+  현재 게임 날짜.
+
+  로그인 보너스는 다음 단계에서
+  이 값을 기준으로 지급한다.
+*/
+let currentGameDate = getGameDate();
+
+
+/*
+  날짜가 바뀌었는지 확인.
+
+  지금 단계에서는 날짜 변경만 감지하며,
+  보상 지급은 하지 않는다.
+*/
+function checkDailyReset() {
+  const newGameDate = getGameDate();
+
+  if (newGameDate === currentGameDate) {
+    return false;
+  }
+
+  console.log(
+    `デイリー更新: ${currentGameDate} → ${newGameDate}`
+  );
+
+  currentGameDate = newGameDate;
+
+  ensureLoginGifts();
+
+  return true;
+}
+
+
+/*
+  사이트를 계속 켜둔 경우에도
+  오전 4시가 지나면 갱신을 감지한다.
+
+  30초마다 확인하지만,
+  실제 데이터 변경은 날짜가 바뀐 경우에만 발생한다.
+*/
+setInterval(checkDailyReset, 30 * 1000);
+
+
+/*
+  탭을 오래 비활성화했다가 다시 돌아온 경우에도 확인.
+*/
+document.addEventListener("visibilitychange", () => {
+  if (!document.hidden) {
+    checkDailyReset();
+  }
+});
+
+
+/*
+  절전 상태였다가 돌아오는 경우 등을 대비해
+  창에 다시 포커스가 왔을 때도 확인.
+*/
+window.addEventListener("focus", () => {
+  checkDailyReset();
+});
+
+
+/* ===== REAL GIFT BOX SYSTEM ===== */
+
+const FIRST_LOGIN_GIFT_AMOUNT = 30000;
+const DAILY_LOGIN_GIFT_AMOUNT = 1000;
+
+
+/*
+  gifts에는 '아직 받지 않은 선물'만 저장한다.
+  받은 선물은 배열에서 제거하고 currency에 더한다.
+*/
+
+function addGiftIfMissing(gift) {
+  const exists = gameSave.gifts.some(item => item.id === gift.id);
+
+  if (exists) return false;
+
+  gameSave.gifts.push(gift);
+  return true;
+}
+
+
+function ensureLoginGifts() {
+  const today = getGameDate();
+  let changed = false;
+
+
+  // ─────────────────────────────
+  // 최초 접속 선물 30,000
+  // ─────────────────────────────
+
+  if (!gameSave.login.firstLoginGiftCreated) {
+
+    addGiftIfMissing({
+      id: "first-login-bonus",
+      type: "firstLogin",
+      title: "初回ログインボーナス",
+      amount: FIRST_LOGIN_GIFT_AMOUNT,
+      createdAt: new Date().toISOString()
+    });
+
+    gameSave.login.firstLoginGiftCreated = true;
+    changed = true;
+  }
+
+
+  // ─────────────────────────────
+  // 매일 04:00 기준 로그인 선물 1,000
+  // ─────────────────────────────
+
+  if (gameSave.login.lastDailyGiftDate !== today) {
+
+    addGiftIfMissing({
+      id: `daily-login-bonus-${today}`,
+      type: "dailyLogin",
+      title: "デイリーログインボーナス",
+      amount: DAILY_LOGIN_GIFT_AMOUNT,
+      gameDate: today,
+      createdAt: new Date().toISOString()
+    });
+
+    gameSave.login.lastDailyGiftDate = today;
+    changed = true;
+  }
+
+
+  if (changed) {
+    saveGameData();
+  }
+
+  updateGiftBoxUI();
+}
+
+
+function formatGiftAmount(value) {
+  return Number(value || 0).toLocaleString("ja-JP");
+}
+
+
+function updateGiftBadge() {
+  const badge = document.getElementById("giftBadge");
+
+  if (!badge) return;
+
+  const count = gameSave.gifts.length;
+
+  if (count <= 0) {
+    badge.hidden = true;
+    badge.textContent = "0";
+    return;
+  }
+
+  badge.hidden = false;
+  badge.textContent = count > 99 ? "99+" : String(count);
+}
+
+
+function renderGiftList() {
+  const list = document.getElementById("giftList");
+  const receiveAll = document.getElementById("giftReceiveAll");
+
+  if (!list) return;
+
+  list.innerHTML = "";
+
+
+  // 선물이 하나도 없을 때
+  if (gameSave.gifts.length === 0) {
+
+    const empty = document.createElement("div");
+    empty.className = "gift-empty";
+    empty.textContent = "受け取れるプレゼントはありません。";
+
+    list.appendChild(empty);
+
+    if (receiveAll) {
+      receiveAll.disabled = true;
+    }
+
+    return;
+  }
+
+
+  if (receiveAll) {
+    receiveAll.disabled = false;
+  }
+
+
+  // 선물 하나씩 실제 DOM으로 생성
+  for (const gift of gameSave.gifts) {
+
+    const item = document.createElement("div");
+    item.className = "gift-item";
+
+
+    const info = document.createElement("div");
+    info.className = "gift-info";
+
+
+    const title = document.createElement("strong");
+    title.textContent = gift.title;
+
+
+    const amount = document.createElement("span");
+    amount.textContent = `×${formatGiftAmount(gift.amount)}`;
+
+
+    const receiveButton = document.createElement("button");
+    receiveButton.type = "button";
+    receiveButton.className = "gift-receive";
+    receiveButton.textContent = "受け取る";
+
+    receiveButton.addEventListener("click", () => {
+      receiveGift(gift.id);
+    });
+
+
+    info.appendChild(title);
+    info.appendChild(amount);
+
+    item.appendChild(info);
+    item.appendChild(receiveButton);
+
+    list.appendChild(item);
+  }
+}
+
+
+function updateGiftBoxUI() {
+  updateGiftBadge();
+  renderGiftList();
+}
+
+
+function receiveGift(giftId) {
+
+  const index = gameSave.gifts.findIndex(
+    gift => gift.id === giftId
+  );
+
+  if (index === -1) return;
+
+
+  const gift = gameSave.gifts[index];
+
+  gameSave.currency += Number(gift.amount) || 0;
+
+  gameSave.gifts.splice(index, 1);
+
+  saveGameData();
+  updateGiftBoxUI();
+  updateCurrencyDisplay();
+
+  console.log(
+    `[Gift] ${gift.title} を受け取りました。`,
+    `所持通貨: ${gameSave.currency}`
+  );
+}
+
+
+function receiveAllGifts() {
+
+  if (gameSave.gifts.length === 0) return;
+
+
+  const total = gameSave.gifts.reduce(
+    (sum, gift) => sum + (Number(gift.amount) || 0),
+    0
+  );
+
+
+  gameSave.currency += total;
+
+  gameSave.gifts = [];
+
+  saveGameData();
+  updateGiftBoxUI();
+  updateCurrencyDisplay();
+
+  console.log(
+    `[Gift] 一括受取: ${total}`,
+    `所持通貨: ${gameSave.currency}`
+  );
+}
+
+
+/* ─────────────────────────────
+   팝업 열기 / 닫기
+───────────────────────────── */
+
+function openGiftBox() {
+
+  const modal = document.getElementById("giftModal");
+
+  if (!modal) return;
+
+  renderGiftList();
+
+  modal.hidden = false;
+}
+
+
+function closeGiftBox() {
+
+  const modal = document.getElementById("giftModal");
+
+  if (!modal) return;
+
+  modal.hidden = true;
+}
+
+
+const giftBoxButton =
+  document.getElementById("giftBoxButton");
+
+const giftModal =
+  document.getElementById("giftModal");
+
+const giftClose =
+  document.getElementById("giftClose");
+
+const giftReceiveAll =
+  document.getElementById("giftReceiveAll");
+
+
+if (giftBoxButton) {
+  giftBoxButton.addEventListener("click", openGiftBox);
+}
+
+
+if (giftClose) {
+  giftClose.addEventListener("click", closeGiftBox);
+}
+
+
+if (giftReceiveAll) {
+  giftReceiveAll.addEventListener(
+    "click",
+    receiveAllGifts
+  );
+}
+
+
+if (giftModal) {
+
+  giftModal.addEventListener("click", event => {
+
+    if (event.target === giftModal) {
+      closeGiftBox();
+    }
+
+  });
+}
+
+
+document.addEventListener("keydown", event => {
+
+  if (
+    event.key === "Escape" &&
+    giftModal &&
+    !giftModal.hidden
+  ) {
+    closeGiftBox();
+  }
+
+});
+
+
+/*
+  페이지를 처음 열었을 때도 확인한다.
+
+  첫 플레이:
+    初回 30,000
+    + 今日 1,000
+
+  이후:
+    매일 04:00 이후 첫 체크 때 1,000
+*/
+ensureLoginGifts();
+
+
+
+/* ===== CURRENCY SYSTEM ===== */
+
+const GACHA_COST_ONE = 300;
+const GACHA_COST_TEN = 3000;
+
+let currencyAlertTimer = null;
+
+
+function formatCurrency(value) {
+  return Math.max(0, Number(value) || 0).toLocaleString("ja-JP");
+}
+
+
+function updateCurrencyDisplay() {
+  const balance = document.getElementById("currencyBalance");
+
+  if (!balance) return;
+
+  balance.textContent = formatCurrency(gameSave.currency);
+}
+
+
+function showCurrencyAlert(message) {
+
+  let alert = document.getElementById("currencyAlert");
+
+  if (!alert) {
+    alert = document.createElement("div");
+    alert.id = "currencyAlert";
+    alert.className = "currency-alert";
+    document.body.appendChild(alert);
+  }
+
+  alert.textContent = message;
+
+  clearTimeout(currencyAlertTimer);
+
+  requestAnimationFrame(() => {
+    alert.classList.add("show");
+  });
+
+  currencyAlertTimer = setTimeout(() => {
+    alert.classList.remove("show");
+  }, 1800);
+}
+
+
+function spendCurrency(amount) {
+
+  amount = Number(amount) || 0;
+
+  if (amount <= 0) {
+    return true;
+  }
+
+
+  if (gameSave.currency < amount) {
+
+    showCurrencyAlert(
+      `スターが足りません（必要：${formatCurrency(amount)}）`
+    );
+
+    return false;
+  }
+
+
+  gameSave.currency -= amount;
+
+  saveGameData();
+  updateCurrencyDisplay();
+
+  return true;
+}
+
+
+/*
+  선물 수령 함수에서도 saveGameData() 뒤에
+  updateCurrencyDisplay()를 호출하도록 연결한다.
+*/
+
+updateCurrencyDisplay();
+
+
+
+/* ===== CARD COLLECTION SAVE ===== */
+
+/*
+  before 이미지 경로를 카드 고유 ID로 사용.
+
+  동일 카드:
+  1 → 2 → 3...
+
+  ★4 각성 전/후는 하나의 카드로 취급.
+*/
+
+function getCardSaveId(card) {
+  return card.before;
+}
+
+
+function addCardToCollection(card) {
+
+  if (!card || !card.before) {
+    console.warn("[Collection] 保存できないカード", card);
+    return;
+  }
+
+  const id = getCardSaveId(card);
+
+  const currentCount =
+    Number(gameSave.ownedCards[id]) || 0;
+
+  gameSave.ownedCards[id] =
+    currentCount + 1;
+}
+
+
+function addPulledCardsToCollection(cards) {
+
+  if (!Array.isArray(cards)) return;
+
+  for (const card of cards) {
+    addCardToCollection(card);
+  }
+
+  saveGameData();
+
+  console.log(
+    `[Collection] ${cards.length}枚保存`,
+    `種類: ${getOwnedCardTypeCount()}`,
+    `総数: ${getOwnedCardTotalCount()}`
+  );
+}
+
+
+function getOwnedCardCount(card) {
+
+  if (!card || !card.before) return 0;
+
+  return Number(
+    gameSave.ownedCards[getCardSaveId(card)]
+  ) || 0;
+}
+
+
+function getOwnedCardTypeCount() {
+
+  return Object.values(gameSave.ownedCards)
+    .filter(count => Number(count) > 0)
+    .length;
+}
+
+
+function getOwnedCardTotalCount() {
+
+  return Object.values(gameSave.ownedCards)
+    .reduce(
+      (total, count) =>
+        total + (Number(count) || 0),
+      0
+    );
+}
+
+
+
+/* ===== OWNED LIST SCREEN ===== */
+
+let ownedRankFilter = "all";
+
+
+function getOwnedCardsForDisplay() {
+
+  return ALL_CARDS
+    .filter(card => getOwnedCardCount(card) > 0)
+    .filter(card => {
+      if (ownedRankFilter === "all") return true;
+
+      return card.rank === Number(ownedRankFilter);
+    })
+    .sort((a, b) => {
+
+      // 높은 레어도 먼저
+      if (b.rank !== a.rank) {
+        return b.rank - a.rank;
+      }
+
+      // 같은 레어도에서는 배우명
+      const actorCompare =
+        String(a.actor).localeCompare(
+          String(b.actor),
+          "ja"
+        );
+
+      if (actorCompare !== 0) {
+        return actorCompare;
+      }
+
+      // 마지막으로 카드명
+      return String(a.title).localeCompare(
+        String(b.title),
+        "ja"
+      );
+    });
+}
+
+
+function updateOwnedSummary() {
+
+  const typeCount =
+    document.getElementById("ownedTypeCount");
+
+  const totalTypes =
+    document.getElementById("ownedTotalTypes");
+
+
+  if (typeCount) {
+    typeCount.textContent =
+      getOwnedCardTypeCount();
+  }
+
+
+  if (totalTypes) {
+
+    /*
+      현재 ALL_CARDS가 실제 카드 데이터의 기준.
+      363이라는 숫자를 하드코딩하지 않고
+      데이터가 바뀌어도 자동 대응.
+    */
+    totalTypes.textContent =
+      ALL_CARDS.length;
+  }
+}
+
+
+function renderOwnedList() {
+
+  const container =
+    document.getElementById("ownedResults");
+
+  if (!container) return;
+
+
+  container.innerHTML = "";
+
+
+  const cards =
+    getOwnedCardsForDisplay();
+
+
+  if (cards.length === 0) {
+
+    const empty =
+      document.createElement("div");
+
+    empty.className = "owned-empty";
+
+    empty.textContent =
+      ownedRankFilter === "all"
+        ? "まだフォトを所持していません。"
+        : "このレアリティのフォトはまだ所持していません。";
+
+    container.appendChild(empty);
+
+    return;
+  }
+
+
+  for (const card of cards) {
+
+    const count =
+      getOwnedCardCount(card);
+
+
+    const button =
+      document.createElement("button");
+
+    button.type = "button";
+    button.className = "owned-card";
+
+
+    const image =
+      document.createElement("img");
+
+    image.src = card.before;
+    image.alt = card.title;
+
+
+    const countBadge =
+      document.createElement("div");
+
+    countBadge.className =
+      "owned-card-count";
+
+    countBadge.textContent =
+      `×${count}`;
+
+
+    const info =
+      document.createElement("div");
+
+    info.className =
+      "owned-card-info";
+
+
+    const stars =
+      document.createElement("div");
+
+    stars.className =
+      "owned-card-stars";
+
+    stars.textContent =
+      "★".repeat(card.rank);
+
+
+    const actor =
+      document.createElement("div");
+
+    actor.className =
+      "owned-card-actor";
+
+    actor.textContent =
+      card.actor;
+
+
+    const title =
+      document.createElement("div");
+
+    title.className =
+      "owned-card-title";
+
+    title.textContent =
+      card.title;
+
+
+    info.appendChild(stars);
+    info.appendChild(actor);
+    info.appendChild(title);
+
+    button.appendChild(image);
+    button.appendChild(countBadge);
+    button.appendChild(info);
+
+
+    /*
+      기존 카드 확대 기능 그대로 재사용.
+      ★4라면 openCard() 내부의 기존 각성 전후
+      버튼도 그대로 작동.
+    */
+    button.addEventListener(
+      "click",
+      () => openCard(card)
+    );
+
+
+    container.appendChild(button);
+  }
+}
+
+
+function openOwnedList() {
+
+  const gachaScreen =
+    document.getElementById("gachaScreen");
+
+  const ownedScreen =
+    document.getElementById("ownedScreen");
+
+
+  if (!gachaScreen || !ownedScreen) {
+    return;
+  }
+
+
+  ownedRankFilter = "all";
+
+
+  document
+    .querySelectorAll(".owned-filter")
+    .forEach(button => {
+
+      button.classList.toggle(
+        "active",
+        button.dataset.ownedRank === "all"
+      );
+
+    });
+
+
+  updateOwnedSummary();
+  renderOwnedList();
+
+  // 가챠 로고 활성화 해제
+  document
+    .querySelectorAll(".gacha-tab")
+    .forEach(tab => {
+      tab.classList.remove("active");
+    });
+
+  // 所持一覧 활성화
+  const ownedTab =
+    document.getElementById("ownedListButton");
+
+  if (ownedTab) {
+    ownedTab.classList.add("active");
+  }
+
+  // ミニゲーム 활성화 해제
+  const miniTab =
+    document.getElementById("miniGameButton");
+
+  if (miniTab) {
+    miniTab.classList.remove("active");
+  }
+
+  gachaScreen.hidden = true;
+  ownedScreen.hidden = false;
+
+
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth"
+  });
+}
+
+
+function closeOwnedList() {
+
+  const gachaScreen =
+    document.getElementById("gachaScreen");
+
+  const ownedScreen =
+    document.getElementById("ownedScreen");
+
+
+  if (!gachaScreen || !ownedScreen) {
+    return;
+  }
+
+
+  ownedScreen.hidden = true;
+  gachaScreen.hidden = false;
+
+
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth"
+  });
+}
+
+
+/* 所持一覧 열기 */
+const ownedListButton =
+  document.getElementById("ownedListButton");
+
+if (ownedListButton) {
+
+  ownedListButton.addEventListener(
+    "click",
+    openOwnedList
+  );
+
+}
+
+
+/* 레어도 필터 */
+document
+  .querySelectorAll(".owned-filter")
+  .forEach(button => {
+
+    button.addEventListener(
+      "click",
+      () => {
+
+        ownedRankFilter =
+          button.dataset.ownedRank;
+
+
+        document
+          .querySelectorAll(".owned-filter")
+          .forEach(item => {
+
+            item.classList.toggle(
+              "active",
+              item === button
+            );
+
+          });
+
+
+        renderOwnedList();
+      }
+    );
+
+  });
+
+

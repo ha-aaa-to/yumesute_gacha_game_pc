@@ -1,0 +1,3134 @@
+[
+  {
+    "id": 1,
+    "section": 1,
+    "kind": "long",
+    "time": 0.2178,
+    "xNorm": 0.855,
+    "detectedColor": "blue",
+    "confidence": 1.0
+  },
+  {
+    "id": 2,
+    "section": 1,
+    "kind": "tap",
+    "time": 0.3772,
+    "xNorm": 0.8575,
+    "detectedColor": "blue",
+    "confidence": 0.914
+  },
+  {
+    "id": 3,
+    "section": 1,
+    "kind": "tap",
+    "time": 0.5792,
+    "xNorm": 0.4975,
+    "detectedColor": "purple",
+    "confidence": 0.664
+  },
+  {
+    "id": 4,
+    "section": 1,
+    "kind": "tap",
+    "time": 0.6771,
+    "xNorm": 0.7525,
+    "detectedColor": "yellow",
+    "confidence": 0.5
+  },
+  {
+    "id": 5,
+    "section": 1,
+    "kind": "tap",
+    "time": 0.8823,
+    "xNorm": 0.6,
+    "detectedColor": "purple",
+    "confidence": 0.591
+  },
+  {
+    "id": 6,
+    "section": 1,
+    "kind": "special",
+    "time": 1.1995,
+    "xNorm": 0.655,
+    "detectedColor": "purple",
+    "confidence": 0.857
+  },
+  {
+    "id": 7,
+    "section": 1,
+    "kind": "long",
+    "time": 1.905,
+    "xNorm": 0.435,
+    "detectedColor": "purple",
+    "confidence": 0.927
+  },
+  {
+    "id": 8,
+    "section": 1,
+    "kind": "long",
+    "time": 1.905,
+    "xNorm": 0.7525,
+    "detectedColor": "purple",
+    "confidence": 0.965
+  },
+  {
+    "id": 9,
+    "section": 1,
+    "kind": "long",
+    "time": 2.6515,
+    "xNorm": 0.3375,
+    "detectedColor": "blue",
+    "confidence": 1.0
+  },
+  {
+    "id": 10,
+    "section": 1,
+    "kind": "tap",
+    "time": 3.0035,
+    "xNorm": 0.7025,
+    "detectedColor": "purple",
+    "confidence": 0.603
+  },
+  {
+    "id": 11,
+    "section": 1,
+    "kind": "tap",
+    "time": 3.1045,
+    "xNorm": 0.4475,
+    "detectedColor": "purple",
+    "confidence": 0.543
+  },
+  {
+    "id": 12,
+    "section": 1,
+    "kind": "tap",
+    "time": 3.3065,
+    "xNorm": 0.6,
+    "detectedColor": "purple",
+    "confidence": 0.638
+  },
+  {
+    "id": 13,
+    "section": 1,
+    "kind": "special",
+    "time": 3.6237,
+    "xNorm": 0.545,
+    "detectedColor": "purple",
+    "confidence": 0.898
+  },
+  {
+    "id": 14,
+    "section": 1,
+    "kind": "long",
+    "time": 4.154,
+    "xNorm": 0.3975,
+    "detectedColor": "purple",
+    "confidence": 1.0
+  },
+  {
+    "id": 15,
+    "section": 1,
+    "kind": "long",
+    "time": 4.154,
+    "xNorm": 0.7,
+    "detectedColor": "purple",
+    "confidence": 1.0
+  },
+  {
+    "id": 16,
+    "section": 1,
+    "kind": "long",
+    "time": 4.4807,
+    "xNorm": 0.445,
+    "detectedColor": "purple",
+    "confidence": 1.0
+  },
+  {
+    "id": 17,
+    "section": 1,
+    "kind": "long",
+    "time": 4.4807,
+    "xNorm": 0.7675,
+    "detectedColor": "purple",
+    "confidence": 0.782
+  },
+  {
+    "id": 18,
+    "section": 1,
+    "kind": "special",
+    "time": 4.959,
+    "xNorm": 0.8525,
+    "detectedColor": "blue",
+    "confidence": 1.0
+  },
+  {
+    "id": 19,
+    "section": 2,
+    "kind": "long",
+    "time": 5.2178,
+    "xNorm": 0.8525,
+    "detectedColor": "blue",
+    "confidence": 1.0
+  },
+  {
+    "id": 20,
+    "section": 2,
+    "kind": "tap",
+    "time": 5.3788,
+    "xNorm": 0.8575,
+    "detectedColor": "blue",
+    "confidence": 0.899
+  },
+  {
+    "id": 21,
+    "section": 2,
+    "kind": "tap",
+    "time": 5.5792,
+    "xNorm": 0.4975,
+    "detectedColor": "yellow",
+    "confidence": 0.542
+  },
+  {
+    "id": 22,
+    "section": 2,
+    "kind": "tap",
+    "time": 5.6802,
+    "xNorm": 0.7025,
+    "detectedColor": "purple",
+    "confidence": 0.566
+  },
+  {
+    "id": 23,
+    "section": 2,
+    "kind": "tap",
+    "time": 5.8823,
+    "xNorm": 0.6,
+    "detectedColor": "purple",
+    "confidence": 0.58
+  },
+  {
+    "id": 24,
+    "section": 2,
+    "kind": "special",
+    "time": 6.1979,
+    "xNorm": 0.655,
+    "detectedColor": "purple",
+    "confidence": 0.894
+  },
+  {
+    "id": 25,
+    "section": 2,
+    "kind": "long",
+    "time": 6.905,
+    "xNorm": 0.39,
+    "detectedColor": "purple",
+    "confidence": 0.925
+  },
+  {
+    "id": 26,
+    "section": 2,
+    "kind": "long",
+    "time": 6.905,
+    "xNorm": 0.8075,
+    "detectedColor": "purple",
+    "confidence": 0.929
+  },
+  {
+    "id": 27,
+    "section": 2,
+    "kind": "long",
+    "time": 7.642,
+    "xNorm": 0.345,
+    "detectedColor": "blue",
+    "confidence": 1.0
+  },
+  {
+    "id": 28,
+    "section": 2,
+    "kind": "tap",
+    "time": 7.803,
+    "xNorm": 0.3425,
+    "detectedColor": "blue",
+    "confidence": 0.913
+  },
+  {
+    "id": 29,
+    "section": 2,
+    "kind": "tap",
+    "time": 8.0035,
+    "xNorm": 0.7025,
+    "detectedColor": "purple",
+    "confidence": 0.657
+  },
+  {
+    "id": 30,
+    "section": 2,
+    "kind": "tap",
+    "time": 8.1045,
+    "xNorm": 0.4975,
+    "detectedColor": "purple",
+    "confidence": 0.55
+  },
+  {
+    "id": 31,
+    "section": 2,
+    "kind": "tap",
+    "time": 8.3065,
+    "xNorm": 0.6,
+    "detectedColor": "purple",
+    "confidence": 0.551
+  },
+  {
+    "id": 32,
+    "section": 2,
+    "kind": "special",
+    "time": 8.6222,
+    "xNorm": 0.545,
+    "detectedColor": "purple",
+    "confidence": 0.912
+  },
+  {
+    "id": 33,
+    "section": 2,
+    "kind": "long",
+    "time": 9.154,
+    "xNorm": 0.7,
+    "detectedColor": "purple",
+    "confidence": 1.0
+  },
+  {
+    "id": 34,
+    "section": 2,
+    "kind": "long",
+    "time": 9.3292,
+    "xNorm": 0.4325,
+    "detectedColor": "purple",
+    "confidence": 0.927
+  },
+  {
+    "id": 35,
+    "section": 2,
+    "kind": "long",
+    "time": 9.4807,
+    "xNorm": 0.7675,
+    "detectedColor": "purple",
+    "confidence": 1.0
+  },
+  {
+    "id": 36,
+    "section": 2,
+    "kind": "special",
+    "time": 9.9353,
+    "xNorm": 0.7675,
+    "detectedColor": "purple",
+    "confidence": 0.797
+  },
+  {
+    "id": 37,
+    "section": 2,
+    "kind": "special",
+    "time": 9.9558,
+    "xNorm": 0.5475,
+    "detectedColor": "blue",
+    "confidence": 0.995
+  },
+  {
+    "id": 38,
+    "section": 3,
+    "kind": "special",
+    "time": 10.0868,
+    "xNorm": 0.7675,
+    "detectedColor": "purple",
+    "confidence": 0.797
+  },
+  {
+    "id": 39,
+    "section": 3,
+    "kind": "long",
+    "time": 10.2146,
+    "xNorm": 0.5475,
+    "detectedColor": "blue",
+    "confidence": 1.0
+  },
+  {
+    "id": 40,
+    "section": 3,
+    "kind": "tap",
+    "time": 10.3804,
+    "xNorm": 0.54,
+    "detectedColor": "blue",
+    "confidence": 0.812
+  },
+  {
+    "id": 41,
+    "section": 3,
+    "kind": "tap",
+    "time": 10.5792,
+    "xNorm": 0.65,
+    "detectedColor": "purple",
+    "confidence": 0.755
+  },
+  {
+    "id": 42,
+    "section": 3,
+    "kind": "tap",
+    "time": 10.6802,
+    "xNorm": 0.37,
+    "detectedColor": "yellow",
+    "confidence": 1.0
+  },
+  {
+    "id": 43,
+    "section": 3,
+    "kind": "tap",
+    "time": 10.8823,
+    "xNorm": 0.4975,
+    "detectedColor": "purple",
+    "confidence": 0.587
+  },
+  {
+    "id": 44,
+    "section": 3,
+    "kind": "tap",
+    "time": 10.8823,
+    "xNorm": 0.8025,
+    "detectedColor": "purple",
+    "confidence": 0.619
+  },
+  {
+    "id": 45,
+    "section": 3,
+    "kind": "special",
+    "time": 11.1979,
+    "xNorm": 0.6,
+    "detectedColor": "purple",
+    "confidence": 0.855
+  },
+  {
+    "id": 46,
+    "section": 3,
+    "kind": "special",
+    "time": 11.602,
+    "xNorm": 0.49,
+    "detectedColor": "purple",
+    "confidence": 0.884
+  },
+  {
+    "id": 47,
+    "section": 3,
+    "kind": "long",
+    "time": 11.7535,
+    "xNorm": 0.7925,
+    "detectedColor": "purple",
+    "confidence": 1.0
+  },
+  {
+    "id": 48,
+    "section": 3,
+    "kind": "tap",
+    "time": 11.8924,
+    "xNorm": 0.37,
+    "detectedColor": "yellow",
+    "confidence": 1.0
+  },
+  {
+    "id": 49,
+    "section": 3,
+    "kind": "tap",
+    "time": 12.0944,
+    "xNorm": 0.855,
+    "detectedColor": "purple",
+    "confidence": 0.667
+  },
+  {
+    "id": 50,
+    "section": 3,
+    "kind": "tap",
+    "time": 12.1954,
+    "xNorm": 0.6,
+    "detectedColor": "yellow",
+    "confidence": 0.543
+  },
+  {
+    "id": 51,
+    "section": 3,
+    "kind": "special",
+    "time": 12.511,
+    "xNorm": 0.4325,
+    "detectedColor": "purple",
+    "confidence": 0.766
+  },
+  {
+    "id": 52,
+    "section": 3,
+    "kind": "long",
+    "time": 12.642,
+    "xNorm": 0.6475,
+    "detectedColor": "blue",
+    "confidence": 1.0
+  },
+  {
+    "id": 53,
+    "section": 3,
+    "kind": "tap",
+    "time": 12.803,
+    "xNorm": 0.65,
+    "detectedColor": "blue",
+    "confidence": 0.847
+  },
+  {
+    "id": 54,
+    "section": 3,
+    "kind": "tap",
+    "time": 13.0035,
+    "xNorm": 0.55,
+    "detectedColor": "purple",
+    "confidence": 0.629
+  },
+  {
+    "id": 55,
+    "section": 3,
+    "kind": "tap",
+    "time": 13.1045,
+    "xNorm": 0.83,
+    "detectedColor": "yellow",
+    "confidence": 0.945
+  },
+  {
+    "id": 56,
+    "section": 3,
+    "kind": "tap",
+    "time": 13.3065,
+    "xNorm": 0.3975,
+    "detectedColor": "purple",
+    "confidence": 0.669
+  },
+  {
+    "id": 57,
+    "section": 3,
+    "kind": "tap",
+    "time": 13.3065,
+    "xNorm": 0.7025,
+    "detectedColor": "purple",
+    "confidence": 0.737
+  },
+  {
+    "id": 58,
+    "section": 3,
+    "kind": "special",
+    "time": 13.6237,
+    "xNorm": 0.6,
+    "detectedColor": "purple",
+    "confidence": 0.926
+  },
+  {
+    "id": 59,
+    "section": 3,
+    "kind": "special",
+    "time": 14.0262,
+    "xNorm": 0.71,
+    "detectedColor": "purple",
+    "confidence": 0.865
+  },
+  {
+    "id": 60,
+    "section": 3,
+    "kind": "long",
+    "time": 14.1777,
+    "xNorm": 0.4025,
+    "detectedColor": "purple",
+    "confidence": 1.0
+  },
+  {
+    "id": 61,
+    "section": 3,
+    "kind": "tap",
+    "time": 14.3166,
+    "xNorm": 0.83,
+    "detectedColor": "yellow",
+    "confidence": 0.972
+  },
+  {
+    "id": 62,
+    "section": 3,
+    "kind": "tap",
+    "time": 14.5186,
+    "xNorm": 0.345,
+    "detectedColor": "purple",
+    "confidence": 0.542
+  },
+  {
+    "id": 63,
+    "section": 3,
+    "kind": "tap",
+    "time": 14.6196,
+    "xNorm": 0.6,
+    "detectedColor": "purple",
+    "confidence": 0.618
+  },
+  {
+    "id": 64,
+    "section": 3,
+    "kind": "special",
+    "time": 14.9384,
+    "xNorm": 0.7675,
+    "detectedColor": "purple",
+    "confidence": 0.861
+  },
+  {
+    "id": 65,
+    "section": 3,
+    "kind": "special",
+    "time": 14.9558,
+    "xNorm": 0.5475,
+    "detectedColor": "blue",
+    "confidence": 0.995
+  },
+  {
+    "id": 66,
+    "section": 4,
+    "kind": "special",
+    "time": 15.09,
+    "xNorm": 0.7675,
+    "detectedColor": "purple",
+    "confidence": 0.859
+  },
+  {
+    "id": 67,
+    "section": 4,
+    "kind": "long",
+    "time": 15.2162,
+    "xNorm": 0.5475,
+    "detectedColor": "blue",
+    "confidence": 1.0
+  },
+  {
+    "id": 68,
+    "section": 4,
+    "kind": "tap",
+    "time": 15.3804,
+    "xNorm": 0.5475,
+    "detectedColor": "blue",
+    "confidence": 0.892
+  },
+  {
+    "id": 69,
+    "section": 4,
+    "kind": "tap",
+    "time": 15.5792,
+    "xNorm": 0.65,
+    "detectedColor": "purple",
+    "confidence": 0.55
+  },
+  {
+    "id": 70,
+    "section": 4,
+    "kind": "tap",
+    "time": 15.6802,
+    "xNorm": 0.37,
+    "detectedColor": "yellow",
+    "confidence": 1.0
+  },
+  {
+    "id": 71,
+    "section": 4,
+    "kind": "tap",
+    "time": 15.8823,
+    "xNorm": 0.4975,
+    "detectedColor": "purple",
+    "confidence": 0.641
+  },
+  {
+    "id": 72,
+    "section": 4,
+    "kind": "tap",
+    "time": 15.8823,
+    "xNorm": 0.8025,
+    "detectedColor": "purple",
+    "confidence": 0.634
+  },
+  {
+    "id": 73,
+    "section": 4,
+    "kind": "special",
+    "time": 16.1995,
+    "xNorm": 0.3825,
+    "detectedColor": "purple",
+    "confidence": 0.956
+  },
+  {
+    "id": 74,
+    "section": 4,
+    "kind": "special",
+    "time": 16.2011,
+    "xNorm": 0.655,
+    "detectedColor": "purple",
+    "confidence": 0.971
+  },
+  {
+    "id": 75,
+    "section": 4,
+    "kind": "special",
+    "time": 16.6035,
+    "xNorm": 0.49,
+    "detectedColor": "purple",
+    "confidence": 0.838
+  },
+  {
+    "id": 76,
+    "section": 4,
+    "kind": "long",
+    "time": 16.7535,
+    "xNorm": 0.73,
+    "detectedColor": "purple",
+    "confidence": 1.0
+  },
+  {
+    "id": 77,
+    "section": 4,
+    "kind": "tap",
+    "time": 16.8924,
+    "xNorm": 0.37,
+    "detectedColor": "yellow",
+    "confidence": 1.0
+  },
+  {
+    "id": 78,
+    "section": 4,
+    "kind": "tap",
+    "time": 17.0944,
+    "xNorm": 0.65,
+    "detectedColor": "purple",
+    "confidence": 0.5
+  },
+  {
+    "id": 79,
+    "section": 4,
+    "kind": "tap",
+    "time": 17.1954,
+    "xNorm": 0.3975,
+    "detectedColor": "purple",
+    "confidence": 0.515
+  },
+  {
+    "id": 80,
+    "section": 4,
+    "kind": "special",
+    "time": 17.5126,
+    "xNorm": 0.4325,
+    "detectedColor": "purple",
+    "confidence": 0.778
+  },
+  {
+    "id": 81,
+    "section": 4,
+    "kind": "long",
+    "time": 17.6436,
+    "xNorm": 0.6475,
+    "detectedColor": "blue",
+    "confidence": 1.0
+  },
+  {
+    "id": 82,
+    "section": 4,
+    "kind": "tap",
+    "time": 17.803,
+    "xNorm": 0.645,
+    "detectedColor": "blue",
+    "confidence": 0.876
+  },
+  {
+    "id": 83,
+    "section": 4,
+    "kind": "tap",
+    "time": 18.0035,
+    "xNorm": 0.5475,
+    "detectedColor": "purple",
+    "confidence": 0.508
+  },
+  {
+    "id": 84,
+    "section": 4,
+    "kind": "tap",
+    "time": 18.1045,
+    "xNorm": 0.855,
+    "detectedColor": "purple",
+    "confidence": 0.619
+  },
+  {
+    "id": 85,
+    "section": 4,
+    "kind": "tap",
+    "time": 18.3065,
+    "xNorm": 0.3975,
+    "detectedColor": "yellow",
+    "confidence": 0.504
+  },
+  {
+    "id": 86,
+    "section": 4,
+    "kind": "tap",
+    "time": 18.3065,
+    "xNorm": 0.7025,
+    "detectedColor": "purple",
+    "confidence": 0.519
+  },
+  {
+    "id": 87,
+    "section": 4,
+    "kind": "special",
+    "time": 18.6222,
+    "xNorm": 0.545,
+    "detectedColor": "purple",
+    "confidence": 0.899
+  },
+  {
+    "id": 88,
+    "section": 4,
+    "kind": "special",
+    "time": 18.6222,
+    "xNorm": 0.8175,
+    "detectedColor": "purple",
+    "confidence": 0.923
+  },
+  {
+    "id": 89,
+    "section": 4,
+    "kind": "long",
+    "time": 19.3308,
+    "xNorm": 0.405,
+    "detectedColor": "purple",
+    "confidence": 0.975
+  },
+  {
+    "id": 90,
+    "section": 4,
+    "kind": "long",
+    "time": 19.3308,
+    "xNorm": 0.74,
+    "detectedColor": "purple",
+    "confidence": 0.977
+  },
+  {
+    "id": 91,
+    "section": 4,
+    "kind": "tap",
+    "time": 19.9227,
+    "xNorm": 0.575,
+    "detectedColor": "purple",
+    "confidence": 0.568
+  },
+  {
+    "id": 92,
+    "section": 4,
+    "kind": "special",
+    "time": 19.959,
+    "xNorm": 0.8525,
+    "detectedColor": "blue",
+    "confidence": 1.0
+  },
+  {
+    "id": 93,
+    "section": 5,
+    "kind": "tap",
+    "time": 20.0742,
+    "xNorm": 0.575,
+    "detectedColor": "purple",
+    "confidence": 0.564
+  },
+  {
+    "id": 94,
+    "section": 5,
+    "kind": "long",
+    "time": 20.3709,
+    "xNorm": 0.8525,
+    "detectedColor": "blue",
+    "confidence": 0.968
+  },
+  {
+    "id": 95,
+    "section": 5,
+    "kind": "tap",
+    "time": 20.6802,
+    "xNorm": 0.5225,
+    "detectedColor": "purple",
+    "confidence": 0.665
+  },
+  {
+    "id": 96,
+    "section": 5,
+    "kind": "tap",
+    "time": 20.6834,
+    "xNorm": 0.85,
+    "detectedColor": "blue",
+    "confidence": 0.836
+  },
+  {
+    "id": 97,
+    "section": 5,
+    "kind": "tap",
+    "time": 20.9833,
+    "xNorm": 0.37,
+    "detectedColor": "purple",
+    "confidence": 0.482
+  },
+  {
+    "id": 98,
+    "section": 5,
+    "kind": "tap",
+    "time": 20.9833,
+    "xNorm": 0.65,
+    "detectedColor": "purple",
+    "confidence": 0.524
+  },
+  {
+    "id": 99,
+    "section": 5,
+    "kind": "tap",
+    "time": 21.5893,
+    "xNorm": 0.5475,
+    "detectedColor": "purple",
+    "confidence": 0.519
+  },
+  {
+    "id": 100,
+    "section": 5,
+    "kind": "tap",
+    "time": 21.5893,
+    "xNorm": 0.855,
+    "detectedColor": "purple",
+    "confidence": 0.67
+  },
+  {
+    "id": 101,
+    "section": 5,
+    "kind": "tap",
+    "time": 21.8924,
+    "xNorm": 0.7525,
+    "detectedColor": "purple",
+    "confidence": 0.595
+  },
+  {
+    "id": 102,
+    "section": 5,
+    "kind": "long",
+    "time": 22.4874,
+    "xNorm": 0.65,
+    "detectedColor": "purple",
+    "confidence": 1.0
+  },
+  {
+    "id": 103,
+    "section": 5,
+    "kind": "long",
+    "time": 22.6389,
+    "xNorm": 0.345,
+    "detectedColor": "purple",
+    "confidence": 1.0
+  },
+  {
+    "id": 104,
+    "section": 5,
+    "kind": "long",
+    "time": 23.1171,
+    "xNorm": 0.745,
+    "detectedColor": "purple",
+    "confidence": 1.0
+  },
+  {
+    "id": 105,
+    "section": 5,
+    "kind": "long",
+    "time": 23.2686,
+    "xNorm": 0.405,
+    "detectedColor": "purple",
+    "confidence": 1.0
+  },
+  {
+    "id": 106,
+    "section": 5,
+    "kind": "tap",
+    "time": 24.0136,
+    "xNorm": 0.65,
+    "detectedColor": "purple",
+    "confidence": 0.642
+  },
+  {
+    "id": 107,
+    "section": 5,
+    "kind": "tap",
+    "time": 24.3166,
+    "xNorm": 0.4475,
+    "detectedColor": "purple",
+    "confidence": 0.583
+  },
+  {
+    "id": 108,
+    "section": 5,
+    "kind": "tap",
+    "time": 24.3166,
+    "xNorm": 0.7525,
+    "detectedColor": "purple",
+    "confidence": 0.637
+  },
+  {
+    "id": 109,
+    "section": 5,
+    "kind": "tap",
+    "time": 24.6196,
+    "xNorm": 0.855,
+    "detectedColor": "purple",
+    "confidence": 0.7
+  },
+  {
+    "id": 110,
+    "section": 5,
+    "kind": "tap",
+    "time": 24.9227,
+    "xNorm": 0.575,
+    "detectedColor": "purple",
+    "confidence": 0.631
+  },
+  {
+    "id": 111,
+    "section": 5,
+    "kind": "special",
+    "time": 24.959,
+    "xNorm": 0.345,
+    "detectedColor": "blue",
+    "confidence": 0.997
+  },
+  {
+    "id": 112,
+    "section": 6,
+    "kind": "tap",
+    "time": 25.0742,
+    "xNorm": 0.575,
+    "detectedColor": "purple",
+    "confidence": 0.619
+  },
+  {
+    "id": 113,
+    "section": 6,
+    "kind": "long",
+    "time": 25.3709,
+    "xNorm": 0.345,
+    "detectedColor": "blue",
+    "confidence": 1.0
+  },
+  {
+    "id": 114,
+    "section": 6,
+    "kind": "tap",
+    "time": 25.6802,
+    "xNorm": 0.6775,
+    "detectedColor": "purple",
+    "confidence": 0.61
+  },
+  {
+    "id": 115,
+    "section": 6,
+    "kind": "tap",
+    "time": 25.6834,
+    "xNorm": 0.3425,
+    "detectedColor": "blue",
+    "confidence": 0.792
+  },
+  {
+    "id": 116,
+    "section": 6,
+    "kind": "tap",
+    "time": 25.9833,
+    "xNorm": 0.55,
+    "detectedColor": "purple",
+    "confidence": 0.591
+  },
+  {
+    "id": 117,
+    "section": 6,
+    "kind": "tap",
+    "time": 25.9833,
+    "xNorm": 0.83,
+    "detectedColor": "purple",
+    "confidence": 0.843
+  },
+  {
+    "id": 118,
+    "section": 6,
+    "kind": "tap",
+    "time": 26.5893,
+    "xNorm": 0.345,
+    "detectedColor": "purple",
+    "confidence": 0.506
+  },
+  {
+    "id": 119,
+    "section": 6,
+    "kind": "tap",
+    "time": 26.5893,
+    "xNorm": 0.65,
+    "detectedColor": "purple",
+    "confidence": 0.583
+  },
+  {
+    "id": 120,
+    "section": 6,
+    "kind": "tap",
+    "time": 26.8924,
+    "xNorm": 0.4475,
+    "detectedColor": "purple",
+    "confidence": 0.586
+  },
+  {
+    "id": 121,
+    "section": 6,
+    "kind": "long",
+    "time": 27.8141,
+    "xNorm": 0.46,
+    "detectedColor": "purple",
+    "confidence": 0.995
+  },
+  {
+    "id": 122,
+    "section": 6,
+    "kind": "long",
+    "time": 28.2702,
+    "xNorm": 0.7975,
+    "detectedColor": "purple",
+    "confidence": 1.0
+  },
+  {
+    "id": 123,
+    "section": 6,
+    "kind": "tap",
+    "time": 28.7105,
+    "xNorm": 0.65,
+    "detectedColor": "purple",
+    "confidence": 0.522
+  },
+  {
+    "id": 124,
+    "section": 6,
+    "kind": "tap",
+    "time": 29.0136,
+    "xNorm": 0.4975,
+    "detectedColor": "yellow",
+    "confidence": 0.488
+  },
+  {
+    "id": 125,
+    "section": 6,
+    "kind": "tap",
+    "time": 29.3166,
+    "xNorm": 0.345,
+    "detectedColor": "purple",
+    "confidence": 0.494
+  },
+  {
+    "id": 126,
+    "section": 6,
+    "kind": "tap",
+    "time": 29.6196,
+    "xNorm": 0.4975,
+    "detectedColor": "purple",
+    "confidence": 0.522
+  },
+  {
+    "id": 127,
+    "section": 6,
+    "kind": "tap",
+    "time": 29.9227,
+    "xNorm": 0.7025,
+    "detectedColor": "purple",
+    "confidence": 0.621
+  },
+  {
+    "id": 128,
+    "section": 6,
+    "kind": "special",
+    "time": 29.9558,
+    "xNorm": 0.345,
+    "detectedColor": "blue",
+    "confidence": 0.993
+  },
+  {
+    "id": 129,
+    "section": 7,
+    "kind": "tap",
+    "time": 30.0742,
+    "xNorm": 0.7025,
+    "detectedColor": "purple",
+    "confidence": 0.596
+  },
+  {
+    "id": 130,
+    "section": 7,
+    "kind": "long",
+    "time": 30.3662,
+    "xNorm": 0.345,
+    "detectedColor": "blue",
+    "confidence": 1.0
+  },
+  {
+    "id": 131,
+    "section": 7,
+    "kind": "tap",
+    "time": 30.3772,
+    "xNorm": 0.55,
+    "detectedColor": "purple",
+    "confidence": 0.541
+  },
+  {
+    "id": 132,
+    "section": 7,
+    "kind": "tap",
+    "time": 30.6802,
+    "xNorm": 0.7025,
+    "detectedColor": "purple",
+    "confidence": 0.491
+  },
+  {
+    "id": 133,
+    "section": 7,
+    "kind": "tap",
+    "time": 30.6818,
+    "xNorm": 0.3425,
+    "detectedColor": "blue",
+    "confidence": 0.78
+  },
+  {
+    "id": 134,
+    "section": 7,
+    "kind": "tap",
+    "time": 30.9833,
+    "xNorm": 0.55,
+    "detectedColor": "purple",
+    "confidence": 0.481
+  },
+  {
+    "id": 135,
+    "section": 7,
+    "kind": "tap",
+    "time": 30.9833,
+    "xNorm": 0.855,
+    "detectedColor": "purple",
+    "confidence": 0.843
+  },
+  {
+    "id": 136,
+    "section": 7,
+    "kind": "tap",
+    "time": 31.5893,
+    "xNorm": 0.345,
+    "detectedColor": "yellow",
+    "confidence": 0.552
+  },
+  {
+    "id": 137,
+    "section": 7,
+    "kind": "tap",
+    "time": 31.5893,
+    "xNorm": 0.65,
+    "detectedColor": "yellow",
+    "confidence": 0.509
+  },
+  {
+    "id": 138,
+    "section": 7,
+    "kind": "long",
+    "time": 32.6389,
+    "xNorm": 0.755,
+    "detectedColor": "purple",
+    "confidence": 1.0
+  },
+  {
+    "id": 139,
+    "section": 7,
+    "kind": "long",
+    "time": 32.6405,
+    "xNorm": 0.44,
+    "detectedColor": "purple",
+    "confidence": 1.0
+  },
+  {
+    "id": 140,
+    "section": 7,
+    "kind": "long",
+    "time": 33.2702,
+    "xNorm": 0.405,
+    "detectedColor": "purple",
+    "confidence": 1.0
+  },
+  {
+    "id": 141,
+    "section": 7,
+    "kind": "long",
+    "time": 33.2702,
+    "xNorm": 0.745,
+    "detectedColor": "purple",
+    "confidence": 1.0
+  },
+  {
+    "id": 142,
+    "section": 7,
+    "kind": "tap",
+    "time": 34.0151,
+    "xNorm": 0.6,
+    "detectedColor": "purple",
+    "confidence": 0.6
+  },
+  {
+    "id": 143,
+    "section": 7,
+    "kind": "tap",
+    "time": 34.3166,
+    "xNorm": 0.4975,
+    "detectedColor": "purple",
+    "confidence": 0.609
+  },
+  {
+    "id": 144,
+    "section": 7,
+    "kind": "tap",
+    "time": 34.3166,
+    "xNorm": 0.7525,
+    "detectedColor": "purple",
+    "confidence": 0.615
+  },
+  {
+    "id": 145,
+    "section": 7,
+    "kind": "tap",
+    "time": 34.6196,
+    "xNorm": 0.3975,
+    "detectedColor": "purple",
+    "confidence": 0.507
+  },
+  {
+    "id": 146,
+    "section": 7,
+    "kind": "tap",
+    "time": 34.9227,
+    "xNorm": 0.4975,
+    "detectedColor": "purple",
+    "confidence": 0.541
+  },
+  {
+    "id": 147,
+    "section": 7,
+    "kind": "special",
+    "time": 34.959,
+    "xNorm": 0.8525,
+    "detectedColor": "blue",
+    "confidence": 0.784
+  },
+  {
+    "id": 148,
+    "section": 8,
+    "kind": "tap",
+    "time": 35.0742,
+    "xNorm": 0.4975,
+    "detectedColor": "purple",
+    "confidence": 0.5
+  },
+  {
+    "id": 149,
+    "section": 8,
+    "kind": "long",
+    "time": 35.3709,
+    "xNorm": 0.8525,
+    "detectedColor": "blue",
+    "confidence": 0.641
+  },
+  {
+    "id": 150,
+    "section": 8,
+    "kind": "tap",
+    "time": 35.6802,
+    "xNorm": 0.37,
+    "detectedColor": "purple",
+    "confidence": 0.633
+  },
+  {
+    "id": 151,
+    "section": 8,
+    "kind": "tap",
+    "time": 35.6834,
+    "xNorm": 0.8575,
+    "detectedColor": "purple",
+    "confidence": 0.471
+  },
+  {
+    "id": 152,
+    "section": 8,
+    "kind": "tap",
+    "time": 35.9833,
+    "xNorm": 0.5225,
+    "detectedColor": "purple",
+    "confidence": 0.667
+  },
+  {
+    "id": 153,
+    "section": 8,
+    "kind": "tap",
+    "time": 35.9833,
+    "xNorm": 0.855,
+    "detectedColor": "purple",
+    "confidence": 0.811
+  },
+  {
+    "id": 154,
+    "section": 8,
+    "kind": "tap",
+    "time": 36.5893,
+    "xNorm": 0.345,
+    "detectedColor": "yellow",
+    "confidence": 0.574
+  },
+  {
+    "id": 155,
+    "section": 8,
+    "kind": "tap",
+    "time": 36.5893,
+    "xNorm": 0.6775,
+    "detectedColor": "purple",
+    "confidence": 0.652
+  },
+  {
+    "id": 156,
+    "section": 8,
+    "kind": "tap",
+    "time": 37.1954,
+    "xNorm": 0.855,
+    "detectedColor": "purple",
+    "confidence": 0.798
+  },
+  {
+    "id": 157,
+    "section": 8,
+    "kind": "long",
+    "time": 37.5915,
+    "xNorm": 0.5225,
+    "detectedColor": "blue",
+    "confidence": 1.0
+  },
+  {
+    "id": 158,
+    "section": 8,
+    "kind": "tap",
+    "time": 38.0035,
+    "xNorm": 0.7275,
+    "detectedColor": "purple",
+    "confidence": 0.529
+  },
+  {
+    "id": 159,
+    "section": 8,
+    "kind": "tap",
+    "time": 38.0051,
+    "xNorm": 0.5225,
+    "detectedColor": "blue",
+    "confidence": 0.671
+  },
+  {
+    "id": 160,
+    "section": 8,
+    "kind": "tap",
+    "time": 38.1061,
+    "xNorm": 0.4225,
+    "detectedColor": "purple",
+    "confidence": 0.548
+  },
+  {
+    "id": 161,
+    "section": 8,
+    "kind": "tap",
+    "time": 38.3081,
+    "xNorm": 0.5225,
+    "detectedColor": "purple",
+    "confidence": 0.701
+  },
+  {
+    "id": 162,
+    "section": 8,
+    "kind": "tap",
+    "time": 38.3081,
+    "xNorm": 0.83,
+    "detectedColor": "purple",
+    "confidence": 0.812
+  },
+  {
+    "id": 163,
+    "section": 8,
+    "kind": "long",
+    "time": 39.0562,
+    "xNorm": 0.74,
+    "detectedColor": "purple",
+    "confidence": 0.931
+  },
+  {
+    "id": 164,
+    "section": 8,
+    "kind": "long",
+    "time": 39.1304,
+    "xNorm": 0.435,
+    "detectedColor": "purple",
+    "confidence": 1.0
+  },
+  {
+    "id": 165,
+    "section": 8,
+    "kind": "long",
+    "time": 39.5849,
+    "xNorm": 0.7975,
+    "detectedColor": "purple",
+    "confidence": 0.992
+  },
+  {
+    "id": 166,
+    "section": 8,
+    "kind": "special",
+    "time": 39.9369,
+    "xNorm": 0.6,
+    "detectedColor": "purple",
+    "confidence": 0.959
+  },
+  {
+    "id": 167,
+    "section": 9,
+    "kind": "special",
+    "time": 40.0884,
+    "xNorm": 0.6,
+    "detectedColor": "purple",
+    "confidence": 0.96
+  },
+  {
+    "id": 168,
+    "section": 9,
+    "kind": "tap",
+    "time": 40.6802,
+    "xNorm": 0.4725,
+    "detectedColor": "purple",
+    "confidence": 0.544
+  },
+  {
+    "id": 169,
+    "section": 9,
+    "kind": "long",
+    "time": 40.7955,
+    "xNorm": 0.7575,
+    "detectedColor": "purple",
+    "confidence": 1.0
+  },
+  {
+    "id": 170,
+    "section": 9,
+    "kind": "long",
+    "time": 41.1995,
+    "xNorm": 0.4425,
+    "detectedColor": "purple",
+    "confidence": 1.0
+  },
+  {
+    "id": 171,
+    "section": 9,
+    "kind": "tap",
+    "time": 41.2879,
+    "xNorm": 0.7275,
+    "detectedColor": "purple",
+    "confidence": 0.657
+  },
+  {
+    "id": 172,
+    "section": 9,
+    "kind": "long",
+    "time": 41.7045,
+    "xNorm": 0.7925,
+    "detectedColor": "purple",
+    "confidence": 1.0
+  },
+  {
+    "id": 173,
+    "section": 9,
+    "kind": "tap",
+    "time": 41.8924,
+    "xNorm": 0.4725,
+    "detectedColor": "purple",
+    "confidence": 0.645
+  },
+  {
+    "id": 174,
+    "section": 9,
+    "kind": "tap",
+    "time": 42.0944,
+    "xNorm": 0.625,
+    "detectedColor": "purple",
+    "confidence": 0.677
+  },
+  {
+    "id": 175,
+    "section": 9,
+    "kind": "tap",
+    "time": 42.1954,
+    "xNorm": 0.5225,
+    "detectedColor": "purple",
+    "confidence": 0.477
+  },
+  {
+    "id": 176,
+    "section": 9,
+    "kind": "special",
+    "time": 42.4132,
+    "xNorm": 0.3525,
+    "detectedColor": "purple",
+    "confidence": 0.918
+  },
+  {
+    "id": 177,
+    "section": 9,
+    "kind": "special",
+    "time": 42.4132,
+    "xNorm": 0.8475,
+    "detectedColor": "purple",
+    "confidence": 0.968
+  },
+  {
+    "id": 178,
+    "section": 9,
+    "kind": "tap",
+    "time": 43.005,
+    "xNorm": 0.65,
+    "detectedColor": "yellow",
+    "confidence": 0.5
+  },
+  {
+    "id": 179,
+    "section": 9,
+    "kind": "tap",
+    "time": 43.1045,
+    "xNorm": 0.37,
+    "detectedColor": "purple",
+    "confidence": 0.606
+  },
+  {
+    "id": 180,
+    "section": 9,
+    "kind": "long",
+    "time": 43.6001,
+    "xNorm": 0.44,
+    "detectedColor": "purple",
+    "confidence": 1.0
+  },
+  {
+    "id": 181,
+    "section": 9,
+    "kind": "long",
+    "time": 43.6001,
+    "xNorm": 0.7575,
+    "detectedColor": "purple",
+    "confidence": 1.0
+  },
+  {
+    "id": 182,
+    "section": 9,
+    "kind": "long",
+    "time": 44.0799,
+    "xNorm": 0.4075,
+    "detectedColor": "purple",
+    "confidence": 1.0
+  },
+  {
+    "id": 183,
+    "section": 9,
+    "kind": "long",
+    "time": 44.0799,
+    "xNorm": 0.745,
+    "detectedColor": "purple",
+    "confidence": 1.0
+  },
+  {
+    "id": 184,
+    "section": 9,
+    "kind": "tap",
+    "time": 44.5186,
+    "xNorm": 0.345,
+    "detectedColor": "yellow",
+    "confidence": 0.643
+  },
+  {
+    "id": 185,
+    "section": 9,
+    "kind": "tap",
+    "time": 44.5186,
+    "xNorm": 0.65,
+    "detectedColor": "yellow",
+    "confidence": 0.6
+  },
+  {
+    "id": 186,
+    "section": 9,
+    "kind": "long",
+    "time": 44.9053,
+    "xNorm": 0.37,
+    "detectedColor": "purple",
+    "confidence": 1.0
+  },
+  {
+    "id": 187,
+    "section": 9,
+    "kind": "long",
+    "time": 44.9053,
+    "xNorm": 0.675,
+    "detectedColor": "purple",
+    "confidence": 1.0
+  },
+  {
+    "id": 188,
+    "section": 10,
+    "kind": "long",
+    "time": 45.4861,
+    "xNorm": 0.7425,
+    "detectedColor": "purple",
+    "confidence": 1.0
+  },
+  {
+    "id": 189,
+    "section": 10,
+    "kind": "long",
+    "time": 45.9154,
+    "xNorm": 0.5875,
+    "detectedColor": "purple",
+    "confidence": 0.99
+  },
+  {
+    "id": 190,
+    "section": 10,
+    "kind": "tap",
+    "time": 47.1954,
+    "xNorm": 0.37,
+    "detectedColor": "purple",
+    "confidence": 0.611
+  },
+  {
+    "id": 191,
+    "section": 10,
+    "kind": "tap",
+    "time": 47.1954,
+    "xNorm": 0.6775,
+    "detectedColor": "purple",
+    "confidence": 0.653
+  },
+  {
+    "id": 192,
+    "section": 10,
+    "kind": "long",
+    "time": 48.0193,
+    "xNorm": 0.5975,
+    "detectedColor": "purple",
+    "confidence": 1.0
+  },
+  {
+    "id": 193,
+    "section": 10,
+    "kind": "tap",
+    "time": 49.0136,
+    "xNorm": 0.6,
+    "detectedColor": "yellow",
+    "confidence": 1.0
+  },
+  {
+    "id": 194,
+    "section": 10,
+    "kind": "special",
+    "time": 49.0294,
+    "xNorm": 0.3525,
+    "detectedColor": "purple",
+    "confidence": 0.657
+  },
+  {
+    "id": 195,
+    "section": 10,
+    "kind": "tap",
+    "time": 49.5186,
+    "xNorm": 0.6,
+    "detectedColor": "yellow",
+    "confidence": 0.579
+  },
+  {
+    "id": 196,
+    "section": 10,
+    "kind": "special",
+    "time": 49.5328,
+    "xNorm": 0.8475,
+    "detectedColor": "purple",
+    "confidence": 0.914
+  },
+  {
+    "id": 197,
+    "section": 10,
+    "kind": "special",
+    "time": 49.9574,
+    "xNorm": 0.42,
+    "detectedColor": "purple",
+    "confidence": 0.869
+  },
+  {
+    "id": 198,
+    "section": 10,
+    "kind": "special",
+    "time": 49.9574,
+    "xNorm": 0.775,
+    "detectedColor": "purple",
+    "confidence": 0.87
+  },
+  {
+    "id": 199,
+    "section": 11,
+    "kind": "long",
+    "time": 50.3914,
+    "xNorm": 0.4075,
+    "detectedColor": "purple",
+    "confidence": 1.0
+  },
+  {
+    "id": 200,
+    "section": 11,
+    "kind": "long",
+    "time": 50.3914,
+    "xNorm": 0.79,
+    "detectedColor": "purple",
+    "confidence": 1.0
+  },
+  {
+    "id": 201,
+    "section": 11,
+    "kind": "tap",
+    "time": 50.9849,
+    "xNorm": 0.4975,
+    "detectedColor": "yellow",
+    "confidence": 0.769
+  },
+  {
+    "id": 202,
+    "section": 11,
+    "kind": "tap",
+    "time": 50.9849,
+    "xNorm": 0.83,
+    "detectedColor": "purple",
+    "confidence": 0.754
+  },
+  {
+    "id": 203,
+    "section": 11,
+    "kind": "tap",
+    "time": 51.1869,
+    "xNorm": 0.37,
+    "detectedColor": "purple",
+    "confidence": 0.556
+  },
+  {
+    "id": 204,
+    "section": 11,
+    "kind": "tap",
+    "time": 51.5909,
+    "xNorm": 0.345,
+    "detectedColor": "yellow",
+    "confidence": 0.889
+  },
+  {
+    "id": 205,
+    "section": 11,
+    "kind": "long",
+    "time": 51.684,
+    "xNorm": 0.7025,
+    "detectedColor": "blue",
+    "confidence": 1.0
+  },
+  {
+    "id": 206,
+    "section": 11,
+    "kind": "tap",
+    "time": 51.8924,
+    "xNorm": 0.4475,
+    "detectedColor": "yellow",
+    "confidence": 0.833
+  },
+  {
+    "id": 207,
+    "section": 11,
+    "kind": "tap",
+    "time": 52.1954,
+    "xNorm": 0.5475,
+    "detectedColor": "blue",
+    "confidence": 0.83
+  },
+  {
+    "id": 208,
+    "section": 11,
+    "kind": "tap",
+    "time": 52.1985,
+    "xNorm": 0.7,
+    "detectedColor": "unknown",
+    "confidence": 0
+  },
+  {
+    "id": 209,
+    "section": 11,
+    "kind": "tap",
+    "time": 52.5,
+    "xNorm": 0.855,
+    "detectedColor": "purple",
+    "confidence": 0.947
+  },
+  {
+    "id": 210,
+    "section": 11,
+    "kind": "tap",
+    "time": 52.8015,
+    "xNorm": 0.7525,
+    "detectedColor": "purple",
+    "confidence": 0.5
+  },
+  {
+    "id": 211,
+    "section": 11,
+    "kind": "tap",
+    "time": 53.1076,
+    "xNorm": 0.65,
+    "detectedColor": "purple",
+    "confidence": 1.0
+  },
+  {
+    "id": 212,
+    "section": 11,
+    "kind": "long",
+    "time": 53.4217,
+    "xNorm": 0.4025,
+    "detectedColor": "purple",
+    "confidence": 0.929
+  },
+  {
+    "id": 213,
+    "section": 11,
+    "kind": "long",
+    "time": 53.8763,
+    "xNorm": 0.8725,
+    "detectedColor": "purple",
+    "confidence": 1.0
+  },
+  {
+    "id": 214,
+    "section": 11,
+    "kind": "special",
+    "time": 54.959,
+    "xNorm": 0.5225,
+    "detectedColor": "blue",
+    "confidence": 0.997
+  },
+  {
+    "id": 215,
+    "section": 11,
+    "kind": "special",
+    "time": 54.959,
+    "xNorm": 0.7025,
+    "detectedColor": "blue",
+    "confidence": 1.0
+  },
+  {
+    "id": 216,
+    "section": 12,
+    "kind": "long",
+    "time": 55.3693,
+    "xNorm": 0.5225,
+    "detectedColor": "blue",
+    "confidence": 1.0
+  },
+  {
+    "id": 217,
+    "section": 12,
+    "kind": "long",
+    "time": 55.3693,
+    "xNorm": 0.7025,
+    "detectedColor": "unknown",
+    "confidence": 0
+  },
+  {
+    "id": 218,
+    "section": 12,
+    "kind": "tap",
+    "time": 55.685,
+    "xNorm": 0.5225,
+    "detectedColor": "blue",
+    "confidence": 0.856
+  },
+  {
+    "id": 219,
+    "section": 12,
+    "kind": "tap",
+    "time": 55.685,
+    "xNorm": 0.7025,
+    "detectedColor": "unknown",
+    "confidence": 0
+  },
+  {
+    "id": 220,
+    "section": 12,
+    "kind": "long",
+    "time": 56.4268,
+    "xNorm": 0.3975,
+    "detectedColor": "unknown",
+    "confidence": 0
+  },
+  {
+    "id": 221,
+    "section": 12,
+    "kind": "long",
+    "time": 56.4268,
+    "xNorm": 0.8025,
+    "detectedColor": "purple",
+    "confidence": 1.0
+  },
+  {
+    "id": 222,
+    "section": 12,
+    "kind": "tap",
+    "time": 56.8955,
+    "xNorm": 0.3925,
+    "detectedColor": "unknown",
+    "confidence": 0
+  },
+  {
+    "id": 223,
+    "section": 12,
+    "kind": "tap",
+    "time": 56.8955,
+    "xNorm": 0.8025,
+    "detectedColor": "purple",
+    "confidence": 1.0
+  },
+  {
+    "id": 224,
+    "section": 12,
+    "kind": "long",
+    "time": 57.6657,
+    "xNorm": 0.3275,
+    "detectedColor": "purple",
+    "confidence": 1.0
+  },
+  {
+    "id": 225,
+    "section": 12,
+    "kind": "long",
+    "time": 57.6657,
+    "xNorm": 0.8725,
+    "detectedColor": "purple",
+    "confidence": 1.0
+  },
+  {
+    "id": 226,
+    "section": 12,
+    "kind": "tap",
+    "time": 58.7105,
+    "xNorm": 0.83,
+    "detectedColor": "purple",
+    "confidence": 0.834
+  },
+  {
+    "id": 227,
+    "section": 12,
+    "kind": "long",
+    "time": 58.8542,
+    "xNorm": 0.5225,
+    "detectedColor": "blue",
+    "confidence": 1.0
+  },
+  {
+    "id": 228,
+    "section": 12,
+    "kind": "tap",
+    "time": 59.0167,
+    "xNorm": 0.53,
+    "detectedColor": "blue",
+    "confidence": 0.853
+  },
+  {
+    "id": 229,
+    "section": 12,
+    "kind": "long",
+    "time": 59.5028,
+    "xNorm": 0.675,
+    "detectedColor": "blue",
+    "confidence": 1.0
+  },
+  {
+    "id": 230,
+    "section": 12,
+    "kind": "long",
+    "time": 59.6117,
+    "xNorm": 0.3775,
+    "detectedColor": "blue",
+    "confidence": 1.0
+  },
+  {
+    "id": 231,
+    "section": 12,
+    "kind": "tap",
+    "time": 59.9227,
+    "xNorm": 0.5225,
+    "detectedColor": "blue",
+    "confidence": 0.519
+  },
+  {
+    "id": 232,
+    "section": 12,
+    "kind": "long",
+    "time": 59.9258,
+    "xNorm": 0.8425,
+    "detectedColor": "purple",
+    "confidence": 0.828
+  },
+  {
+    "id": 233,
+    "section": 12,
+    "kind": "special",
+    "time": 59.9669,
+    "xNorm": 0.525,
+    "detectedColor": "blue",
+    "confidence": 0.969
+  },
+  {
+    "id": 234,
+    "section": 13,
+    "kind": "tap",
+    "time": 60.0742,
+    "xNorm": 0.5225,
+    "detectedColor": "blue",
+    "confidence": 0.582
+  },
+  {
+    "id": 235,
+    "section": 13,
+    "kind": "long",
+    "time": 60.4782,
+    "xNorm": 0.6725,
+    "detectedColor": "blue",
+    "confidence": 1.0
+  },
+  {
+    "id": 236,
+    "section": 13,
+    "kind": "long",
+    "time": 60.5287,
+    "xNorm": 0.525,
+    "detectedColor": "blue",
+    "confidence": 0.739
+  },
+  {
+    "id": 237,
+    "section": 13,
+    "kind": "long",
+    "time": 60.5903,
+    "xNorm": 0.8425,
+    "detectedColor": "purple",
+    "confidence": 0.686
+  },
+  {
+    "id": 238,
+    "section": 13,
+    "kind": "special",
+    "time": 61.2216,
+    "xNorm": 0.82,
+    "detectedColor": "purple",
+    "confidence": 0.707
+  },
+  {
+    "id": 239,
+    "section": 13,
+    "kind": "long",
+    "time": 61.2279,
+    "xNorm": 0.525,
+    "detectedColor": "purple",
+    "confidence": 0.413
+  },
+  {
+    "id": 240,
+    "section": 13,
+    "kind": "long",
+    "time": 61.6351,
+    "xNorm": 0.675,
+    "detectedColor": "blue",
+    "confidence": 1.0
+  },
+  {
+    "id": 241,
+    "section": 13,
+    "kind": "long",
+    "time": 61.684,
+    "xNorm": 0.3725,
+    "detectedColor": "blue",
+    "confidence": 1.0
+  },
+  {
+    "id": 242,
+    "section": 13,
+    "kind": "long",
+    "time": 62.1228,
+    "xNorm": 0.82,
+    "detectedColor": "purple",
+    "confidence": 0.673
+  },
+  {
+    "id": 243,
+    "section": 13,
+    "kind": "long",
+    "time": 62.1859,
+    "xNorm": 0.455,
+    "detectedColor": "purple",
+    "confidence": 0.477
+  },
+  {
+    "id": 244,
+    "section": 13,
+    "kind": "tap",
+    "time": 62.5221,
+    "xNorm": 0.2775,
+    "detectedColor": "purple",
+    "confidence": 0.886
+  },
+  {
+    "id": 245,
+    "section": 13,
+    "kind": "long",
+    "time": 63.2576,
+    "xNorm": 0.825,
+    "detectedColor": "purple",
+    "confidence": 0.667
+  },
+  {
+    "id": 246,
+    "section": 13,
+    "kind": "long",
+    "time": 63.3128,
+    "xNorm": 0.525,
+    "detectedColor": "blue",
+    "confidence": 1.0
+  },
+  {
+    "id": 247,
+    "section": 13,
+    "kind": "long",
+    "time": 64.4618,
+    "xNorm": 0.3725,
+    "detectedColor": "blue",
+    "confidence": 1.0
+  },
+  {
+    "id": 248,
+    "section": 13,
+    "kind": "long",
+    "time": 64.6117,
+    "xNorm": 0.825,
+    "detectedColor": "purple",
+    "confidence": 0.644
+  },
+  {
+    "id": 249,
+    "section": 13,
+    "kind": "long",
+    "time": 64.7601,
+    "xNorm": 0.675,
+    "detectedColor": "blue",
+    "confidence": 1.0
+  },
+  {
+    "id": 250,
+    "section": 13,
+    "kind": "long",
+    "time": 64.8059,
+    "xNorm": 0.3725,
+    "detectedColor": "blue",
+    "confidence": 1.0
+  },
+  {
+    "id": 251,
+    "section": 13,
+    "kind": "tap",
+    "time": 64.9227,
+    "xNorm": 0.825,
+    "detectedColor": "purple",
+    "confidence": 0.366
+  },
+  {
+    "id": 252,
+    "section": 13,
+    "kind": "special",
+    "time": 64.9558,
+    "xNorm": 0.52,
+    "detectedColor": "purple",
+    "confidence": 0.619
+  },
+  {
+    "id": 253,
+    "section": 13,
+    "kind": "special",
+    "time": 64.9653,
+    "xNorm": 0.825,
+    "detectedColor": "blue",
+    "confidence": 0.665
+  },
+  {
+    "id": 254,
+    "section": 14,
+    "kind": "tap",
+    "time": 65.0742,
+    "xNorm": 0.825,
+    "detectedColor": "purple",
+    "confidence": 0.41
+  },
+  {
+    "id": 255,
+    "section": 14,
+    "kind": "long",
+    "time": 65.5208,
+    "xNorm": 0.67,
+    "detectedColor": "blue",
+    "confidence": 0.969
+  },
+  {
+    "id": 256,
+    "section": 14,
+    "kind": "special",
+    "time": 66.0085,
+    "xNorm": 0.82,
+    "detectedColor": "purple",
+    "confidence": 0.711
+  },
+  {
+    "id": 257,
+    "section": 14,
+    "kind": "long",
+    "time": 66.2279,
+    "xNorm": 0.455,
+    "detectedColor": "purple",
+    "confidence": 0.524
+  },
+  {
+    "id": 258,
+    "section": 14,
+    "kind": "long",
+    "time": 66.4899,
+    "xNorm": 0.825,
+    "detectedColor": "purple",
+    "confidence": 0.671
+  },
+  {
+    "id": 259,
+    "section": 14,
+    "kind": "long",
+    "time": 66.5657,
+    "xNorm": 0.675,
+    "detectedColor": "blue",
+    "confidence": 1.0
+  },
+  {
+    "id": 260,
+    "section": 14,
+    "kind": "long",
+    "time": 66.5893,
+    "xNorm": 0.3725,
+    "detectedColor": "blue",
+    "confidence": 1.0
+  },
+  {
+    "id": 261,
+    "section": 14,
+    "kind": "long",
+    "time": 67.1891,
+    "xNorm": 0.825,
+    "detectedColor": "purple",
+    "confidence": 0.653
+  },
+  {
+    "id": 262,
+    "section": 14,
+    "kind": "long",
+    "time": 67.2285,
+    "xNorm": 0.675,
+    "detectedColor": "blue",
+    "confidence": 0.581
+  },
+  {
+    "id": 263,
+    "section": 14,
+    "kind": "long",
+    "time": 67.9451,
+    "xNorm": 0.52,
+    "detectedColor": "purple",
+    "confidence": 0.867
+  },
+  {
+    "id": 264,
+    "section": 14,
+    "kind": "long",
+    "time": 68.3996,
+    "xNorm": 0.3725,
+    "detectedColor": "purple",
+    "confidence": 0.571
+  },
+  {
+    "id": 265,
+    "section": 14,
+    "kind": "tap",
+    "time": 68.4328,
+    "xNorm": 0.2775,
+    "detectedColor": "purple",
+    "confidence": 0.767
+  },
+  {
+    "id": 266,
+    "section": 14,
+    "kind": "long",
+    "time": 68.6679,
+    "xNorm": 0.8425,
+    "detectedColor": "purple",
+    "confidence": 0.654
+  },
+  {
+    "id": 267,
+    "section": 14,
+    "kind": "long",
+    "time": 68.881,
+    "xNorm": 0.675,
+    "detectedColor": "purple",
+    "confidence": 0.846
+  },
+  {
+    "id": 268,
+    "section": 14,
+    "kind": "long",
+    "time": 69.8059,
+    "xNorm": 0.3725,
+    "detectedColor": "blue",
+    "confidence": 1.0
+  },
+  {
+    "id": 269,
+    "section": 14,
+    "kind": "long",
+    "time": 69.8595,
+    "xNorm": 0.825,
+    "detectedColor": "purple",
+    "confidence": 0.634
+  },
+  {
+    "id": 270,
+    "section": 14,
+    "kind": "tap",
+    "time": 69.9242,
+    "xNorm": 0.5225,
+    "detectedColor": "blue",
+    "confidence": 0.557
+  },
+  {
+    "id": 271,
+    "section": 14,
+    "kind": "special",
+    "time": 69.9653,
+    "xNorm": 0.525,
+    "detectedColor": "blue",
+    "confidence": 0.875
+  },
+  {
+    "id": 272,
+    "section": 15,
+    "kind": "tap",
+    "time": 70.0758,
+    "xNorm": 0.5225,
+    "detectedColor": "blue",
+    "confidence": 0.523
+  },
+  {
+    "id": 273,
+    "section": 15,
+    "kind": "long",
+    "time": 70.5887,
+    "xNorm": 0.825,
+    "detectedColor": "purple",
+    "confidence": 0.688
+  },
+  {
+    "id": 274,
+    "section": 15,
+    "kind": "long",
+    "time": 70.6266,
+    "xNorm": 0.605,
+    "detectedColor": "blue",
+    "confidence": 0.559
+  },
+  {
+    "id": 275,
+    "section": 15,
+    "kind": "tap",
+    "time": 71.1869,
+    "xNorm": 0.525,
+    "detectedColor": "blue",
+    "confidence": 0.568
+  },
+  {
+    "id": 276,
+    "section": 15,
+    "kind": "tap",
+    "time": 71.1869,
+    "xNorm": 0.825,
+    "detectedColor": "purple",
+    "confidence": 0.434
+  },
+  {
+    "id": 277,
+    "section": 15,
+    "kind": "long",
+    "time": 71.381,
+    "xNorm": 0.3725,
+    "detectedColor": "blue",
+    "confidence": 1.0
+  },
+  {
+    "id": 278,
+    "section": 15,
+    "kind": "long",
+    "time": 71.6951,
+    "xNorm": 0.825,
+    "detectedColor": "blue",
+    "confidence": 0.652
+  },
+  {
+    "id": 279,
+    "section": 15,
+    "kind": "long",
+    "time": 71.8419,
+    "xNorm": 0.455,
+    "detectedColor": "blue",
+    "confidence": 0.977
+  },
+  {
+    "id": 280,
+    "section": 15,
+    "kind": "tap",
+    "time": 72.5,
+    "xNorm": 0.375,
+    "detectedColor": "yellow",
+    "confidence": 0.628
+  },
+  {
+    "id": 281,
+    "section": 15,
+    "kind": "tap",
+    "time": 72.5,
+    "xNorm": 0.675,
+    "detectedColor": "blue",
+    "confidence": 0.487
+  },
+  {
+    "id": 282,
+    "section": 15,
+    "kind": "long",
+    "time": 72.6452,
+    "xNorm": 0.825,
+    "detectedColor": "purple",
+    "confidence": 0.646
+  },
+  {
+    "id": 283,
+    "section": 15,
+    "kind": "tap",
+    "time": 72.803,
+    "xNorm": 0.675,
+    "detectedColor": "blue",
+    "confidence": 0.508
+  },
+  {
+    "id": 284,
+    "section": 15,
+    "kind": "long",
+    "time": 73.155,
+    "xNorm": 0.8425,
+    "detectedColor": "purple",
+    "confidence": 0.963
+  },
+  {
+    "id": 285,
+    "section": 15,
+    "kind": "long",
+    "time": 73.196,
+    "xNorm": 0.37,
+    "detectedColor": "purple",
+    "confidence": 1.0
+  },
+  {
+    "id": 286,
+    "section": 15,
+    "kind": "long",
+    "time": 73.2071,
+    "xNorm": 0.5175,
+    "detectedColor": "purple",
+    "confidence": 1.0
+  },
+  {
+    "id": 287,
+    "section": 15,
+    "kind": "long",
+    "time": 73.8131,
+    "xNorm": 0.675,
+    "detectedColor": "blue",
+    "confidence": 1.0
+  },
+  {
+    "id": 288,
+    "section": 15,
+    "kind": "long",
+    "time": 74.2408,
+    "xNorm": 0.3725,
+    "detectedColor": "blue",
+    "confidence": 1.0
+  },
+  {
+    "id": 289,
+    "section": 15,
+    "kind": "long",
+    "time": 74.375,
+    "xNorm": 0.82,
+    "detectedColor": "purple",
+    "confidence": 0.732
+  },
+  {
+    "id": 290,
+    "section": 15,
+    "kind": "long",
+    "time": 74.6338,
+    "xNorm": 0.675,
+    "detectedColor": "blue",
+    "confidence": 0.66
+  },
+  {
+    "id": 291,
+    "section": 15,
+    "kind": "special",
+    "time": 74.9558,
+    "xNorm": 0.525,
+    "detectedColor": "purple",
+    "confidence": 0.836
+  },
+  {
+    "id": 292,
+    "section": 15,
+    "kind": "special",
+    "time": 74.9558,
+    "xNorm": 0.8275,
+    "detectedColor": "purple",
+    "confidence": 0.873
+  },
+  {
+    "id": 293,
+    "section": 16,
+    "kind": "long",
+    "time": 75.3409,
+    "xNorm": 0.845,
+    "detectedColor": "purple",
+    "confidence": 1.0
+  },
+  {
+    "id": 294,
+    "section": 16,
+    "kind": "long",
+    "time": 75.3898,
+    "xNorm": 0.5175,
+    "detectedColor": "purple",
+    "confidence": 1.0
+  },
+  {
+    "id": 295,
+    "section": 16,
+    "kind": "special",
+    "time": 75.9975,
+    "xNorm": 0.68,
+    "detectedColor": "purple",
+    "confidence": 0.874
+  },
+  {
+    "id": 296,
+    "section": 16,
+    "kind": "special",
+    "time": 76.1995,
+    "xNorm": 0.3525,
+    "detectedColor": "purple",
+    "confidence": 0.846
+  },
+  {
+    "id": 297,
+    "section": 16,
+    "kind": "long",
+    "time": 76.8561,
+    "xNorm": 0.505,
+    "detectedColor": "purple",
+    "confidence": 0.967
+  },
+  {
+    "id": 298,
+    "section": 16,
+    "kind": "long",
+    "time": 77.0581,
+    "xNorm": 0.7725,
+    "detectedColor": "purple",
+    "confidence": 1.0
+  },
+  {
+    "id": 299,
+    "section": 16,
+    "kind": "tap",
+    "time": 77.4968,
+    "xNorm": 0.5475,
+    "detectedColor": "purple",
+    "confidence": 1.0
+  },
+  {
+    "id": 300,
+    "section": 16,
+    "kind": "special",
+    "time": 77.5142,
+    "xNorm": 0.7675,
+    "detectedColor": "purple",
+    "confidence": 0.962
+  },
+  {
+    "id": 301,
+    "section": 16,
+    "kind": "long",
+    "time": 77.6499,
+    "xNorm": 0.5475,
+    "detectedColor": "unknown",
+    "confidence": 0
+  },
+  {
+    "id": 302,
+    "section": 16,
+    "kind": "tap",
+    "time": 77.8046,
+    "xNorm": 0.5475,
+    "detectedColor": "unknown",
+    "confidence": 0
+  },
+  {
+    "id": 303,
+    "section": 16,
+    "kind": "special",
+    "time": 78.0177,
+    "xNorm": 0.4325,
+    "detectedColor": "purple",
+    "confidence": 0.755
+  },
+  {
+    "id": 304,
+    "section": 16,
+    "kind": "long",
+    "time": 78.1944,
+    "xNorm": 0.65,
+    "detectedColor": "unknown",
+    "confidence": 0
+  },
+  {
+    "id": 305,
+    "section": 16,
+    "kind": "long",
+    "time": 78.8747,
+    "xNorm": 0.3275,
+    "detectedColor": "purple",
+    "confidence": 1.0
+  },
+  {
+    "id": 306,
+    "section": 16,
+    "kind": "long",
+    "time": 78.8763,
+    "xNorm": 0.7725,
+    "detectedColor": "purple",
+    "confidence": 1.0
+  },
+  {
+    "id": 307,
+    "section": 16,
+    "kind": "special",
+    "time": 79.9574,
+    "xNorm": 0.5975,
+    "detectedColor": "unknown",
+    "confidence": 0
+  },
+  {
+    "id": 308,
+    "section": 17,
+    "kind": "long",
+    "time": 81.2768,
+    "xNorm": 0.5975,
+    "detectedColor": "unknown",
+    "confidence": 0
+  },
+  {
+    "id": 309,
+    "section": 17,
+    "kind": "tap",
+    "time": 82.5,
+    "xNorm": 0.6,
+    "detectedColor": "unknown",
+    "confidence": 0
+  },
+  {
+    "id": 310,
+    "section": 17,
+    "kind": "tap",
+    "time": 83.4075,
+    "xNorm": 0.4975,
+    "detectedColor": "unknown",
+    "confidence": 0
+  },
+  {
+    "id": 311,
+    "section": 17,
+    "kind": "tap",
+    "time": 83.7105,
+    "xNorm": 0.345,
+    "detectedColor": "unknown",
+    "confidence": 0
+  },
+  {
+    "id": 312,
+    "section": 17,
+    "kind": "tap",
+    "time": 83.7105,
+    "xNorm": 0.855,
+    "detectedColor": "purple",
+    "confidence": 1.0
+  },
+  {
+    "id": 313,
+    "section": 17,
+    "kind": "tap",
+    "time": 84.0136,
+    "xNorm": 0.7025,
+    "detectedColor": "unknown",
+    "confidence": 0
+  },
+  {
+    "id": 314,
+    "section": 17,
+    "kind": "tap",
+    "time": 84.3166,
+    "xNorm": 0.5475,
+    "detectedColor": "unknown",
+    "confidence": 0
+  },
+  {
+    "id": 315,
+    "section": 17,
+    "kind": "long",
+    "time": 84.7096,
+    "xNorm": 0.65,
+    "detectedColor": "unknown",
+    "confidence": 0
+  },
+  {
+    "id": 316,
+    "section": 17,
+    "kind": "long",
+    "time": 84.9053,
+    "xNorm": 0.7425,
+    "detectedColor": "purple",
+    "confidence": 1.0
+  },
+  {
+    "id": 317,
+    "section": 18,
+    "kind": "long",
+    "time": 85.1578,
+    "xNorm": 0.745,
+    "detectedColor": "purple",
+    "confidence": 1.0
+  },
+  {
+    "id": 318,
+    "section": 18,
+    "kind": "long",
+    "time": 86.3999,
+    "xNorm": 0.4025,
+    "detectedColor": "unknown",
+    "confidence": 0
+  },
+  {
+    "id": 319,
+    "section": 18,
+    "kind": "tap",
+    "time": 89.0136,
+    "xNorm": 0.65,
+    "detectedColor": "unknown",
+    "confidence": 0
+  },
+  {
+    "id": 320,
+    "section": 18,
+    "kind": "tap",
+    "time": 89.3166,
+    "xNorm": 0.345,
+    "detectedColor": "unknown",
+    "confidence": 0
+  },
+  {
+    "id": 321,
+    "section": 18,
+    "kind": "tap",
+    "time": 89.3166,
+    "xNorm": 0.855,
+    "detectedColor": "purple",
+    "confidence": 1.0
+  },
+  {
+    "id": 322,
+    "section": 18,
+    "kind": "long",
+    "time": 89.8043,
+    "xNorm": 0.455,
+    "detectedColor": "purple",
+    "confidence": 0.926
+  },
+  {
+    "id": 323,
+    "section": 18,
+    "kind": "long",
+    "time": 89.9053,
+    "xNorm": 0.7,
+    "detectedColor": "unknown",
+    "confidence": 0
+  },
+  {
+    "id": 324,
+    "section": 19,
+    "kind": "long",
+    "time": 90.1847,
+    "xNorm": 0.4,
+    "detectedColor": "purple",
+    "confidence": 1.0
+  },
+  {
+    "id": 325,
+    "section": 19,
+    "kind": "long",
+    "time": 90.1847,
+    "xNorm": 0.7,
+    "detectedColor": "unknown",
+    "confidence": 0
+  },
+  {
+    "id": 326,
+    "section": 19,
+    "kind": "special",
+    "time": 90.393,
+    "xNorm": 0.4425,
+    "detectedColor": "purple",
+    "confidence": 0.934
+  },
+  {
+    "id": 327,
+    "section": 19,
+    "kind": "long",
+    "time": 91.4536,
+    "xNorm": 0.7975,
+    "detectedColor": "purple",
+    "confidence": 1.0
+  },
+  {
+    "id": 328,
+    "section": 19,
+    "kind": "tap",
+    "time": 94.2156,
+    "xNorm": 0.855,
+    "detectedColor": "purple",
+    "confidence": 1.0
+  },
+  {
+    "id": 329,
+    "section": 19,
+    "kind": "tap",
+    "time": 94.3166,
+    "xNorm": 0.5475,
+    "detectedColor": "unknown",
+    "confidence": 0
+  },
+  {
+    "id": 330,
+    "section": 19,
+    "kind": "tap",
+    "time": 94.5186,
+    "xNorm": 0.7025,
+    "detectedColor": "unknown",
+    "confidence": 0
+  },
+  {
+    "id": 331,
+    "section": 19,
+    "kind": "long",
+    "time": 94.9053,
+    "xNorm": 0.4975,
+    "detectedColor": "unknown",
+    "confidence": 0
+  },
+  {
+    "id": 332,
+    "section": 19,
+    "kind": "long",
+    "time": 94.9053,
+    "xNorm": 0.8,
+    "detectedColor": "purple",
+    "confidence": 1.0
+  },
+  {
+    "id": 333,
+    "section": 20,
+    "kind": "long",
+    "time": 95.2083,
+    "xNorm": 0.4,
+    "detectedColor": "purple",
+    "confidence": 0.941
+  },
+  {
+    "id": 334,
+    "section": 20,
+    "kind": "long",
+    "time": 95.9643,
+    "xNorm": 0.6975,
+    "detectedColor": "purple",
+    "confidence": 1.0
+  },
+  {
+    "id": 335,
+    "section": 20,
+    "kind": "tap",
+    "time": 97.4984,
+    "xNorm": 0.4475,
+    "detectedColor": "blue",
+    "confidence": 0.84
+  },
+  {
+    "id": 336,
+    "section": 20,
+    "kind": "long",
+    "time": 97.7509,
+    "xNorm": 0.6475,
+    "detectedColor": "unknown",
+    "confidence": 0
+  },
+  {
+    "id": 337,
+    "section": 20,
+    "kind": "tap",
+    "time": 98.0035,
+    "xNorm": 0.4975,
+    "detectedColor": "blue",
+    "confidence": 0.924
+  },
+  {
+    "id": 338,
+    "section": 20,
+    "kind": "tap",
+    "time": 98.1045,
+    "xNorm": 0.7025,
+    "detectedColor": "purple",
+    "confidence": 1.0
+  },
+  {
+    "id": 339,
+    "section": 20,
+    "kind": "tap",
+    "time": 98.3065,
+    "xNorm": 0.55,
+    "detectedColor": "yellow",
+    "confidence": 1.0
+  },
+  {
+    "id": 340,
+    "section": 20,
+    "kind": "tap",
+    "time": 98.3065,
+    "xNorm": 0.855,
+    "detectedColor": "purple",
+    "confidence": 1.0
+  },
+  {
+    "id": 341,
+    "section": 20,
+    "kind": "special",
+    "time": 98.6237,
+    "xNorm": 0.44,
+    "detectedColor": "purple",
+    "confidence": 0.786
+  },
+  {
+    "id": 342,
+    "section": 20,
+    "kind": "special",
+    "time": 98.6237,
+    "xNorm": 0.7625,
+    "detectedColor": "purple",
+    "confidence": 1.0
+  },
+  {
+    "id": 343,
+    "section": 20,
+    "kind": "long",
+    "time": 99.1604,
+    "xNorm": 0.345,
+    "detectedColor": "unknown",
+    "confidence": 0
+  },
+  {
+    "id": 344,
+    "section": 20,
+    "kind": "tap",
+    "time": 99.3198,
+    "xNorm": 0.345,
+    "detectedColor": "blue",
+    "confidence": 1.0
+  },
+  {
+    "id": 345,
+    "section": 20,
+    "kind": "long",
+    "time": 99.4097,
+    "xNorm": 0.6475,
+    "detectedColor": "unknown",
+    "confidence": 0
+  },
+  {
+    "id": 346,
+    "section": 20,
+    "kind": "tap",
+    "time": 99.5186,
+    "xNorm": 0.4475,
+    "detectedColor": "blue",
+    "confidence": 0.854
+  },
+  {
+    "id": 347,
+    "section": 20,
+    "kind": "tap",
+    "time": 99.5202,
+    "xNorm": 0.6525,
+    "detectedColor": "unknown",
+    "confidence": 0
+  },
+  {
+    "id": 348,
+    "section": 20,
+    "kind": "tap",
+    "time": 99.6196,
+    "xNorm": 0.7025,
+    "detectedColor": "purple",
+    "confidence": 1.0
+  }
+]
