@@ -8858,7 +8858,7 @@ ensureActorDuplicateRewards();
   const screens = [
     document.getElementById("gachaScreen"),
     document.getElementById("itemsScreen"),
-    document.getElementById("ownedListScreen"),
+    document.getElementById("ownedScreen"),
     document.getElementById("miniGameScreen")
   ].filter(Boolean);
 
