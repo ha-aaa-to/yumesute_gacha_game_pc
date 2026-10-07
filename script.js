@@ -3610,19 +3610,11 @@ if (miniGameButtonActive) {
 
     running = true;
 
-    /*
-      TEST: 약 90초 지점부터 시작
-      테스트 끝나면 다시 performance.now()로 복구할 것.
-    */
-    const TEST_SKIP_SECONDS = 90;
-
-    startedAt =
-      performance.now() -
-      TEST_SKIP_SECONDS * 1000;
+    startedAt = performance.now();
 
     if (audio) {
       try {
-        audio.currentTime = TEST_SKIP_SECONDS;
+        audio.currentTime = 0;
       } catch (_) {}
     }
 
