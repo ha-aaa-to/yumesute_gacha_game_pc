@@ -30,7 +30,8 @@ const DEFAULT_SAVE_DATA = {
 
   login: {
     firstLoginGiftCreated: false,
-    lastDailyGiftDate: null
+    lastDailyGiftDate: null,
+    betaTesterGiftCreated: false
   }
 };
 
@@ -720,6 +721,7 @@ window.addEventListener("focus", () => {
 
 const FIRST_LOGIN_GIFT_AMOUNT = 30000;
 const DAILY_LOGIN_GIFT_AMOUNT = 1000;
+const BETA_TESTER_GIFT_AMOUNT = 30000;
 
 
 /*
@@ -757,6 +759,25 @@ function ensureLoginGifts() {
     });
 
     gameSave.login.firstLoginGiftCreated = true;
+    changed = true;
+  }
+
+
+  // ─────────────────────────────
+  // BETA TESTER REWARD 30,000
+  // ─────────────────────────────
+
+  if (!gameSave.login.betaTesterGiftCreated) {
+
+    addGiftIfMissing({
+      id: "beta-tester-reward",
+      type: "betaTester",
+      title: "BETA TESTER REWARD",
+      amount: BETA_TESTER_GIFT_AMOUNT,
+      createdAt: new Date().toISOString()
+    });
+
+    gameSave.login.betaTesterGiftCreated = true;
     changed = true;
   }
 
